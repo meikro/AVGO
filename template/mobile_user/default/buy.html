@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;消费记录<a href="{ctcms_url user=index}" style="float:right;color:#FFF;font-size:14px;">返回&nbsp;&nbsp;</a></h3>
+    <table class="lists">
+      <thead>
+          <tr>
+              <th>视频名称</th>
+              <th>金币数量</th>
+              <th>分类</th>
+              <th>时间</th>
+          </tr>
+      </thead>
+      <tbody>
+{ctcms:buy table="buy" field="*" page="15" order="addtime desc"}
+          <tr>
+              <td>[buy:zdy zd=vod,name,did]</td>
+              <td>[buy:cion]个</td>
+              <td>[buy:zdy zd=class,name,cid]</td>
+              <td>[buy:addtime style=Y-m-d]</td>
+          </tr>
+{/ctcms:buy}
+      </tbody>
+    </table>
+    <p style="text-align: center;margin-top:10px;float: left;width: 100%;">
+        <a href="{ctcms_pageup}">&laquo;上一页</a>&nbsp;&nbsp;
+        {ctcms_pagelist}&nbsp;&nbsp;
+        <a href="{ctcms_pagedown}">下一页&raquo;</a>
+    </p>
+</div>
+<script>
+$('#user').addClass('ons');
+$('#nav_5').addClass('on');
+function get_type() {
+  var type=$('#type').val();
+  if(type==0){
+    $('#vip').hide();
+    $('#rmb').show(); 
+  }else{
+    $('#vip').show();
+    $('#rmb').hide();
+  }
+}
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

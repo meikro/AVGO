@@ -1,0 +1,51 @@
+<style type="text/css">
+	.qiandao{background-color: #f60;color: #fff;padding: 3px 8px;border-radius: 4px;}
+	.qiandao_ok{background: #eee;color: #666;padding: 3px 8px;border-radius: 4px;}
+	.wapuser{position: relative;}
+	.wapuser .qiandao,.wapuser .qiandao_ok{position: absolute;right: 0;top: 0;}
+</style>
+<div class="nav-aready-login left">
+    <a href="{ctcms_url user=index}">
+        <img class="user" src="[user:pic]">
+    </a>
+    <div class="nav-user-info-box">
+        <div class="hover-box">
+            <i class="icon box-top-sanjiao-icon"></i>
+            <a class="qdbtn {if:date('Y-m-d') == '[user:qdtime style=Y-m-d]'}qiandao_ok{else}qiandao{end if}" href="javascript:;" title="连续签到[user:qdday]天，累计签到[user:qdnum]天{if:[user:qdnum]>0}，上次签到时间：[user:qdtime style=Y-m-d]{end if}">{if:date('Y-m-d') == '[user:qdtime style=Y-m-d]'}今日已签到{else}点击签到{end if}</a>
+            <a href="{ctcms_url user=logout}" class="tuichu">退出</a>
+            <div class="info-box">
+                <div class="user-pic"><a href="{ctcms_url user=index}"><img class="img" src="[user:pic]"></a></div>
+                <div class="name">
+                    <span class="center">
+                        <a class="nichen left">[user:nichen]</a>
+                        {if:[user:vip] > 0}<i class="icon vip-small-icon active left"></i>{end if}
+                        <i class="icon coin-icon left"></i>
+                        <span class="coin left">[user:cion]</span>
+                    </span>
+                </div>
+                <div class="isVIP">{if:[user:vip] > 0}会员到期：[user:viptime style=Y-m-d]{end if}<a href="{ctcms_url user=pay}" class="text-red">开通会员</a></div>
+                <div class="btn">
+                    <a href="{ctcms_url user=index}"><button>进入个人中心</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function () {
+    var html = '<div class="info-box wapuser"><a class="qdbtn {if:date('Y-m-d') == '[user:qdtime style=Y-m-d]'}qiandao_ok{else}qiandao{end if}" href="javascript:;" title="连续签到[user:qdday]天，累计签到[user:qdnum]天{if:[user:qdnum]>0}，上次签到时间：[user:qdtime style=Y-m-d]{end if}">{if:date('Y-m-d') == '[user:qdtime style=Y-m-d]'}今日已签到{else}点击签到{end if}</a><div class="user-pic"><a href="{ctcms_url user=index}"><img class="img" src="[user:pic]"></a></div><div class="name"><span class="center"><a href="{ctcms_url user=index}" class="nichen left">[user:nichen]</a>{if:[user:vip] > 0}<i class="icon vip-small-icon active left"></i>{end if}<i class="icon coin-icon left"></i><span class="coin left">[user:cion]</span></span></div><div class="isVIP">{if:[user:vip] > 0}会员到期：[user:viptime style=Y-m-d]{end if}<a href="{ctcms_url user=pay}" class="text-red">开通会员</a></div><div class="btn"><a href="{ctcms_url user=index}"><button class="yellow">个人中心</button></a><a href="{ctcms_url user=logout}"><button class="gray">退出</button></a></div></div>';
+    $('.nav-user-box').html(html);
+	$('.qiandao').click(function(){
+		$.get('{ctcms_url user=ajax/qd}', function(data) {
+		    var sid = 1;
+            if(data['zt'] == 'no'){
+                sid = 2;
+            }else{
+                $('.qdbtn').addClass('qiandao_ok').removeClass('qiandao');
+                $('.qdbtn').html('今日已签到');
+            }
+			ty_tip(data['str'],sid);
+        },'json');
+	});
+});
+</script>

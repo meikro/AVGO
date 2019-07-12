@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_other.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <main>
+        <div class="container" style="background-color:#f4f4f4">
+            <div class="index-other-page-box">
+                <div class="communicate-page-left left">
+                    <div class="communicate-page-box">
+                        <div class="box-title">交流圈<a class="right" href="{ctcms_commaddlink}"><button class="fb-btn">发表</button></a></div>
+                        <div class="box-content">
+                            <div class="communicate-list">
+                                {if:'{ctcms_pagenum}'=='0'}<p style="text-align: center;padding:50px 0;">暂无记录!</p>{end if}
+                                {ctcms:comm table="comm" field="id,cid,uid,title,dznum,addtime" where="" page="10" order="addtime desc"}
+                                <div class="data">
+                                    <div class="data-img left">
+                                        <a>
+                                            <img class="img" src="[comm:zdy zd=user,pic,uid]">
+                                        </a>
+                                    </div>
+                                    <div class="data-info left">
+                                        <div class="data-name"><a href="[comm:articlelink]" target="_blank">[comm:title]</a></div>
+                                        <div class="info">
+                                            <a class="label">[comm:zdy zd=circle,name,cid]</a>
+                                            <span class="fb"><a class="text-blue">[comm:zdy zd=user,nichen,uid]</a> 发表于[comm:addtime style=Y-m-d]</span>
+                                        </div>
+                                    </div>
+                                    <div class="pl-count right"><i class="icon communicate-num-icon left"></i>[comm:dznum]</div>
+                                </div>
+                                {/ctcms:comm}
+                            </div>
+                        </div>
+                        <div class="fy-box" style="padding-top:0;padding-bottom:20px;{if:{ctcms_page}<2}display: none;{end if}">
+                            {if:{ctcms_page}>=2}
+                            <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                            {toif:{ctcms_page}>=7}
+                            <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                            {end toif}
+                            {end if}
+                            {ctcms_pagenum_7}
+                            {if:{ctcms_page}<{ctcms_pagejs}}
+                            <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                            {end if}
+                        </div>
+                    </div>
+                </div>
+                <div class="communicate-page-right right">
+                    <div class="communicate-page-box">
+                        <div class="box-title">最新加入会员</div>
+                        <div class="box-content">
+                            <div class="communicate-vip-user">
+                                {ctcms:user table="user" field="pic" where="" limit="15" order="id desc"}
+                                <div class="user"><a><img src="[user:pic]"></a></div>
+                                {/ctcms:user}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="communicate-page-box">
+                        <div class="box-title">所有圈子：</div>
+                        <div class="box-content">
+                            <div class="communicate-zone">
+                                <a class="label {if:{ctcms_cid} == 0}active{end if}" href="{ctcms_commlink}">全部</a>
+                                {ctcms:circle table="circle" field="*" order="xid asc"}
+                                <a class="label {if:{ctcms_cid} == [circle:id]}active{end if}" href="[circle:commlink]">[circle:name]</a>
+                                {/ctcms:circle}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="communicate-page-box">
+                        <div class="box-title">最新文章：</div>
+                        <div class="box-content">
+                            <div class="communicate-artical">
+                                {ctcms:comm table="comm" field="*" where="" limit="10" order="addtime desc"}
+                                <div class="data">
+                                    <div class="data-name"><a href="[comm:articlelink]">[comm:title]</a></div>
+                                    <div class="time">[comm:addtime]</div>
+                                </div>
+                                {/ctcms:comm}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    <script>$('#nav_comm').addClass('active');</script>
+</body>
+</html>

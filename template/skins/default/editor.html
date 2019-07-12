@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_other.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+        <div class="container" style="background-color:#f4f4f4">
+            <div class="index-other-page-box">
+                <div class="communicate-page-left left">
+                    <div class="communicate-page-box">
+                        <div class="box-content">
+                            <div class="communicate-post">
+                                <div class="post-group">
+                                    <div class="group-title left">标题：</div>
+                                    <div class="group-content left">
+                                        <input id="edtitle" type="text" class="inputcol12" placeholder="请输入标题" value="">
+                                    </div>
+                                </div>
+                                <div class="post-group">
+                                    <div class="group-title left">内容：</div>
+                                    <div class="group-content left">
+                                        <div class="text-areacol12">
+                                            <div id="content"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post-group">
+                                    <div class="group-title left">分类：</div>
+                                    <div class="group-content left">
+                                        <div class="selectcol4" onmouseleave="$(this).children('.option-box').hide()">
+                                            <div class="show-select" onclick="$(this).siblings('.option-box').show()">
+                                                <span id="select">请选择分类</span>
+                                                <i class="icon select-sanjiao-icon right"></i>
+                                            </div>
+                                            <div class="option-box">
+                                                {ctcms:circle table="circle" field="*" order="id asc"}
+                                                <div class="option" onclick="$('#select').html('[circle:name]');$(this).parent('.option-box').hide();$('#circle').val('[circle:id]');">[circle:name]</div>
+                                                {/ctcms:circle}
+                                            </div>
+                                        </div>
+                                        <input type="hidden" value="0" id="circle">
+                                    </div>
+                                </div>
+                                <div class="post-group">
+                                    <div class="group-title left">&nbsp;</div>
+                                    <div class="group-content left">
+                                        <div class="text-red">提示：发布之后就不能修改了，请检查之后发布。</div>
+                                    </div>
+                                </div>
+                                <div class="post-group">
+                                    <div class="group-title left">&nbsp;</div>
+                                    <div class="group-content left">
+                                        <button id="edsubmit" class="post-submit-btn">发表</button>
+                                    </div>
+                                </div>
+                                <div id="ednotice"></div>
+                                <div id="popup-captcha"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="communicate-page-right right">
+                    <div class="communicate-page-box">
+                        <div class="box-title">最新加入会员</div>
+                        <div class="box-content">
+                            <div class="communicate-vip-user">
+                                {ctcms:user table="user" field="pic" where="" limit="15" order="id desc"}
+                                <div class="user"><a><img src="[user:pic]"></a></div>
+                                {/ctcms:user}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="communicate-page-box">
+                        <div class="box-title">所有圈子：</div>
+                        <div class="box-content">
+                            <div class="communicate-zone">
+                                <a class="label {if:{ctcms_cid} == 0}active{end if}" href="{ctcms_commlink}">全部</a>
+                                {ctcms:circle table="circle" field="*" order="xid asc"}
+                                <a class="label {if:{ctcms_cid} == [circle:id]}active{end if}" href="[circle:commlink]">[circle:name]</a>
+                                {/ctcms:circle}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="communicate-page-box">
+                        <div class="box-title">最新文章：</div>
+                        <div class="box-content">
+                            <div class="communicate-artical">
+                                {ctcms:comm table="comm" field="*" where="" limit="10" order="addtime desc"}
+                                <div class="data">
+                                    <div class="data-name"><a href="[comm:articlelink]">[comm:title]</a></div>
+                                    <div class="time">[comm:addtime]</div>
+                                </div>
+                                {/ctcms:comm}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    <link rel="stylesheet" type="text/css" href="{ctcms_path}packs/layui/css/layui.css">
+    <script type="text/javascript" src="{ctcms_path}packs/layui/layui.all.js"></script>
+    <script src="//static.geetest.com/static/tools/gt.js"></script>
+    <style>
+        .layui-layedit-tool .layui-icon {
+            width: 10%;
+            margin: 0px;
+        }
+        .layui-form-label {
+            width: auto !important
+        }
+        .upload-group .input-content {
+            padding: 0px
+        }
+        .layui-layedit {
+            border: 0
+        }
+        .layui-layedit-tool{
+            border-color: #69678e;
+        }
+        .layui-layedit-iframe iframe body{
+            color: #fff;
+        }
+    </style>
+    <script>
+        $('#nav_comm').addClass('active');
+        //富文本编辑器
+        var form, layedit;
+        var picurl = '{ctcms_uppicurl}';
+        if(picurl.search('=') == -1){
+            picurl+='?uid={ctcms_uid}&t={ctcms_times}&token={ctcms_token}';
+        }else{
+            picurl+='&uid={ctcms_uid}&t={ctcms_times}&token={ctcms_token}';
+        }
+        $(document).ready(function () {
+            layedit = layui.layedit;
+            layedit.set({uploadImage: {url: picurl}});
+            gc = layedit.build('content', {
+                hideTool: ['face', '|']
+            }); //建立编辑器
+            setInterval(function () {
+                $("#LAY_layedit_1").contents().find("img").css('max-width', '100%');
+            }, 500);
+
+            //===============滑动验证开始======================
+            var handlerPopup = function (captchaObj) {
+                $("#edsubmit").click(function() {
+                    var validate = captchaObj.getValidate();
+                    if (!validate) {
+                        ty_tip('请先完成验证！',2);
+                        return;
+                    }
+                    var title = $('#edtitle').val();
+                    var content = layedit.getContent(gc);
+                    var circle = $("#circle").val();
+                    var challenge = $("#circle").val();
+                    var challenge = $("#circle").val();
+                    var circle = $("#circle").val();
+                    if(!title || !circle || !content){
+                        ty_tip('数据不完整！',2);
+                        return;
+                    }
+                    $.post('{addlink}', {
+                        title:title,content:content,circle:circle,
+                        challenge: validate.geetest_challenge,
+                        validate: validate.geetest_validate,
+                        seccode: validate.geetest_seccode
+                    }, function(data) {
+                        if (data['msg'] == 'ok'){
+                            ty_tip('恭喜您，提交成功！',1);
+                            setTimeout(function() {
+                                location.href = data['link'];
+                            }, 1500);
+                        }else{
+                            ty_tip(data['msg'],2);
+                        }
+                    },'json');
+                });
+                // 弹出式需要绑定触发验证码弹出按钮
+                captchaObj.bindOn("#edsubmit");
+                // 将验证码加到id为captcha的元素里
+                captchaObj.appendTo("#popup-captcha");
+            };
+            $.ajax({
+                url: "{ctcms_codeurl}", // 加随机数防止缓存
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    initGeetest({
+                        gt: data.gt,
+                        challenge: data.challenge,
+                        product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                        offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                    }, handlerPopup);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

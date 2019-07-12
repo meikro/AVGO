@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{ctcms_description}">
+    <meta name="keywords" content="{ctcms_keywords}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}',page_name='spscc';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container" id="b">
+                {ctcms_left}
+                    <div class="center-page-content left">
+                        <div style="overflow:auto">
+                            <div class="center-page-content-tab">
+                                <a href="{ctcms_url user=vod}" class="tab">分享的视频</a>
+                                <a href="{ctcms_url user=fav}" class="tab">收藏的视频</a>
+                                <a href="{ctcms_url user=buy}" class="tab">购买的视频</a>
+                                <a href="{ctcms_url user=vod/add}" class="tab active" style="float: right;color: #f60;">分享视频</a>
+                            </div>
+                        </div>
+                        <style type="text/css">
+                            .xiaji{
+                                padding-left: 50px;
+                            }
+                        </style>
+                        <div>
+                            <form action="{ctcms_formurl}" method="post" id="vodadd">
+                            <div class="table-page">
+                                <div class="personal-page-update-date-box vod-upload-page-group">
+                                    <div class="update-data-group">
+                                        <div class="group-title left">标题名称</div>
+                                        <div class="group-update left">
+                                            <input type="text" name="name" id="name" class="group-input-col8" value="" placeholder="输入视频名称" required>
+                                        </div>
+                                    </div>
+                                    <div class="update-data-group">
+                                        <div class="group-title left">选择分类</div>
+                                        <div class="group-update left">
+                                            <div class="div-col8" onmouseleave="$(this).children('.option-box').hide()">
+                                                <div class="show-select" onclick="$(this).siblings('.option-box').show()"><span
+                                                        id="select">选择分类</span><i class="icon select-sanjiao-icon right"></i>
+                                                    </div>
+                                                <div class="option-box">
+                                                    {ctcms:class table="class" field="id,name" where="fid=0" limit="10" order="xid asc"}
+                                                    <div class="option" onclick="$(this).parent('.option-box').hide();$('#select').html('[class:name]');$('#cid').val('[class:id]');">[class:name]</div>
+                                                        {ctcmstype:class table="class" field="id,name" where="fid=[class:id]" limit="20" order="xid asc"}
+                                                        <div class="option xiaji" onclick="$(this).parent('.option-box').hide();$('#select').html('[class:name]');$('#cid').val('[class:id]');">[class:name]</div>
+                                                        {/ctcmstype:class}
+                                                    {/ctcms:class}
+                                                </div>
+                                            </div>
+                                            <input id="cid" name="cid" type="hidden" value="">
+                                        </div>
+                                    </div>
+                                    <div class="update-data-group">
+                                        <div class="group-title left">视频简介</div>
+                                        <div class="group-update left">
+                                            <div class="textarea-col8">
+                                                <textarea name="text" class="vod-text" placeholder="输入视频简介"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="update-data-group">
+                                        <div class="group-title left">类型</div>
+                                        <div class="group-update left">
+                                            <input type="text" name="type" class="group-input-col8">
+                                            <div class="gray-tip">如：动作，多个用逗号隔开</div>
+                                        </div>
+                                    </div>
+                                    <div class="update-data-group">
+                                        <div class="group-title left">演员</div>
+                                        <div class="group-update left mb1232">
+                                            <input name="zhuyan" type="text" class="group-input-col8">
+                                            <div class="gray-tip">多个用逗号隔开</div>
+                                        </div>
+                                    </div>
+                                    <div class="update-data-group">
+                                        <div class="group-title left">上传视频</div>
+                                        <div class="group-update left">
+                                            <div class="div-col8">
+                                                <div class="show-select">
+                                                    <i class="icon bf-xs-icon left"></i>
+                                                    <span class="left" id="vod_name">请选择视频上传</span>
+                                                </div>
+                                            </div>
+                                            <input id="url" name="url" type="hidden" value="" required>
+                                            <div class="btn-box">
+                                                <div class="blue-btn" id="picker" style="background-color:#fff;">上传</div>
+                                            </div>
+                                        </div>
+                                        <div class="vod-jdt left" style="display: none;">
+                                            <div class="jdt left">
+                                                <div class="jd" style="width:0%"></div>
+                                            </div>
+                                            <div class="sc-tip left" style="display: none;">上传成功，请点击发布!</div>
+                                        </div>
+                                    </div>
+                                    <div class="update-data-group" style="margin-top: 36px;">
+                                        <div class="group-title hide1232 left">&nbsp;</div>
+                                        <div class="group-update left"><button type="button" class="update-submit-btn" id="vod-btn">发布</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    </div>
+    {ctcms_indexbottom}
+<link rel="stylesheet" type="text/css" href="{ctcms_path}packs/plupload/css/webuploader.css">
+<script type="text/javascript" src="{ctcms_path}packs/plupload/js/webuploader.js"></script>
+<script type="text/javascript">
+    var zmurl = '{ctcms_zmurl}';
+    var uploader = WebUploader.create({
+        swf: '{ctcms_path}packs/plupload/js/Uploader.swf',
+        server: '{ctcms_vodsave}',
+        pick: '#picker',
+        auto: true, //自动上传
+        chunked: true,    
+        chunkSize : 2*1024*1024,
+        fileVal: 'video',
+        accept: {
+            title: '视频文件上传',
+            extensions: 'avi,wmv,mpeg,mp4,mov,mkv,flv,f4v,m4v,rmvb,rm,mpg',
+            mimeTypes: 'video/*'
+        },
+        fileNumLimit: 1,
+        fileSizeLimit: 50000 * 1024 * 1024,
+        fileSingleSizeLimit: 50000 * 1024 * 1024
+    });
+    uploader.on('fileQueued', function( file ) {
+        $('#vod_name').html(file.name);
+        $('#name').val(file.name);
+        $('.vod-jdt').show();
+    });
+    uploader.on( 'uploadProgress', function( file, percentage ) {
+        $('.jd').css('width', percentage * 100 + '%' );
+    });
+    uploader.on( 'uploadSuccess', function(file,json) {
+        if(json.code == 0){
+            $("#url").val(json.url);
+            $('.sc-tip').show();
+            if(json.id > 0){
+                if(zmurl.indexOf('?') > -1){
+                    zmurl+='&id='+json.id;
+                }else{
+                    zmurl+='?id='+json.id;
+                }
+                $.get(zmurl);
+            }
+        }else{
+            $('.sc-tip').show().html('<font color=red>上传失败：'+json.str+'</font>');
+        }
+    });
+    uploader.on( 'uploadError', function( file ) {
+        $('.sc-tip').show().html('<font color=red>上传出错</font>');
+    });
+    $('#vod-btn').click(function() {
+        var name = $('#name').val();
+        var cid = $('#cid').val();
+        var url = $('#url').val();
+        if(name == ''){
+            ty_tip('请填写视频标题!!!',2);
+        }else if(cid == ''){
+            ty_tip('请选择视频分类!!!',2);
+        }else if(url == ''){
+            ty_tip('请先上传视频!!!',2);
+        }else{
+            $('#vodadd').submit();
+        }
+    });
+</script>
+</body>
+</html>

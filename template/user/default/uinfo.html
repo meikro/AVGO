@@ -1,0 +1,33 @@
+
+<div class="nav-aready-login left">
+    <a href="{ctcms_url user=index}">
+        <img class="user" src="[user:pic]">
+    </a>
+    <div class="nav-user-info-box">
+        <div class="hover-box">
+            <i class="icon box-top-sanjiao-icon"></i>
+            <a href="{ctcms_url user=logout}" class="tuichu">退出</a>
+            <div class="info-box">
+                <div class="user-pic"><a href="{ctcms_url user=index}"><img class="img" src="[user:pic]"></a></div>
+                <div class="name">
+                    <span class="center">
+                        <a class="nichen left">[user:nichen]</a>
+                        {if:[user:vip] > 0}<i class="icon vip-small-icon active left"></i>{end if}
+                        <i class="icon coin-icon left"></i>
+                        <span class="coin left">[user:cion]</span>
+                    </span>
+                </div>
+                <div class="isVIP">{if:[user:vip] > 0}会员到期：[user:viptime style=Y-m-d]{end if}<a href="{ctcms_url user=pay}" class="text-red">开通会员</a></div>
+                <div class="btn">
+                    <a href="{ctcms_url user=index}"><button>进入个人中心</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function () {
+    var html = '<div class="info-box"><div class="user-pic"><a href="{ctcms_url user=index}"><img class="img" src="[user:pic]"></a></div><div class="name"><span class="center"><a href="{ctcms_url user=index}" class="nichen left">[user:nichen]</a>{if:[user:vip] > 0}<i class="icon vip-small-icon active left"></i>{end if}<i class="icon coin-icon left"></i><span class="coin left">[user:cion]</span></span></div><div class="isVIP">{if:[user:vip] > 0}会员到期：[user:viptime style=Y-m-d]{end if}<a href="{ctcms_url user=pay}" class="text-red">开通会员</a></div><div class="btn"><a href="{ctcms_url user=index}"><button class="yellow">个人中心</button></a><a href="{ctcms_url user=logout}"><button class="gray">退出</button></a></div></div>';
+    $('.nav-user-box').html(html);
+});
+</script>

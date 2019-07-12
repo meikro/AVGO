@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_other.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <main>
+        <div class="container" style="background-color:#f4f4f4">
+            <div class="index-other-page-box">
+                <div class="communicate-page-left left">
+                    <div class="communicate-detail-box">
+                        <div class="box-nav hide1232">
+                            <a href="{ctcms_path}">{ctcms_name}</a>&gt;<a href="{ctcms_commlink}">圈子</a>&gt;<a>[article:title]</a></a>
+                        </div>
+                        <div class="artical-name">[article:title]</div>
+                        <div class="artical-group">
+                            <a class="text-blue" href="javascript:;">[article:zdy zd=user,nichen,uid]</a>发表于[article:addtime style=Y-m-d H:i:s]&nbsp;&nbsp;浏览量：[article:pvnum]
+                            <div class="gpo right">
+                                <div data-type="fav" data-link="[article:colllink]" class="group left dz-sc-group{if:'[article:coll]'=='1'} active{end if}"><i class="icon love-icon left{if:'[article:coll]'=='1'} active{end if}"></i>收藏</div>
+                                <div data-type="zan" data-link="[article:dzlink]" class="group left dz-sc-group{if:'[article:dz]'=='1'} active{end if}"><i class="icon communicate-dz-icon left{if:'[article:dz]'=='1'} active{end if}"></i>点赞（<font id="zan">[article:dznum]</font>）</div>
+                            </div>
+                        </div>
+                        <div class="artical-text">
+                            [article:content]
+                        </div>
+                    </div>
+                    <div class="page-pl-box">
+                        <div class="box-title">评论</div>
+                        <div class="first-pl-post">
+                            <input id="replycontent" class="first-pl-input left" type="text" placeholder="发表评论" value="" maxlength="300">
+                            <input type="hidden" id="rpid" value="0">
+                            <input type="hidden" id="rpuid" value="0">
+                            <button data-type="1" type="button" class="plbtn right" style="background-color: #f2a506;color:#fff;">评论</button>
+                        </div>
+                        {if:{ctcms_pagenum} == 0}
+                            <div class="pl-content-box">
+                                <p style="text-align: center;padding-bottom: 30px;">暂无评论!</p>
+                            </div>
+                        {end if}
+                        {ctcms:msg table="msg" where="rid=0" page="15" order="addtime desc"}
+                        <div class="pl-content-box" id="pl_[msg:id]">
+                            <div class="pl-user left">
+                                <a><img src="[msg:zdy zd=user,pic,uid]"></a>
+                            </div>
+                            <div class="pl-content">
+                                <div class="first-pl">
+                                    <div class="pl-word"><a class="name">[msg:zdy zd=user,nichen,uid]</a>：[msg:content]</div>
+                                    <div class="pl-time">
+                                        <div class="time left">[msg:addtime style=Y-m-d H:i:s]</div>
+                                        <div class="cz-group right">
+                                            {if:'[msg:uid]'=='{ctcms_uid}'}
+                                            <div class="group left del" data-link="[article:replydellink]" data-id="[msg:id]"><i class="icon s18x17 delete18x17-icon left"></i></div>
+                                            {end if}
+                                            <div class="group left"><i class="icon s18x17 pl18x17-icon left" data-id="f_[msg:id]" data-name="[msg:zdy zd=user,nichen,uid]" data-uid="[msg:uid]" data-pid="[msg:id]"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="send-pl" data-id="f_[msg:id]"></div>
+                                    <div class="second-pl">
+                                        {ctcmstype:msglist table="msg" where="rid=[msg:id]" order="addtime asc"}
+                                        <div class="second-pl-data" id="pl_[msglist:id]">
+                                            <div class="pl-word"><a class="name">[msglist:zdy zd=user,nichen,uid]</a>回复<a class="name">[msglist:zdy zd=user,nichen,ruid]</a>：[msglist:content]</div>
+                                            <div class="pl-time">
+                                                <div class="time left">[msglist:addtime style=Y-m-d H:i:s]</div>
+                                                <div class="cz-group right">
+                                                    {if:'[msglist:uid]'=='{ctcms_uid}'}
+                                                    <div class="group left del" data-link="[article:replydellink]" data-id="[msglist:id]"><i class="icon s18x17 delete18x17-icon left"></i></div>
+                                                    {end if}
+                                                    <div class="group left"><i class="icon s18x17 pl18x17-icon left" data-id="s_[msglist:id]" data-name="[msglist:zdy zd=user,nichen,uid]" data-uid="[msglist:uid]" data-pid="[msglist:id]"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="send-pl" data-id="s_[msglist:id]"></div>
+                                        </div>
+                                        {/ctcmstype:msglist}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/ctcms:msg}
+                        <div class="show-more-pl"{if:{ctcms_pagenum} == 0} style="display: none;"{end if}>
+                            {if:{ctcms_page}<{ctcms_pagejs}}<a href="{ctcms_pagedown}">查看更多</a>{end if}
+                            <a class="to-pl-news-btn" onclick="$('.fix-go-top-icon').click();"><i class="icon communicate-pl-icon left"></i>写评论</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="communicate-page-right right">
+                        <div class="communicate-page-box">
+                            <div class="box-title">最新加入会员</div>
+                            <div class="box-content">
+                                <div class="communicate-vip-user">
+                                    {ctcms:user table="user" field="pic" where="" limit="15" order="id desc"}
+                                    <div class="user"><a><img src="[user:pic]"></a></div>
+                                    {/ctcms:user}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="communicate-page-box">
+                            <div class="box-title">所有圈子：</div>
+                            <div class="box-content">
+                                <div class="communicate-zone">
+                                    <a class="label {if:{ctcms_cid} == 0}active{end if}" href="{ctcms_commlink}">全部</a>
+                                    {ctcms:circle table="circle" field="*"}
+                                    <a class="label {if:{ctcms_cid} == [circle:id]}active{end if}" href="[circle:commlink]">[circle:name]</a>
+                                    {/ctcms:circle}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="communicate-page-box">
+                            <div class="box-title">最新文章：</div>
+                            <div class="box-content">
+                                <div class="communicate-artical">
+                                        {ctcms:comm table="comm" field="*" where="" limit="10" order="addtime desc"}
+                                    <div class="data">
+                                        <div class="data-name"><a>[comm:title]</a></div>
+                                        <div class="time">[comm:addtime]</div>
+                                    </div>
+                                    {/ctcms:comm}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    <script>
+        $('#nav_comm').addClass('active');
+        var tid = [article:id];
+        $(function () {
+            $('.first-pl-input').click(function() {
+                $(this).attr('id','replycontent');
+                $('.send-pl').empty();
+            });
+            $(".second-pl").each(function(){
+                if($(this).find('.second-pl-data').length == 0){
+                    $(this).remove();
+                }
+            });
+            $(".dz-sc-group").click(function() {
+                var _this = $(this);
+                var link = $(this).attr('data-link');
+                var type = $(this).attr('data-type');
+                $.post(link, {tid:tid}, function(r) {
+                    if(r == '1'){
+                        if(_this.hasClass("active")){
+                            _this.removeClass('active');
+                            _this.children(".icon").removeClass('active');
+                            if(type == 'zan'){
+                                ty_tip('已取消点赞',1);
+                                $('#zan').html(parseInt($('#zan').html())-1);
+                            }else{
+                                ty_tip('已取消收藏',1);
+                            }
+                        }else{
+                            _this.addClass('active');
+                            _this.children(".icon").addClass('active');
+                            if(type == 'zan'){
+                                ty_tip('点赞成功',1);
+                                $('#zan').html(parseInt($('#zan').html())+1);
+                            }else{
+                                ty_tip('收藏成功',1);
+                            }
+                        }
+                    }else{
+                        ty_tip(r,2);
+                    }
+                });
+            });
+            $('.page-pl-box').on('click', '.plbtn', function(event) {
+                var type = $(this).attr('data-type');
+                if(type == '1'){
+                    $('.first-pl-input').attr('id','replycontent');
+                    $('.send-pl').empty();
+                }
+                var text = $('#replycontent').val();
+                var pid = $('#rpid').val();
+                var uid = $('#rpuid').val();
+                if(text == ''){
+                    ty_tip('请填写评论内容!',2);
+                    $("#replycontent").focus();
+                }else{
+                    $.post('[article:replylink]', {id:pid,uid:uid,tid:tid,content:text}, function(r) {
+                        if(r.msg == 'ok'){
+                            ty_tip('评论成功',1);
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 1500);
+                        }else{
+                            ty_tip(r.msg,2);
+                        }
+                    },'json');  
+                }
+            });
+            $('.del').click(function() {
+                var link = $(this).attr('data-link');
+                var id = $(this).attr('data-id');
+                $.post(link, {id:id}, function(r) {
+                    if(r == 'ok'){
+                        ty_tip('评论删除成功',1);
+                        $('#pl_'+id).remove();
+                    }else{
+                        ty_tip(r,2);
+                    }
+                });
+            });
+        })
+        $(".pl18x17-icon").click(function () { //回复评论
+            $('.first-pl-input').attr('id','');
+            var id = $(this).attr('data-id');
+            var name = $(this).attr('data-name');
+            var str = '<div class="input-box"><input id="replycontent" type="text" class="input left" placeholder="回复：' + name +
+                '"value="" oninput="computedWord(value,this)" maxlength="300"><div class="word-num right">0/300</div></div>' +
+                '<div class="send-btn-group"><button class="qd plbtn" data-type="2">提交</button><button class="qx" onclick="$(\'.send-pl\').empty();">取消</button></div>';
+            $(".send-pl").each(function () {
+                $(this).empty();
+                if ($(this).attr('data-id') == id) {
+                    $(this).append(str);
+                }
+            });
+            $('#rpid').val($(this).attr('data-pid'));
+            $('#rpuid').val($(this).attr('data-uid'));
+        });
+        function computedWord(value, t) { //计算评论字数
+            var length = value.length;
+            $(t).siblings('.word-num').html(length + "/300");
+        }
+    </script>
+</body>
+</html>

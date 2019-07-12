@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{ctcms_indextemplets}/js/ajaxfileupload.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';var page_name='xgzl'</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container">
+            {ctcms_left}
+                    <div class="center-page-content left">
+                        <div class="center-page-content-tab">
+                            <div style="overflow:auto;margin-bottom: 20px">
+                                <a class="tab" data-page="p1" href="{ctcms_url user=edit}">修改资料</a>
+                                <a class="tab active" data-page="p2" href="{ctcms_url user=edit/pass}">修改密码</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="update-data-page" id="p2">
+                                <iframe id="forget-pass" src="" width="100%" height="500px" frameborder="0"></iframe>
+                                <!--<form class="am-form am-form-horizontal" action="{ctcms_formurl}" method="post" data-am-validator>
+                                    <div class="personal-page-update-date-box">
+                                        <div class="update-data-group">
+                                            <div class="group-title left">原密码</div>
+                                            <div class="group-update left"><input type="password" class="group-input-col12"
+                                                    value="" name="pass"></div>
+                                        </div>
+                                        <div class="update-data-group">
+                                            <div class="group-title left">新密码</div>
+                                            <div class="group-update left"><input type="password" name="pass1" class="group-input-col12"></div>
+                                        </div>
+
+                                        <div class="update-data-group">
+                                            <div class="group-title left">确认密码</div>
+                                            <div class="group-update left"><input type="password"name="pass2" class="group-input-col12"></div>
+                                        </div>
+                                        <div class="update-data-group" style="margin-top: 36px;">
+                                            <div class="group-title left hide1232">&nbsp;</div>
+                                            <div class="group-update left"><button class="update-submit-btn" type="submit">提交</button></div>
+                                        </div>
+                                    </div>
+                                </form>-->
+                            </div>
+                        </div>
+
+                    </div>
+                    <script>
+                        var token = localStorage.getItem('token')
+                        $("#center_nav .tab").hover(function () {
+                            $(this).children().children(".s23x22").addClass("active");
+                        }, function () {
+                            if ($(this).hasClass("active")) {
+                                return;
+                            } else {
+                                $(this).children().children(".s23x22").removeClass("active");
+                            }
+                        })
+
+                        $(function () {
+
+                            $(".center-page-container-nav").css("height", $(".center-page-container-box").height());
+                        })
+
+                        $(".center-page-container-box").resize(function () {
+                            $(".center-page-container-nav").css("height", $(".center-page-container-box").height());
+                        })
+
+
+                        $(function () {
+                            // 图片上传
+
+                            openPicFile({
+                                uploadfileID: "user_logo",
+                                sawfile_target: ".show-user-pic",
+                                employeeImageUploadUrl: "", //图片上传接口地址,
+                                PicUrl_target: "" //储存图片服务器地址的input[type = 'hidden'] 选择器
+
+                            })
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+
+   {ctcms_indexbottom}
+</body>
+
+</html>

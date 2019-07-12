@@ -1,0 +1,675 @@
+@charset "UTF-8";
+.vod-introduce-box {
+  background-color: #1d2025;
+  padding-bottom: 40px;
+  min-width: 1232px;
+}
+
+.vod-introduce-box .page-route a:nth-last-child(1) {
+  color: #fff;
+}
+
+.vod-introduce-box .vod-introduce .vod-img {
+  width: 230px;
+  height: 306px;
+  margin-right: 45px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info {
+  margin-left: 275px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box {
+  height: 32px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box .name {
+  font-size: 30px;
+  margin-right: 30px;
+  line-height: 30px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box .score {
+  font-size: 26px;
+  color: #f2a506;
+  margin-right: 50px;
+  padding-top: 2px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box .cz-group {
+  font-size: 16px;
+  line-height: 20px;
+  padding-top: 12px;
+  position: relative;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box .cz-group .group {
+  margin-right: 40px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box .cz-group .group .icon {
+  margin-right: 5px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .name-box .cz-group .group:hover {
+  color: #f2a506;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .message-info {
+  font-size: 14px;
+  color: #fff;
+  line-height: 28px;
+  height: 28px;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .message-info .group {
+  margin-right: 50px;
+  display: inline-block;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text {
+  font-size: 14px;
+  color: #fff;
+  line-height: 28px;
+  position: relative;
+  margin-bottom: 30px;
+  clear: none;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text .text-blod {
+  font-weight: bold;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text .showAll::before {
+  content: "<<收起";
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text .showAll {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #f2a506;
+  line-height: 18px;
+  padding-left: 10px;
+  background-color: #1d2025;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text::after {
+  display: none !important;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text.active {
+  height: 80px;
+  overflow: hidden;
+}
+
+.vod-introduce-box .vod-introduce .vod-info .introduce-text.active .showAll::before {
+  content: "展开>>";
+}
+
+.vod-introduce-box .vod-introduce .vod-info .to-bf .to-bf-btn {
+  width: 130px;
+  height: 50px;
+  background-color: #f2a506;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.vod-detail-container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-width: 1232px;
+}
+
+.vod-detail-container .left-box .vod-detail-container-left-group,
+.vod-detail-container .right-box .vod-detail-container-left-group {
+  margin-bottom: 80px;
+}
+
+.vod-detail-container .left-box .vod-detail-container-left-group .group-title,
+.vod-detail-container .right-box .vod-detail-container-left-group .group-title {
+  line-height: 16px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.vod-detail-container .left-box .vod-detail-container-left-group .group-title .title,
+.vod-detail-container .right-box .vod-detail-container-left-group .group-title .title {
+  padding-left: 13px;
+  border-left: solid 3px #f2a506;
+}
+
+.vod-detail-container .left-box .vod-detail-container-left-group .group-title .more,
+.vod-detail-container .right-box .vod-detail-container-left-group .group-title .more {
+  color: #666666;
+  font-size: 14px;
+}
+
+.vod-detail-container .left-box .vod-detail-container-left-group .group-title .more:hover,
+.vod-detail-container .right-box .vod-detail-container-left-group .group-title .more:hover {
+  color: #f2a506;
+}
+
+.vod-detail-container .left-box .vod-detail-container-left-group:nth-last-child(1),
+.vod-detail-container .right-box .vod-detail-container-left-group:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.vod-detail-container .left-box {
+  width: 1228px;
+}
+
+.vod-detail-container .right-box {
+  width: 454px;
+}
+
+.episode-number-box .tab-group {
+  border-bottom: solid 1px #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.episode-number-box .tab-group .episode-tab {
+  display: block;
+  text-align: center;
+  width: 86px;
+  height: 40px;
+  line-height: 40px;
+  border: solid 1px #d2d2d2;
+  border-bottom: none;
+  border-left: none;
+}
+
+.episode-number-box .tab-group .episode-tab:nth-child(1) {
+  border-left: solid 1px #d2d2d2;
+}
+
+.episode-number-box .tab-group .episode-tab.active {
+  background-color: #ff5400;
+  border-color: #ff5400;
+  color: #fff;
+}
+
+.episode-number-box .episode-list {
+  position: relative;
+}
+
+.episode-number-box .episode-list .data {
+  display: block;
+  box-sizing: border-box;
+  float: left;
+  width: 93px;
+  height: 42px;
+  border: solid 1px #d2d2d2;
+  line-height: 42px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.episode-number-box .episode-list .data:hover {
+  border: solid 1px #ff5400;
+}
+
+.episode-number-box .episode-list .data:nth-child(12n) {
+  margin-right: 0;
+}
+
+.episode-number-box .episode-list .show-more {
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+  margin: 0;
+  background-color: #fff;
+  display: none;
+}
+
+.episode-number-box .episode-list.active {
+  max-height: 146px;
+  overflow: hidden;
+}
+
+.episode-number-box .episode-list.active .show-more {
+  display: block;
+}
+
+.you-love-vod-list .data {
+  width: 232px;
+  height: 358px;
+  margin-right: 17px;
+  float: left;
+  background-color: #f0f0f0;
+  margin-bottom: 18px;
+}
+
+.you-love-vod-list .data .vod-img {
+  height: 298px;
+  position: relative;
+  margin-bottom: 7px;
+}
+
+.you-love-vod-list .data .vod-img .icon {
+  position: absolute;
+  width: 40px;
+  height: 22px;
+  top: 0;
+  right: 10px;
+}
+
+.you-love-vod-list .data .vod-img a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.you-love-vod-list .data .vod-name {
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #333333;
+  margin-bottom: 7px;
+}
+
+.you-love-vod-list .data .vod-name .score {
+  color: #f2a506;
+}
+
+.you-love-vod-list .data .vod-name .name {
+  display: inline-block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.you-love-vod-list .data .text {
+  padding: 0 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #666666;
+  line-height: 14px;
+}
+
+.you-love-vod-list .data:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.you-love-vod-list .data:nth-child(5n) {
+  margin-right: 0;
+}
+
+.you-love-vod-list .data:hover {
+  box-shadow: 1px 2px 9px 0px rgba(153, 153, 153, 0.6);
+}
+
+.you-love-vod-list .data:hover .name {
+  color: #f2a506;
+}
+
+.pl-box .vod-pl-input {
+  margin-bottom: 30px;
+}
+
+.pl-box .vod-pl-input .vod-pl {
+  display: block;
+  box-sizing: border-box;
+  height: 120px;
+  width: 100%;
+  border-radius: 3px;
+  border: solid 1px #d2d2d2;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+}
+
+.pl-box .vod-pl-input .submit-vod-pl {
+  font-size: 14px;
+  color: #333333;
+}
+
+.pl-box .vod-pl-input .submit-vod-pl .submit-vod-pl-btn {
+  width: 130px;
+  height: 50px;
+  background-color: #cbcbcb;
+  border-radius: 5px;
+  font-size: 16px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.pl-box .vod-pl-input .submit-vod-pl .submit-vod-pl-btn.active {
+  background-color: #f2a506;
+  color: #333;
+}
+
+.pl-box .vod-pl-input .submit-vod-pl .submit-vod-pl-btn.active:hover {
+  background-color: #b37802;
+}
+
+.pl-box .pl-data {
+  margin-bottom: 30px;
+  position: relative;
+  min-height: 74px;
+}
+
+.pl-box .pl-data .pl-user-img {
+  position: absolute;
+  width: 50px;
+  left: 0;
+  top: 0;
+}
+
+.pl-box .pl-data .pl-user-img .img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.pl-box .pl-data .pl-content-box {
+  margin-left: 70px;
+}
+
+.pl-box .pl-data .pl-content-box .name,
+.pl-box .pl-data .pl-content-box .hf-btn-box {
+  color: #666666;
+  line-height: 15px;
+  margin-bottom: 8px;
+}
+
+.pl-box .pl-data .pl-content-box .name .hf-icon,
+.pl-box .pl-data .pl-content-box .hf-btn-box .hf-icon {
+  margin-right: 6px;
+}
+
+.pl-box .pl-data .pl-content-box .name .time,
+.pl-box .pl-data .pl-content-box .hf-btn-box .time {
+  color: #999999;
+}
+
+.pl-box .pl-data .pl-content-box .pl-content {
+  color: #333333;
+  line-height: 24px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.pl-box .pl-data .pl-content-box .hf-input-box .hf-input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: solid 1px #d2d2d2;
+  padding: 0 20px;
+  margin-bottom: 15px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-input-box .submit-hf {
+  color: #999999;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-input-box .submit-hf .submit-hf-btn {
+  width: 60px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-input-box .submit-hf .qx {
+  background-color: #cbcbcb;
+  color: #fff;
+}
+
+.pl-box .pl-data .pl-content-box .hf-input-box .submit-hf .tj {
+  background-color: #f2a506;
+  color: #333;
+  margin-right: 10px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list {
+  background-color: #f6f6f6;
+  border-radius: 3px;
+  padding: 30px 20px;
+  margin-top: 20px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data {
+  margin-bottom: 20px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .hf-btn-box {
+  color: #666666;
+  line-height: 15px;
+  margin-bottom: 8px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .hf-btn-box .hf-icon {
+  margin-right: 6px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .pl-content {
+  color: #333333;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .pl-content .pl-user {
+  font-weight: bold;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .pl-content .u1 {
+  margin-right: 4px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .pl-content .u2 {
+  margin-left: 4px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .hf-input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: solid 1px #d2d2d2;
+  padding: 0 20px;
+  margin-bottom: 15px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .submit-hf {
+  color: #999999;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .submit-hf .submit-hf-btn {
+  width: 60px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .submit-hf .qx {
+  background-color: #cbcbcb;
+  color: #fff;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .hf-data .submit-hf .tj {
+  background-color: #f2a506;
+  color: #333;
+  margin-right: 10px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .list-add-data {
+  color: #666;
+  line-height: 16px;
+}
+
+.pl-box .pl-data .pl-content-box .hf-list .list-add-data .show-all-sanjiao-icon {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.pl-box .pl-data:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.xg-tj-list .data {
+  width: 145px;
+  height: 220px;
+  background-color: #f0f0f0;
+  margin-right: 9px;
+  margin-bottom: 8px;
+  float: left;
+}
+
+.xg-tj-list .data .img-box {
+  height: 190px;
+  position: relative;
+}
+
+.xg-tj-list .data .img-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.xg-tj-list .data .img-box .pop {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.xg-tj-list .data .name {
+  line-height: 30px;
+  padding: 0 10px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xg-tj-list .data:nth-child(3n) {
+  margin-right: 0;
+}
+
+.xg-tj-list .data:hover {
+  box-shadow: 1px 2px 9px 0px rgba(153, 153, 153, 0.6);
+}
+
+.xg-tj-list .data:hover .name {
+  color: #f2a506;
+}
+
+.vod-ph-list li {
+  line-height: 20px;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+.vod-ph-list li .s20x20,
+.vod-ph-list li .s_20x20 {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-right: 17px;
+  font-style: unset;
+  color: #333;
+}
+
+.vod-ph-list li a {
+  display: inline-block;
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vod-ph-list li .score {
+  float: right;
+  color: #333;
+}
+
+.vod-ph-list li:nth-child(1) .score,
+.vod-ph-list li:nth-child(2) .score,
+.vod-ph-list li:nth-child(3) .score {
+  color: #f2a506;
+}
+
+.vod-ph-list li:hover {
+  color: #f2a506;
+}
+
+.to-sc.isActive {
+  color: #f2a506;
+}
+
+.to-sc.isActive .love-icon {
+  background: url(../img/icon.png);
+  background-position: -259px -183px;
+}
+
+@media screen and (min-width: 1480px) and (max-width: 1730px) {
+  .vod-detail-container .left-box {
+    width: 980px;
+  }
+  .episode-number-box .episode-list .data {
+    width: 100px;
+  }
+  .episode-number-box .episode-list .show-more {
+    right: 0;
+  }
+  .episode-number-box .episode-list .data:nth-child(12n) {
+    margin-right: 10px;
+  }
+  .episode-number-box .episode-list .data:nth-child(9n) {
+    margin-right: 0;
+  }
+  .you-love-vod-list .data:nth-child(5n) {
+    display: none;
+  }
+  .you-love-vod-list .data:nth-child(5n-1) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1232px) and (max-width: 1480px) {
+  .vod-detail-container .left-box {
+    width: 732px;
+  }
+  .episode-number-box .episode-list .data {
+    width: 96px;
+  }
+  .episode-number-box .episode-list .show-more {
+    right: 0;
+  }
+  .episode-number-box .episode-list .data:nth-child(9n),
+  .episode-number-box .episode-list .data:nth-child(12n) {
+    margin-right: 10px;
+  }
+  .episode-number-box .episode-list .data:nth-child(7n) {
+    margin-right: 0;
+  }
+  .you-love-vod-list .data:nth-child(5n),
+  .you-love-vod-list .data:nth-child(5n-1) {
+    display: none;
+  }
+  .you-love-vod-list .data:nth-child(5n-2) {
+    margin-right: 0;
+  }
+}

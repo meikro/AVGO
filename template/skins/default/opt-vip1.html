@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>会员专属视频 - {ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}">
+    <meta name="description" content="{ctcms_description}">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/vip_index_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <script src="{ctcms_indextemplets}/js/common_solid.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .container{
+            background-color: #25282e;
+            min-width: 1232px;
+        }
+        @media screen and (max-width: 1232px) {
+            .container{
+            min-width: auto;
+            }
+        }
+        </style>
+</head>
+<body>
+    {ctcms_head}
+    <main>
+        <div class="container">
+            <div class="vip-index-page-solid">
+                <i class="icon class-solid-left-icon solid-lr" id="l_btn"></i>
+                <i class="icon class-solid-rigth-icon solid-lr" id="r_btn"></i>
+                <ul class="solid-list">
+                    {ctcms:vod table="vod" field="id,name,pic2" where="vip>0|zid=1" limit="10" order="addtime desc"}
+                    <li class="data" {if:[vod:i]>1} style="display: none;"{end if}</li>}><a href="[vod:link]" style="background: url([vod:pic2]) center/cover" title="[vod:name]"></a></li>
+                    {/ctcms:vod}
+                </ul>
+                <div class="solid-btn-group" id="solid_btn">
+                    {ctcms:vod table="vod" field="id" where="vip>0|zid=1" limit="10" order="addtime desc"}
+                    <a class="btn {if:[vod:i]==1} active{end if}"></a>
+                    {/ctcms:vod}
+                </div>
+                <div class="vip-login-info-box hide1232">
+                    <div class="user-info">
+                        <div class="no-login" onclick="$('.mask').show();$('#loginPop').show()">
+                            <button class="absolute-center">立即登录</button>
+                        </div>
+                        <div class="already-login" style="display:none">
+                            <div class="user-img">
+                                <a href="{ctcms_url user=index}">
+                                    <img id="vupic" class="user" src="">
+                                </a>
+                            </div>
+                            <div class="name"><span class="center"><a class="left" id="vunichen">昵称</a><i class="icon vip-small-icon left"></i><i class="icon coin-icon left"></i><font id="vucion">0</font>个</span></div>
+                            <div class="time vipno">您还不是会员噢~</div>
+                            <div class="time vipok" style="display: none;">会员到期：<font id="vuviptime">2018-01-01</font></div>
+                        </div>
+                    </div>
+                    <div class="line-box">
+                        <div class="line"></div>
+                        <span class="text">会员尊享特权</span>
+                    </div>
+                    <div class="link-group">
+                        <a class="group left"><i class="icon s22x19 download22x19-icon left"></i>离线下载</a>
+                        <a class="group right"><i class="icon s22x19 vod22x19-icon left"></i>热门影视</a>
+                        <a class="group left"><i class="icon s22x19 content22x19-icon left"></i>海内容量</a>
+                        <a class="group right"><i class="icon s22x19 speed22x19-icon left"></i>智能加速</a>
+                    </div>
+                    <div class="become-vip">
+                        <a href="{ctcms_url user=pay}"><button>开通会员&nbsp;大片免费看</button></a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(function(){
+                    common_solid({
+                        box_tag:".vip-index-page-solid",
+                        solid_tag:".solid-list .data",
+                        solid_botton_btn:"#solid_btn .btn",
+                        l_btn:"#l_btn",
+                        r_btn:"#r_btn"
+                    });
+                    $.get(links('ajax','ulog'), function(data){
+                        if(data.code==0){
+                            $('#vunichen').html(data.user.nichen);
+                            $('#vupic').attr('src',data.user.pic);
+                            $('#vucion').html(data.user.cion);
+                            $('#vuviptime').html(data.user.viptime);
+                            if(data.user.vip > 0){
+                                $('.vipno').hide();
+                                $('.vipok').show();
+                                $('.vip-small-icon').addClass('active');
+                            }
+                            $('.no-login').hide();
+                            $('.already-login').show();
+                        }else{
+                            $('.no-login').show();
+                            $('.already-login').hide();
+                        }
+                    },"json");
+                });
+            </script>
+            <div class="vip-index-page-class-nav hide1232">
+                <div class="middle-box">
+                    {ctcms:class table="class" field="*" where="fid=0" limit="10" order="xid asc"}
+                    <a href="[class:link]">[class:name]</a>
+                    {/ctcms:class}
+                </div>
+            </div>
+            <div class="vip-index-page-class-nav1232 show1232">
+                {ctcms:class table="class" field="*" where="fid=0" limit="10" order="xid asc"}
+                <a href="[class:link]">[class:name]</a>
+                {/ctcms:class}
+            </div>
+            <div class="middle-box">
+                <div class="vip-index-page-box">
+                    <div class="box-title">会员最爱热播<a class="more right" href="{ctcms_url whole=_______2_hits}">更多 &gt;</a></div>
+                    <div class="vip-vod-data-list has-big-data">
+                        {ctcms:vod table="vod" field="id,name,pic,tags,daoyan,zhuyan,pf,vip,cion,text" where="vip>0" limit="1,1" order="rhits desc"}
+                        <div class="data big-data" title="[vod:name]">
+                            <div class="vod-img">
+                                <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]"></a>
+                                {if:[vod:cion] == 0}
+                                <i class="icon vip-tag-icon"></i>
+                                {else}
+                                <i class="icon no-free-icon"></i>
+                                {end if}
+                            </div>
+                            <div class="pop">
+                                <div class="name">[vod:name]</div>
+                                <div class="lebel">
+                                    [vod:tagslink]
+                                </div>
+                                <div class="pop-text">主演： [vod:zhuyan]</div>
+                                <div class="pop-text">导演： [vod:daoyan] </div>
+                                <div class="detail">[vod:text len=100]</div>
+                                <div class="btn-box">
+                                    <a href="[vod:playlink]"><button>立即播放</button></a>
+                                </div>
+                            </div>
+                            <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                            <div class="text">[vod:zhuyan]</div>
+                        </div>
+                        {/ctcms:vod}
+                        {ctcms:vod table="vod" field="id,name,pic,tags,daoyan,zhuyan,pf,vip,cion,text" where="vip>0" limit="2,5" order="rhits desc"}
+                        <div class="data">
+                            <div class="vod-img">
+                                <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]"></a>
+                                {if:[vod:cion] == 0}
+                                <i class="icon vip-tag-icon"></i>
+                                {else}
+                                <i class="icon no-free-icon"></i>
+                                {end if}
+                            </div>
+                            <div class="pop">
+                                <div class="name">[vod:name]</div>
+                                <div class="lebel">
+                                    [vod:tagslink]
+                                </div>
+                                <div class="pop-text">主演：[vod:zhuyan]</div>
+                                <div class="pop-text">导演：[vod:daoyan] </div>
+                                <div class="detail">[vod:text len=80]</div>
+                                <div class="btn-box">
+                                    <a href="[vod:playlink]"><button>立即播放</button></a>
+                                </div>
+                            </div>
+                            <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                            <div class="text">[vod:zhuyan]</div>
+                        </div>
+                        {/ctcms:vod}
+                    </div>
+                </div>
+                <div class="vip-index-page-box">
+                    <div class="box-title">会员专享特权<a class="right" href="{ctcms_url user=pay}"><button class="join">加入会员</button></a></div>
+                    <div class="vip-power-list">
+                        <div class="data">
+                            <div class="ico"><i class="icon s45x39 download45x39-icon"></i></div>
+                            <div class="name">离线下载</div>
+                            <div class="text">随时随地&nbsp;追剧无忧</div>
+                        </div>
+                        <div class="data">
+                            <div class="ico"><i class="icon s45x39 dsj45x39-icon"></i></div>
+                            <div class="name">大剧抢先看</div>
+                            <div class="text">大剧热综&nbsp;会员先看</div>
+                        </div>
+                        <div class="data">
+                            <div class="ico"><i class="icon s45x39 move45x39-icon"></i></div>
+                            <div class="name">热门影视</div>
+                            <div class="text">热门影视&nbsp;会员独享</div>
+                        </div>
+                        <div class="data">
+                            <div class="ico"><i class="icon s45x39 content45x39-icon"></i></div>
+                            <div class="name">海量内容</div>
+                            <div class="text">海量内容&nbsp;视听专享</div>
+                        </div>
+                        <div class="data">
+                            <div class="ico"><i class="icon s45x39 speed45x39-icon"></i></div>
+                            <div class="name">智能加速</div>
+                            <div class="text">只能加速&nbsp;告别等待</div>
+                        </div>
+                        <div class="data">
+                            <div class="ico"><i class="icon s45x39 screen3-icon"></i></div>
+                            <div class="name">尊享三屏</div>
+                            <div class="text">尊享三屏&nbsp;畅享服务</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vip-index-page-box">
+                    <div class="box-title">小编推荐</div>
+                    <div class="vip-hite-data-list">
+                        {ctcms:vod table="vod" field="id,name,pic,pf,hits,text" where="tid=1|vip>0" limit="4" order="addtime desc"}
+                        <div class="data" title="[vod:name]">
+                            <div class="vod-img">
+                                <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]">
+                                    <div class="pop">
+                                        <i class="icon bf-orange-icon absolute-center"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="vod-name">
+                                <a class="name left" href="[vod:link]">[vod:name]</a>
+                                <span class="bfl left"><i class="icon vip-index-bf-icon left"></i>[vod:hits]</span>
+                                <span class="score right">[vod:pf]</span>
+                            </div>
+                            <div class="text"><a href="[vod:link]">[vod:text len=130]</a></div>
+                        </div>
+                        {/ctcms:vod}
+                    </div>
+                </div>
+                {ctcms:class table="class" field="id,name" where="fid=0" limit="6" order="xid asc"}
+                <div class="vip-index-page-box classlist">
+                    <div class="box-title">会员专属[class:name]<a class="more right" href="{ctcms_url whole=[class:id]_______2}">更多 &gt;</a></div>
+                    <div class="vip-vod-data-list">
+                        {ctcmstype:vod table="vod" field="id,name,pic,tags,zhuyan,daoyan,vip,cion,pf,text" where="cid=[class:id]" limit="7" order="addtime desc"}
+                        <div class="data">
+                            <div class="vod-img">
+                                <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]"></a>
+                                {if:[vod:cion] == 0}
+                                <i class="icon vip-tag-icon"></i>
+                                {else}
+                                <i class="icon no-free-icon"></i>
+                                {end if}
+                            </div>
+                            <div class="pop">
+                                <div class="name">[vod:name]</div>
+                                <div class="lebel">
+                                    [vod:tagslink]
+                                </div>
+                                <div class="pop-text">主演：[vod:zhuyan]</div>
+                                <div class="pop-text">导演：[vod:daoyan] </div>
+                                <div class="detail">[vod:text len=80]</div>
+                                <div class="btn-box">
+                                    <a href="[vod:playlink]"><button>立即播放</button></a>
+                                </div>
+                            </div>
+                            <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                            <div class="text">[vod:zhuyan]</div>
+                        </div>
+                        {/ctcmstype:vod}
+                    </div>
+                </div>
+                {/ctcms:class}
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    <script>
+        $(function(){
+            $('#nav_vip').addClass('active');
+            $(".classlist").each(function(){
+                if($(this).find('.data').length == 0){
+                    $(this).remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

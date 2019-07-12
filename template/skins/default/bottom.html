@@ -1,0 +1,60 @@
+
+    <footer>
+        <div class="footer">
+            <div class="middle-box hide1232">
+                <div class="footer-link">
+                    <a href="{ctcms_url opt=index/map}">网站地图</a><a href="{ctcms_url opt=index/rss}">SSR地图</a> <a href="{ctcms_url opt=index/baidu}">百度地图</a> <a href="{ctcms_url opt=index/guge}">谷歌地图</a> <a href="{ctcms_url opt=index/shenma}">神马地图</a><a href="{ctcms_gbooklink}">给我留言</a>
+                </div>
+                <div class="footer-tip">
+                    <p>
+                        免责声明：本网站所有内容都是靠程序在互联网上自动搜集而来，所有图片视频不含有淫秽 / 色情内容,如有违反法律请联系站长邮箱
+                    </p>
+                    <p>
+                        版权: 本站解释权归本站所有,未经同意请勿转载,多谢合作。
+                    </p>
+                </div>
+            </div>
+            <div class="middle-box show1232">
+                <div class="footer-tip">
+                    <p>©Ctcms管理系统 | 如有侵权请发邮件至：</p>
+                    <p>{ctcms_mail}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="fix-button-group hide1232">
+        <a class="fix-button group" target="_bank" href="http://wpa.qq.com/msgrd?v=1&uin={ctcms_qq}&Site=&amp;Menu=yes">
+            <span class="center"><span class="text left">联系OO</span><i class="icon s24x26 fix-qq-icon right"></i></span>
+        </a>
+        <a class="fix-button group" href="{ctcms_gbooklink}">
+            <span class="center"><span class="text left">求片留言</span><i class="icon s24x26 fix-talk-icon right"></i></span>
+        </a>
+        <a class="fix-button group" onclick="$(window).scrollTop(0);">
+            <span class="center"><span class="text left">返回顶部</span><i class="icon s24x26 fix-go-top-icon right"></i></span>
+        </a>
+    </div>
+    <div class="mask"></div>
+    <div class="login-box-pop fixed-center" id="loginPop" style="display:none">
+        <i class="icon pop-close-icon" onclick="$('.login-box-pop').hide();$('.mask').hide()"></i>
+        <div class="pop-logo">
+            <span>登录</span>
+        </div>
+        <div class="input-group">
+            <form action="" method="post" onSubmit="return false;">
+                <div class="group">
+                    <input id="username" type="text" class="input-col12" placeholder="输入账号" value="">
+                </div>
+                <div class="group">
+                    <input id="userpass" type="password" class="input-col12" placeholder="输入密码" value="">
+                </div>
+                <div class="group">
+                    <button class="submit-btn ctcms_login">登录</button>
+                </div>
+                <div class="group">
+                    <span class="xieyi left"><a href="{ctcms_url user=pass}">忘记密码</a></span>
+                    <span class="go-login right"><a class="text-yellow" href="{ctcms_url user=reg}">去注册&gt;</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="display: none;">{ctcms_stat}</div>

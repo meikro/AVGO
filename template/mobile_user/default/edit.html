@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;会员中心<a href="{ctcms_url user=logout}" style="float:right;color:#FFF;font-size:14px;">退出&nbsp;&nbsp;</a></h3>
+    {ctcms_left}
+    <div class="fr w70 txt-left bhr">
+      <form action="{ctcms_formurl}" method="post" data-am-validator>
+        <div class="input">
+          <label>账号：</label>
+          [user:name]
+        </div>
+        <div class="input">
+          <label>昵称：</label>
+          <input name="nichen" type="text" value="[user:nichen]" placeholder="输入昵称" required/>
+        </div>
+        <div class="input">
+          <label>邮箱：</label>
+          <input type="text" name="email" value="[user:email]" placeholder="输入邮箱" required/>
+        </div>
+        <div class="input">
+          <label>手机：</label>
+          <input type="text" name="tel" value="[user:tel]" placeholder="输入手机" required/>
+        </div>
+        <div class="input">
+          <label>扣扣：</label>
+          <input type="text" name="qq" value="[user:qq]" placeholder="输入qq" required/>
+        </div>
+        <div class="input">
+          <label>性别：</label>
+          <input type="radio" name="sex" value="1"{if:[user:sex]==1} checked{end if} required/>男
+          <input type="radio" name="sex" value="2"{if:[user:sex]==2} checked{end if}/>女
+          <input type="radio" name="sex" value="0"{if:[user:sex]==0} checked{end if}/>保密
+        </div>
+        <div class="input">
+          <label>&nbsp;</label>
+          <button type="submit" class="btn">确定修改</button>
+        </div>
+      </form>
+    </div>
+</div>
+<script>
+$('#user').addClass('ons');
+$('#nav_2').addClass('on');
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

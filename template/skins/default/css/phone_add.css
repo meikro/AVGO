@@ -1,0 +1,113 @@
+.phone-bottom-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.phone-bottom-box .bottom-share-box {
+  background-color: #f0f0f0;
+}
+
+.phone-bottom-box .bottom-share-box .share-list-outsaide-box {
+  overflow: hidden;
+}
+
+.phone-bottom-box .bottom-share-box .share-list-outsaide-box .share-list-box {
+  padding: 15px 15px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  box-sizing: content-box;
+  height: 60px;
+}
+
+.phone-bottom-box .bottom-share-box .share-list-outsaide-box .share-list-box .share-list {
+  height: 60px;
+  white-space: nowrap;
+}
+
+.phone-bottom-box .bottom-share-box .share-list-outsaide-box .share-list-box .icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 8px;
+  margin-right: 14px;
+  display: inline-block;
+}
+
+.phone-bottom-box .bottom-share-box .share-list-outsaide-box .share-list-box .icon .block {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.phone-bottom-box .bottom-share-box .qx-btn {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: #333333;
+  background-color: #fff;
+}
+
+.phone-bottom-box .bottom-xuanji-box {
+  background-color: #fff;
+  padding: 16px 12px;
+}
+
+.phone-bottom-box .bottom-xuanji-box .box-title {
+  font-size: 14px;
+  color: #333;
+  line-height: 14px;
+  margin-bottom: 10px;
+}
+
+.phone-bottom-box .bottom-xuanji-box .vod-line-list {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.phone-bottom-box .bottom-xuanji-box .vod-line-list .data {
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 20px;
+  line-height: 40px;
+}
+
+.phone-bottom-box .bottom-xuanji-box .vod-line-list .data:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.phone-bottom-box .bottom-xuanji-box .vod-line-list .data.active {
+  color: #f2a506;
+  border-bottom: 3px solid #f2a506;
+}
+
+.phone-bottom-box .bottom-xuanji-box .box-vod-ji-list {
+  max-height: 190px;
+  overflow: auto;
+  padding: 10px 0;
+}
+
+.phone-bottom-box .bottom-xuanji-box .box-vod-ji-list .data {
+  display: block;
+  float: left;
+  width: 23.5%;
+  margin-right: 2%;
+  height: 36px;
+  border: solid 1px #d2d2d2;
+  text-align: center;
+  line-height: 36px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.phone-bottom-box .bottom-xuanji-box .box-vod-ji-list .data:active,
+.phone-bottom-box .bottom-xuanji-box .box-vod-ji-list .data.active {
+  border: 1px solid #f2a506;
+}
+
+.phone-bottom-box .bottom-xuanji-box .box-vod-ji-list .data:nth-child(4n) {
+  margin-right: 0;
+}

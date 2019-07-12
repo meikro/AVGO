@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <script src="{ctcms_indextemplets}/js/ZoomPic.js"></script>
+    <script src="{ctcms_indextemplets}/js/jquery.touchSlider.js"></script>
+    <script src="{ctcms_indextemplets}/js/aqiyi_solid.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/js/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/js/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <script>$('#nav_index').addClass('active');</script>
+    <main>
+        <div class="container">
+            <div class="index-page-tj-img-box show1232">
+                <div class="playimg">
+                    <div class="main_visual">
+                        <div class="flicking_con" id="solid1_btn">
+                        {ctcms:vod table="vod" field="id" where="zid=1" limit="10" order="addtime desc"}
+                            <a href="javascript:;" class="{if:[vod:i]==1}on{end if}"></a>
+                        {/ctcms:vod}
+                        </div>
+                        <div class="main_image" id="solis1">
+                            <ul style="width: 411px; overflow: visible;">
+                                {ctcms:vod table="vod" field="id,name,pic2" where="zid=1" limit="10" order="addtime desc"}
+                                <li style="float: none; display: block; position: absolute; top: 0px; left: 0px; width: 411px;">
+                                    <span onclick="" class="img_[vod:i]">
+                                        <div style="background:url([vod:pic2]) center/cover;width: 100%;height: 180px"></div>
+                                    </span>
+                                </li>
+                                {/ctcms:vod}
+                            </ul>
+                            <a href="javascript:;" id="btn_prev" style="width: 411px; overflow: visible;"></a>
+                            <a href="javascript:;" id="btn_next" style="width: 411px; overflow: visible;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(function () {
+                    $("#solis1").touchSlider({
+                        flexible: true,
+                        speed: 200,
+                        btn_prev: $("#btn_prev"),
+                        btn_next: $("#btn_next"),
+                        paging: $("#solid1_btn a"),
+                        counter: function (e) {
+                            $("#solid1_btn a").removeClass("on").eq(e.current - 1).addClass("on");
+                        }
+                    });
+                })
+            </script>
+            <div class="index-page-tj-img-box hide1232">
+                <div class="showImg">
+                    <ul>
+                        {ctcms:vod table="vod" field="id,name,pic2" where="zid=1" limit="10" order="addtime desc"}
+                        <li class="img" style="background:url([vod:pic2]) center/cover no-repeat;{if:[vod:i]>1}display: none;{end if}"><a href="[vod:link]"></a></li>
+                        {/ctcms:vod}
+                    </ul>
+                </div>
+                <div class="control-img-box">
+                    <div class="control-list right">
+                        <ul>
+                        {ctcms:vod table="vod" field="id,name,pic2" where="zid=1" limit="10" order="addtime desc"}
+                            <li class="tab-data{if:[vod:i]==1} active{end if}"><a href="[vod:link]">[vod:name]</a></li>
+                        {/ctcms:vod}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var right = $(document).width()-$('.middle-box').offset().left-$('.middle-box').width();
+                $('.control-img-box').css('right',right);
+                $(".control-list .tab-data").hover(function () {
+                    $(this).addClass("active").siblings().removeClass('active');
+                    var data_index = $(this).index();
+                    $(".showImg .img").eq(data_index).show().siblings().stop().hide();
+                })
+            </script>
+            <div class="index-page-class-group hide1232">
+                <div class="middle-box">
+                    <div class="group left">
+                        <div class="group-title left">类</br>型</div>
+                        <div class="group-list left detail-class">
+                            {ctcms_zdy:type_12}
+                            <a href="{ctcms_url whole=__[type:name]}">[type:name]</a>
+                            {/ctcms_zdy:type_12}
+                        </div>
+                    </div>
+                    <div class="group left">
+                        <div class="group-title left">地</br>区</div>
+                        <div class="group-list left detail-class">
+                            {ctcms_zdy:diqu_12}
+                            <a href="{ctcms_url whole=_[diqu:name]}">[diqu:name]</a>
+                            {/ctcms_zdy:diqu_12}
+                        </div>
+                    </div>
+                    <div class="group left">
+                        <div class="group-title left">语</br>言</div>
+                        <div class="group-list left detail-class">
+                            {ctcms_zdy:yuyan_12}
+                            <a href="{ctcms_url whole=___[yuyan:name]}">[yuyan:name]</a>
+                            {/ctcms_zdy:yuyan_12}
+                        </div>
+                    </div>
+                    <div class="group left size3">
+                        <div class="group-title left">年</br>份</div>
+                        <div class="group-list left detail-class">
+                            {ctcms_zdy:year_12}
+                            <a href="{ctcms_url whole=____[year:name]}">[year:name]</a>
+                            {/ctcms_zdy:year_12}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="index-page-today-tj-box">
+                <div class="middle-box ">
+                    <div class="hot-box">
+                        <div class="hot-news left hide1232">
+                            <div class="box-title"><i class="icon index-title-news-icon left"></i><span class="left">今日焦点</span><a href="{ctcms_commlink}" class="more left">更多&gt;</a></div>
+                            <div class="list">
+                                <ul>
+                                {ctcms:comm table="comm" field="id,title" where="" limit="1" order="addtime desc"}
+                                    <li class="data hot"><i class="disc"></i><a href="[comm:articlelink]">[comm:title]</a></li>
+                                {/ctcms:comm}
+                                {ctcms:comm table="comm" field="id,title" where="" limit="1,19" order="addtime desc"}
+                                    {if:[comm:i]%2 == 1}<li class="data"><i class="disc"></i>
+                                    <a href="[comm:articlelink]">[comm:title]</a>
+                                    {end if}
+                                    {if:[comm:i]%2 == 0}
+                                    <i class="split"></i> <a href="[comm:articlelink]">[comm:title]</a></li>
+                                    {end if}
+                                {/ctcms:comm}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hot-vod right">
+                            <div class="box-title">
+                                <i class="icon hot-icon left"></i>
+                                <span class="left">今日热门</span>
+                                <a class="more right" href="{ctcms_url opt=index/hot}">更多&gt;</a>
+                            </div>
+                            <div class="list">
+                                {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="" limit="1" order="rhits desc"}
+                                <div class="big-data left hide1232">
+                                    <div class="vod-img" style="background:url([vod:pic]) center/cover no-repeat"><a
+                                            href="[vod:link]"></a></div>
+                                    <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:zhuyan]</div>
+                                </div>
+                                {/ctcms:vod}
+                                <div class="small-list left">
+                                    <div>
+                                        {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="" limit="1,6" order="rhits desc"}
+                                        <div class="data">
+                                            <div class="vod-img"><a href="[vod:link]" style="background:url([vod:pic]) center/cover no-repeat"></a></div>
+                                            <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                            <div class="text">[vod:zhuyan]</div>
+                                        </div>
+                                        {if:[vod:i] == 3}
+                                        </div><div>
+                                        {end if}
+                                        {/ctcms:vod}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-updata-vod-box">
+                        <div class="box-title">
+                            <span class="left">每日精选</span>
+                            <a class="more right" href="{ctcms_url opt=index/week}">更多&gt;</a>
+                            <div class="week-tab-group-box left">
+                                <div class="week-tab-group left">
+                                    {ctcms_zdy:week}
+                                    <a class="tab week-day" data-week="[week:i]">[week:name]</a>
+                                    {/ctcms_zdy:week}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-list-box show1232">
+                            {ctcms_zdy:week}
+                            <div class="list" id="wd[week:i]"{if:[week:i]>1} style="display:none"{end if}>
+                                {ctcmstype:vod table="vod" field="id,name,pic,vip,pf,zhuyan" where="kid=[week:i]" limit="6" order="id desc"}
+                                <div class="data">
+                                    <div class="vod-img">
+										{if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+										{if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                        <a href="[vod:link]" style="background:url([vod:pic]) center/cover no-repeat"></a>
+                                    </div>
+                                    <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:zhuyan]</div>
+                                </div>
+                                {/ctcmstype:vod}
+                            </div>
+                            {/ctcms_zdy:week}
+                        </div>
+                        <div class="box-list-box hide1232">
+                            <i class="icon index-solid-by-left-icon" id="dayL"></i>
+                            <i class="icon index-solid-by-right-icon" id="dayR"></i>
+                            {ctcms_zdy:week}
+                            <div class="list todayList" data-week="[week:i]" style="display:none">
+                                {ctcmstype:vod table="vod" field="id,name,pic,vip,pf,zhuyan,daoyan,text" where="kid=[week:i]" limit="20" order="id desc"}
+                                <div class="data">
+                                    <div class="vod-img" style="background:url([vod:pic]) center/cover no-repeat">
+										{if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+										{if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                        <div class="pop">
+                                            <div class="name">[vod:name]</div>
+                                            <div class="lebel">
+                                                [vod:tagslink]
+                                            </div>
+                                            <div class="pop-text">主演： [vod:zhuyan]</div>
+                                            <div class="pop-text">导演： [vod:daoyan]</div>
+                                            <div class="detail">[vod:text len=30]</div>
+                                            <div class="btn-box">
+                                                <a href="[vod:link]"><button>立即播放</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:zhuyan]</div>
+                                </div>
+                                {/ctcmstype:vod}
+                            </div>
+                            {/ctcms_zdy:week}
+                        </div>
+                    </div>
+                    <script src="{ctcms_indextemplets}/js/day_solid.js"></script>
+                </div>
+            </div>
+            <div class="index-vip-solid-box">
+                <div class="title">VIP影院</div>
+                <i class="icon solid-icon index-solid-yuan-left-icon hide1232" id="pre"></i>
+                <i class="icon solid-icon index-solid-yuan-right-icon hide1232" id="next"></i>
+                <div class="vip-list-box absolute-center hide1232" id="jswbox">
+                    <ul>
+                    {ctcms:vod table="vod" field="id,name,pic" where="vip>0" limit="5" order="rhits desc"}
+                        <li><a data-href="[vod:link]"><img style="background:url([vod:pic]) center/cover no-repeat" /></a></li>
+                    {/ctcms:vod}
+                    </ul>
+                </div>
+                <div class="m-carousel show1232" style="margin-top:20px;">
+                    <div class="carousel-box">
+                        <ul class="list-carousel" id="solid2">
+                            {ctcms:vod table="vod" field="id,name,pic" where="vip>0" limit="5" order="rhits desc"}
+                            <li><a style="background:url([vod:pic]) center/cover;" href="[vod:link]"></a></li>
+                            {/ctcms:vod}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script>
+            $(function () {
+                if($('#jswbox li').length > 0){
+                	aqiyiSolid();
+                	new ZoomPic("jswbox");
+	                $(window).resize(function(){
+	                    aqiyiSolid();
+	                })
+                }
+            })
+            </script>
+            {ctcms:class table="class" field="id,name" where="fid=0" limit="5" order="xid asc"}
+            <div class="index-big-class-box classlist">
+                <div class="middle-box">
+                    {if:'[class:name]' != '综艺'}
+                    <div class="vod-list-box left">
+                        <div class="box-title show1232">
+                            <div>
+                                <span class="name left">[class:name]</span>
+                                <a href="[class:link]" class="more right">更多&gt;</a>
+                            </div>
+                            <div class="show1232-class-fl-list hide1232">
+                                {ctcmstype:class2 table="class" field="id,name" where="fid=[class:id]" limit="15" order="xid asc"}
+                                <a href="[class2:link]">[class2:name]</a>
+                                {/ctcmstype:class2}
+                            </div>
+                        </div>
+                        <div class="box-title hide1232">
+                            <span class="name left">[class:name]</span>
+                            <a class="more left" href="[class:link]">更多&gt;</a>
+                            <div class="class-fl-list left">
+                                {ctcmstype:class3 table="class" field="id,name" where="fid=[class:id]" limit="15" order="xid asc"}<span class="split">●</span><a href="[class3:link]">[class3:name]</a>
+                                {/ctcmstype:class3}
+                            </div>
+                        </div>
+                        <div class="box-list">
+                            {ctcmstype:vod table="vod" field="id,name,pic,zhuyan,pf" where="cid=[class:id]" limit="6" order="addtime asc"}
+                            <div class="data">
+                                <div class="vod-img">
+                                    <a href="[vod:link]" style="background:url([vod:pic]) center/cover no-repeat"></a>
+                                </div>
+                                <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                <div class="text">[vod:zhuyan]</div>
+                            </div>
+                            {/ctcmstype:vod}
+                        </div>
+                    </div>
+                    <div class="vod-rank-box right hide1232">
+                        <div class="box-title">
+                            <span class="name left">排行</span>
+                            <a class="more right" href="{ctcms_url whole=[class:id]________hits}">更多&gt;</a>
+                        </div>
+                        <ul class="box-list">
+                            {ctcmstype:vod table="vod" field="id,name" where="cid=[class:id]" limit="10" order="addtime desc"}
+                            <li>
+                                {toif:[vod:i]<4}
+                                <i class="icon s20x20 number[vod:i]-icon"></i>
+                                {elseto}
+                                <li><i class="icon s_20x20">[vod:i]</i>
+                                {end toif}
+                                <a href="[vod:link]">[vod:name]</a></li>
+                            {/ctcmstype:vod}
+                        </ul>
+                    </div>
+                    {else}
+                    <div class="vod-list-box">
+                        <div class="box-title show1232">
+                            <div>
+                                <span class="name left">[class:name]</span>
+                                <a class="more right" href="[class:link]">更多&gt;</a>
+                            </div>
+                            <div class="show1232-class-fl-list">
+                                {ctcmstype:class2 table="class" field="id,name" where="fid=[class:id]" limit="15" order="xid desc"}
+                                <a href="[class2:link]">[class2:name]</a>
+                                {/ctcmstype:class2}
+                            </div>
+                        </div>
+                        <div class="box-title hide1232">
+                            <span class="name left">[class:name]</span>
+                            <a class="more left" href="[class:link]">更多&gt;</a>
+                            <div class="class-fl-list left">
+                                {ctcmstype:class3 table="class" field="id,name" where="fid=[class:id]" limit="15" order="xid asc"}<span class="split">●</span><a href="[class3:link]">[class3:name]</a>
+                                {/ctcmstype:class3}
+                            </div>
+                        </div>
+                        <div class="zy-box-list">
+                            {ctcmstype:vod table="vod" field="id,name,pic,zhuyan,pf" where="cid=[class:id]" limit="1" order="addtime desc"}
+                            <div class="big-data left hide1232">
+                                <div class="vod-img"><a href="[vod:link]" style="background:url([vod:pic]) center/cover no-repeat"></a></div>
+                                <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                <div class="text">[vod:zhuyan]</div>
+                            </div>
+                            {/ctcmstype:vod}
+                            <div class="small-list left">
+                                <div>
+                                    {ctcmstype:vod table="vod" field="id,name,pic,zhuyan,pf" where="cid=[class:id]" limit="1,10" order="addtime desc"}
+                                    <div class="data">
+                                        <div class="vod-img"><a href="[vod:link]" style="background:url([vod:pic]) center/cover no-repeat"></a></div>
+                                        <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                        <div class="text">[vod:zhuyan]</div>
+                                    </div>
+                                    {toif:[vod:i] == 5}</div><div>{end toif}
+                                    {/ctcmstype:vod}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {end if}
+                </div>
+            </div>
+            {/ctcms:class}
+            <div class="index-big-class-box" style="margin-bottom:20px">
+                <div class="middle-box">
+                    <div class="vod-list-box">
+                        <div class="box-title">
+                            <span class="name left">专题</span>
+                            <a class="more right" href="{ctcms_topiclink}">更多&gt;</a>
+                        </div>
+                        <div class="index-topic-list">
+                            {ctcms:topic table="topic" field="id,name,pic" where="" limit="8" order="id desc"}
+                            <div class="data">
+                                <a href="[topic:topiclink]" class="data-pic" style="background:url([topic:pic]) center/cover no-repeat">
+                                    <div class="pop">
+                                        <div class="absolute-center">
+                                            <p>[topic:name]</p>
+                                            <p>—— [topic:count zd=vod,id,ztid]个影片 ——</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {/ctcms:topic}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-box hide1232">
+                <div class="friends-link">
+                    友情链接：
+                    {ctcms:link table="link" field="id,name" where="" limit="100" order="id asc"}
+                    <a href="[link:url]" target="_bank">[link:name]</a> 
+                    {/ctcms:link}
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        $(function(){
+            $(".classlist").each(function(){
+                if($(this).find('.data').length == 0){
+                    $(this).remove();
+                }
+            });
+        });
+    </script>
+    {ctcms_bottom}
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<style type="text/css">
+    .qiandao{background: #0e90d2;color: #fff;padding: 5px 10px;font-size: 14px;border-radius: 3px;font-size:12px;}
+    .qiandao_ok{background: #f60;color: #fff;padding: 5px 10px;font-size: 14px;border-radius: 3px;font-size:12px;}
+    .qdtxt{color: #fff;text-shadow: 1px 1px 1px #5550;}
+</style>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;会员中心<a href="{ctcms_url user=logout}" style="float:right;color:#FFF;font-size:14px;">退出&nbsp;&nbsp;</a></h3>
+    {ctcms_left}
+    <div class="fr w70 txt-left bhr">
+      <p><a class="qiandao" href="javascript:;" title="点击签到，连续签到[user:qdday]天，累计签到[user:qdnum]天{if:[user:qdnum]>0}，上次签到时间：[user:qdtime style=Y-m-d H:i:s]{end if}">
+        <span style="color: #fff;margin-right: 10px;border-right: 1px solid #e4dada;padding-right: 10px;">[user:qdnum]</span><span class="qdtxt">点击签到</span></a></p>
+      <p>账号：[user:name]</p>
+      <!-- <p>邮箱：[user:email]</p>
+      <p>手机：[user:tel]</p> -->
+      <p>性别：{if:[user:sex]==1}男{elseif:[user:sex]==2}女{else}保密{end if}</p>
+      <p>级别：{if:[user:vip]==0}普通会员{else}<font color=red>Vip会员，到期时间：[user:viptime style=Y-m-d H:i:s]</font>{end if}</p>
+      <p>金币：[user:cion]个</p>
+      <p>分成金额:[user:rmb] 元</p>
+      <p>登录次数:[user:lognum]次</p>
+      <p>登录IP:[user:logip]</p>
+      <p>登录时间:[user:logtime style=Y-m-d H:i:s]</p>
+      <p>推广地址:<br>http://{ctcms_url}{ctcms_url user=reg/index/[user:id]}</p>
+    </div>
+</div>
+<script>
+$('#user').addClass('ons');
+$('#nav_1').addClass('on');
+$(function() {
+    $(".qiandao").live('click', function() {
+        $.get('{ctcms_url user=ajax/qd}', function(data) {
+            alert(data['str']);
+            if(data['zt']=='ok'){
+                window.location.reload();
+            } else if(data['zt']=='yes'){
+                $('.qiandao').addClass('qiandao_ok').removeClass('qiandao');
+                $('.qdtxt').html('今日已签到');
+            }
+        },'json');
+    });
+});
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

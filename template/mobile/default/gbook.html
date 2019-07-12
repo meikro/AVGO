@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>留言求片 - {ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/index.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_head}
+<div class="video-list">
+    <h3>&nbsp;&nbsp;留言求片</h3>	
+    <div style="padding:10px 6px;">	
+    <form action="{ctcms_formurl}" method="post" data-am-validator>    
+		<p><textarea placeholder="请不要求R级片，暂时不提供，求片前先搜素下是否存在，谢谢~"  name="content" style="width:90%;height:60px;" required></textarea></p>  
+		<p style="margin-top:10px;"><input type="text" name="code" style="width:60%;height:30px;" value="" placeholder="输入验证码" required><img src="{ctcms_codeurl}" style="margin-left:8px;width:80px;height:30px;vertical-align:middle;" onclick="this.src='{ctcms_codeurl}?temp='+ (new Date().getTime().toString(36)); return false"></p>     
+		<p style="margin-top:10px;"><button style="width:90px;height:30px;background:#F90;color:#fff;" type="submit" class="am-btn am-btn-default">提交留言</button></p>	 
+		<input name="name" type="hidden" value="游客">	 
+	</form>
+	</div>
+    <div class="clr"></div>
+</div>
+<div class="video-list">	
+    <h3>&nbsp;&nbsp;留言列表</h3>	
+    <div style="padding:10px 6px;">	  
+	{ctcms:gbook table="gbook" field="*" where="yid=0" page="15" order="addtime desc"}
+		<p style="color:#aaa;border-bottom:1px dashed #ddd;padding-bottom:5px;{if:[gbook:i]>1}padding-top:5px;{end if}">
+		[gbook:name]：[gbook:content]
+		{if:'[gbook:hfcontent]'!=''}<br><font color=red>站长：[gbook:hfcontent]</font>{end if}
+		</p>
+	{/ctcms:gbook}
+	</div>
+    <div class="clr"></div>
+</div>
+<div class="page-list">
+<ul>
+<li onclick="location.href='{ctcms_pagefirst}';">首页</li>
+<li onclick="location.href='{ctcms_pageup}';">上一页</li>
+<li id="pagemax"><label>{ctcms_pagelist}</label></li>
+<li onclick="location.href='{ctcms_pagedown}';">下一页</li>
+<li onclick="location.href='{ctcms_pagelast}';">尾页</li>
+</ul>
+<div class="clr"></div>
+</div>
+{ctcms_bottom}
+</body>
+</html>

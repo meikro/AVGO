@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/class_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <main>
+        <div class="container">
+            <div class="class-page-solid-box">
+            	<div class="huandeng">
+	                <ul>
+	                    {ctcms:vod table="vod" field="id,name,pic2" where="zid=1|cid={ctcms_cid}" limit="5" order="addtime desc"}
+	                    <li class="class-solid-data {if:[vod:i] == 1}active{end if}" {if:[vod:i] > 1}style="display:none"{end if}>
+	                        <a title="[vod:name]" href="[vod:link]" style="background:url([vod:pic2]) center /cover no-repeat"></a>
+	                    </li>
+	                    {/ctcms:vod}
+	                </ul>
+	                <i class="icon class-solid-left-icon solid-lf-icon" id="solidL"></i>
+	                <i class="icon class-solid-rigth-icon solid-lf-icon" id="solidR"></i>
+	                <div class="solid-bottom-icon">
+	                    {ctcms:vod table="vod" field="id" where="zid=1|cid={ctcms_cid}" limit="5" order="addtime desc"}
+	                    <a class="btn {if:[vod:i] == 1}active{end if}"></a>
+	                    {/ctcms:vod}
+	                </div>
+	            </div>
+                <div class="solid-bottom-link hide1232">
+                    <div class="middle-box">
+                        {ctcms:class table="class" field="id,name" where="fid={ctcms_cid}" limit="20" order="xid asc"}
+                        <a class="link" href="{ctcms_url whole=[class:id]}">[class:name]</a>
+                        {/ctcms:class}
+                    </div>
+                </div>
+            </div>
+		    <script>
+		    	if($('.huandeng ul li').length == 0){
+		    		$('.class-page-solid-box').height(56);
+		    		$('.huandeng').hide();
+		    	}
+		    </script>
+            <script src="{ctcms_indextemplets}/js/class_solid.js"></script>
+            <div class="index-big-class-box" style="margin-top:10px;">
+                <div class="middle-box">
+                    <div class="vod-list-box left">
+                        <div class="box-title show1232">
+                            <div class="show1232-class-fl-list">
+                                {ctcms:class table="class" field="id,name" where="fid={ctcms_cid}" limit="20" order="xid asc"}
+                                <a  href="{ctcms_url whole=[class:id]}">[class:name]</a>
+                                {/ctcms:class}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="class-page-class-group">
+                <div class="middle-box">
+                    {ctcms:class table="class" field="id,name" where="fid={ctcms_cid}" limit="20" order="xid asc"}
+                    <div class="class-page-data-box" id="clist_[class:i]"{if:[class:i] > 5} style="display:none;"{end if}>
+                        <div class="bog-class-title">
+                            <span class="title">[class:name]</span>
+                            <a class="more" href="{ctcms_url whole=[class:id]}">更多&gt;</a>
+                        </div>
+                        <div class="data-list big-list data6 class-list">
+                            {ctcmstype:vod table="vod" field="id,name,pic,cion,vip,pf,zhuyan" where="cid=[class:id]" limit="6" order="addtime desc"}
+                            <div class="data" title="[vod:name]">
+                                <div class="vod-img" style="background:url([vod:pic]) center/cover no-repeat">
+                                    {if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+                                    {if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                    <a href="[vod:link]"></a>
+                                </div>
+                                <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                <div class="text">[vod:zhuyan]</div>
+                            </div>
+                            {/ctcmstype:vod}
+                        </div>
+                    </div>
+                    {/ctcms:class}
+                    <div class="add-more-class" style="display:none;">
+                        <button class="add-more-btn">加载更多</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    <script>
+    	var p = 5;
+    	var len = $('.class-page-data-box').length;
+    	$('#nav_{ctcms_cid}').addClass('active');
+    	if(len > 5) $('.add-more-class').show();
+    	$('.add-more-class').click(function() {
+    		var end = p+5;
+    		if(end > len){
+    			end = len;
+    			$('.add-more-class').hide();
+    		}
+    		for (var i = p; i <= end; i++) {
+    			$('#clist_'+i).show();
+    		}
+    		p = end;
+    	});
+	</script>
+</body>
+</html>

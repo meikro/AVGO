@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-box-pop fixed-center">
+            <div class="pop-logo">
+                <i class="icon login-logo left"></i>
+                <span>找回密码</span>
+            </div>
+            <div class="input-group">
+                <form action="{ctcms_formurl}" method="post">
+                    <div class="group">
+                        <input type="text" id="email" name="email" id="doc-vld-name-2" class="input-col12" placeholder="输入邮箱" value="" required>
+                    </div>
+                    <div class="group" style="position: relative;">
+                        <input type="text" name="code" id="doc-vld-name-2" class="input-col12" placeholder="输入验证码" value="" required>
+                        <button id="code" type="button" style="position: absolute;top: 9px;right:2px;padding: 8px;background-color: #f60;color: #fff;">获取验证码</button>
+                    </div>
+                    <div class="group">
+                        <input type="password"  name="pass" id="doc-vld-pass-2" class="input-col12" placeholder="输入新密码" value="" required>
+                    </div>
+                    <div class="group">
+                        <button class="submit-btn" type="submit">确定修改</button>
+                    </div>
+                    <div class="group">
+                        <span class="go-login right"><a class="text-yellow" href="{ctcms_url user=reg}">去注册&gt;</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var t = 60;
+        var time = null;
+        $("#code").click(function () {
+            var email = $('#email').val();
+            if(email == ''){
+                alert('请填写您的邮箱~!');
+            }else{
+                $("#code").attr('disabled',true);
+                $.post('{ctcms_codeurl}', {email: email}, function(r) {
+                    if(r.code == 1){
+                        time = setinterval(function() {
+                            get_time();
+                        },1000);
+                    }else{
+                        $("#code").attr('disabled',false);
+                    }
+                    alert(r.msg);
+                },'json');
+            }
+        });
+        function get_time() {
+            t--;
+            if(t == 0){
+                $("#code").attr('disabled',false).html('获取验证码');
+                clearInterval(time);
+            }else{
+                $("#code").html(t+'秒后重发');
+            }
+        }
+    </script>
+</body>
+</html>

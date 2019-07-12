@@ -1,0 +1,224 @@
+<div class="mask"></div>
+<!-- 充值 -->
+<div class="cz-pop fixed-center" style="display:none;">
+    <div class="pop-title">
+        <div class="cz-title">
+            <div class="user-img left">
+                <a>
+                    <img class="user" src="[user:pic]">
+                </a>
+            </div>
+            <div class="info left">
+                <div><a class="name text-yellow">[user:nichen]</a></div>
+                <div></a>账户金币：<span class="text-yellow">[user:cion]个</span></div>
+            </div>
+        </div>
+        <i class="icon pop-cloce-icon" onclick="$('.cz-pop').hide();$('.mask').hide()"></i>
+    </div>
+    <div class="pop-body">
+        <div class="cz-tab-grou">
+            <a class="tab czvip active" data-page="p_1" onclick="tab(this)">充值VIP</a>
+            <a class="tab czcion" data-page="p_2" onclick="tab(this)">充值金币</a>
+            <a class="tab czcard" data-page="p_3" onclick="tab(this)">卡密激活</a>
+        </div>
+        <div class="tab-page">
+            <div id="p_1">
+                <div class="cz-select-group">
+                    <div class="group-title">选择VIP套餐</div>
+                    <div class="tc-list">
+                        <div class="data active vip-data" data-money="{ctcms_vip1}" onclick="$('.czvip_btn').attr('data-day','1');">
+                            <div class="number">1天</div>
+                            <div class="money">售价:￥{ctcms_vip1}</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data vip-data" data-money="{ctcms_vip30}" onclick="$('.czvip_btn').attr('data-day','30');">
+                            <div class="number">1个月</div>
+                            <div class="money">售价:￥{ctcms_vip30}</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data vip-data" data-money="{ctcms_vip180}" onclick="$('.czvip_btn').attr('data-day','180');">
+                            <div class="number">6个月</div>
+                            <div class="money">售价:￥{ctcms_vip180}</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data vip-data" data-money="{ctcms_vip365}" onclick="$('.czvip_btn').attr('data-day','365');">
+                            <div class="number">12个月</div>
+                            <div class="money">售价:￥{ctcms_vip365}</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cz-select-group" style="margin-bottom:76px;">
+                    <div class="group-title">选择支付方式</div>
+                    <div class="pay-type-list">
+                        <div class="data active" onclick="$('.czvip_btn').attr('data-sid','1');">
+                            <span><i class="icon zfb-icon left zf-icon"></i>支付宝支付</span>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data" onclick="$('.czvip_btn').attr('data-sid','2');">
+                            <span><i class="icon weixin-icon left zf-icon"></i>微信支付</span>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data" onclick="$('.czvip_btn').attr('data-sid','0');">
+                            <span><i class="icon yue-icon left zf-icon"></i>余额支付</span>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cz-select-group">
+                    <div class="group-title">共计：<span class="text-orange" id="vip_money">{ctcms_vip1}元</span></div>
+                    <div class="cz-submit">
+                        <div><button class="sumbit-btn czvip_btn" data-type="yue" data-sid="1" data-day="1">确定</button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="p_2" style="display:none">
+                <div class="cz-select-group">
+                    <div class="group-title">选择金币套餐</div>
+                    <div class="tc-list">
+                        <div class="data active coin-data" data-money="100" onclick="$('.czcion_btn').attr('data-rmb','100');">
+                            <div class="number" style="margin-top: 10px;margin-bottom: 0px;">￥100元</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data coin-data" data-money="200" onclick="$('.czcion_btn').attr('data-rmb','200');">
+                            <div class="number" style="margin-top: 10px;margin-bottom: 0px;">￥200元</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data coin-data" data-money="500" onclick="$('.czcion_btn').attr('data-rmb','500');">
+                            <div class="number" style="margin-top: 10px;margin-bottom: 0px;">￥500元</div>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data zdy-data">
+                            <div class="step_1">自定义</div>
+                            <div class="step_2" style="display:none">
+                                <input class="input-zdy" id="zdy_cion" type="text" value="1000" placeholder="输入金币数量" maxlength="5">
+                            </div>
+                            <div class="step_3" style="display:none">
+                                <div class="number" style="margin-top: 10px;margin-bottom: 0px;">￥1000元</div>
+                                <i class="icon already-select-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cz-select-group" style="margin-bottom:76px;">
+                    <div class="group-title">选择支付方式</div>
+                    <div class="pay-type-list">
+                        <div class="data active" onclick="$('.czcion_btn').attr('data-sid','1');">
+                            <span><i class="icon zfb-icon left zf-icon"></i>支付宝支付</span>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                        <div class="data" onclick="$('.czcion_btn').attr('data-sid','2');">
+                            <span><i class="icon weixin-icon left zf-icon"></i>微信支付</span>
+                            <i class="icon already-select-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cz-select-group">
+                    <div class="group-title">共计：<span class="text-orange" id="coin_money">100元</span></div>
+                    <div class="cz-submit">
+                        <div><button class="sumbit-btn czcion_btn" data-type="cion" data-rmb="100" data-sid="1">确定</button></div>
+                        <div class="tip">温馨提示：1元=<a style="color:red;"> {ctcms_rmbtocion} </a>个金币</div>
+                    </div>
+                </div>
+            </div>
+            <div id="p_3" style="display:none">
+                <div class="cz-input-group">
+                    <span class="g-name">充值卡账号:</span>
+                    <input id="card_ka" class="input-col12" type="text" placeholder="请输入卡号" value="">
+                </div>
+                <div class="cz-input-group">
+                    <span class="g-name">充值卡密码:</span>
+                    <input id="card_pass" class="input-col12" type="text" placeholder="请输入卡密" value="">
+                </div>
+                <div class="cz-input-group">
+                    <button class="submit-btn czcard_btn">确定</button>
+                </div>
+            </div>
+            <script>
+                $(".tc-list .data").click(function(){
+                    if($(this).hasClass("zdy-data")){
+                        $(".step_2").show().siblings().hide();
+                        $("#zdy_cion").focus();
+                    }else{
+                        $(this).addClass("active").siblings(".data").removeClass("active");
+                        if($(this).hasClass("vip-data")){
+                            $("#vip_money").html($(this).attr("data-money")+"元");
+                        }else if($(this).hasClass("coin-data")){
+                            $("#coin_money").html($(this).attr("data-money")+"元");
+                        }
+                    }
+                });
+                $(".pay-type-list .data").click(function(){
+                    $(this).addClass("active").siblings(".data").removeClass("active");
+                });
+                $("#zdy_cion").blur(function(){
+                    var dhcion = {ctcms_rmbtocion};
+                    if($(this).val()==""){
+                        $(".step_1").show().siblings().hide();
+                        $('.czcion_btn').attr('data-rmb','0');
+                    }else{
+                        $(".step_3").show().siblings().hide();
+                        $(".step_3").children(".number").html($(this).val()+"元")
+                        $("#coin_money").html($(this).val()+"元");
+                        $(".tc-list .zdy-data").addClass("active").siblings(".data").removeClass("active");
+                        $('.czcion_btn').attr('data-rmb',$(this).val());
+                    }
+                });
+                $('.czvip_btn,.czcion_btn').click(function() {
+                    var type = $(this).attr('data-type');
+                    var sid = $(this).attr('data-sid');
+                    if(type == 'yue'){
+                        var rmb = 0;
+                        var day = $(this).attr('data-day');
+                        if(day == 0){
+                            ty_tip('请选择升级期限!!!',2);
+                            return;
+                        }
+                    }else{
+                        var day = 0;
+                        var rmb = $(this).attr('data-rmb');
+                        if(rmb == 0){
+                            ty_tip('请选择充值金额!!!',2);
+                            return;
+                        }
+                    }
+                    if(sid == 0){
+                        $.post(links('user','pay','save'), {type: type,sid: sid,day: day,rmb: rmb}, function(r) {
+                            if(r.code == 0){
+                                ty_tip(r.msg,2);
+                            }else{
+                                ty_tip(r.msg,1);
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1500);
+                            }
+                        },'json');
+                    }else{
+                        window.location.href = links('user','pay','save','type='+type+'&sid='+sid+'&day='+day+'&rmb='+rmb);
+                    }
+                });
+                $('.czcard_btn').click(function() {
+                    var kh = $('#card_ka').val();
+                    var pass = $('#card_pass').val();
+                    if(kh == ''){
+                        ty_tip('请填写卡号!!!',2);
+                        $("#card_ka").focus();
+                    }else if(pass == ''){
+                        ty_tip('请填写卡密!!!',2);
+                        $("#card_pass").focus();
+                    }else{
+                        $.post(links('user','pay','card_save'), {kh: kh,pass: pass}, function(r) {
+                            if(r.code == 0){
+                                ty_tip(r.msg,2);
+                            }else{
+                                ty_tip(r.msg,1);
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1500);
+                            }
+                        },'json');
+                    }
+                });
+            </script>
+        </div>
+    </div>

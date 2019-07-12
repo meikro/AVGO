@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';var page_name='xfjl'</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container" id="b">
+                {ctcms_left}
+                    <div class="center-page-content left">
+                        <div style="overflow:auto">
+                            <div class="center-page-content-tab">
+                                    <a class="tab " data-page="p2" href="{ctcms_url user=buy}">金币记录</a>
+                                    <a class="tab" data-page="p1" href="{ctcms_url user=pay/lists}">VIP记录</a>
+                                    <a class="tab" data-page="p3" href="{ctcms_url user=pay/cardlists}">卡密记录</a>
+                                    <a class="tab active" data-page="p4" href="{ctcms_url user=buy}">打赏记录</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="table-page" id="p4">
+                                <div class="center-page-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="center hide1232">头像</th>
+                                                <th>用户</th>
+                                                <th>标题</th>
+                                                <th class="hide1232">打赏时间</th>
+                                                <th>礼物数量</th>
+                                                <th class="center hide1232">打赏的礼物</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {ctcms:liwu_list table="liwu_list" field="*" where="" page="15"  order="addtime desc"}
+                                            <tr>
+                                                <td class="center hide1232"><a><img class="user-pic" src="[liwu_list:zdy zd=user,pic,uid]"></a></td>
+                                                <td>[liwu_list:zdy zd=user,nichen,uid]</td>
+                                                <td><a href="[liwu_list:zdy zd=vod,link,uid]" target="_blank">[liwu_list:zdy zd=vod,name,did]</a></td>
+                                                <td class="hide1232">[liwu_list:addtime]</td>
+                                                <td>[liwu_list:num]</td>
+                                                <td class="center hide1232"><img class="gift" src="[liwu_list:zdy zd=liwu,pic,lid]"></td>
+                                            </tr>
+                                            {/ctcms:liwu_list}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="fy-box" style="padding-top:40px;padding-bottom:40px;">
+                                        {if:{ctcms_page}>=2}
+                                        <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                                        {toif:{ctcms_page}>=7}
+                                        <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                                        {end toif}
+                                        {end if}
+                                        {ctcms_pagenum_7}
+                                        {if:{ctcms_page}<{ctcms_pagejs}}
+                                        <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                                        {end if}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+	</div>
+    {ctcms_indexbottom}
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;我的下线<a href="{ctcms_url user=index}" style="float:right;color:#FFF;font-size:14px;">返回&nbsp;&nbsp;</a></h3>
+    <p>三级分销推广地址：</p>
+    <p><input type="text" name="shareurl" value="http://{ctcms_url}{ctcms_url user=reg/index/[user:id]}" style="width: 100%;line-height: 20px;height: 20px;padding-left: 10px;border: 1px solid #333;"></p>
+    <table class="lists" style="margin-top:10px">
+            <thead>
+                <tr>
+                    <th>会员ID</th>
+                    <th>充值总金额</th>
+                    <th>加入时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+{ctcms:user table="user" field="*" page="15" order="regtime desc"}
+                  <tr>
+                    <td>[user:id]</td>
+                    <td>[user:sum zd=pay,id,uid,rmb,pid,1]元</td>
+                    <td>[user:regtime style=Y-m-d H:i:s]</td>
+                    <td><a href="javascript:fenxiao('[user:name]');">分销记录</td>
+                </tr>
+{/ctcms:user}
+            </tbody>
+    </table>
+    <p style="text-align: center;margin-top:10px;float: left;width: 100%;">
+        <a href="{ctcms_pageup}">&laquo;上一页</a>&nbsp;&nbsp;
+        {ctcms_pagelist}&nbsp;&nbsp;
+        <a href="{ctcms_pagedown}">下一页&raquo;</a>
+    </p>
+</div>
+<script>
+$('#user').addClass('ons');
+var fxlink = '{ctcms_url user=fenxiao/lists}';
+function fenxiao(name) {
+    if(fxlink.indexOf('?') >= 0){
+        window.location.href= fxlink+"&user="+name; 
+    }else{
+        window.location.href= fxlink+"?user="+name; 
+    }
+}
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

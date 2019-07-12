@@ -1,0 +1,76 @@
+<div class="nav-no-login left">
+    <i class="icon s30x27 index-user-icon"></i>
+    <!-- <div class="text"><a class="href" onclick="$('.mask').show();$('#loginPop').show()">登录</a>|<a class="href" href="{ctcms_url user=reg}" target="_bank">注册</a></div> -->
+    <div class="text"><a class="href" id="login">登录</a>|<a class="href" id="register">注册</a></div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        // var html = '<div class="info-box"><div class="btn"><a href="{ctcms_url user=reg}"><button class="yellow">注册</button></a><a href="{ctcms_url user=login}"><button class="gray">登陆</button></a></div></div>';
+        var html =
+            '<div class="info-box"><div class="btn"><a href="http://uatm.ag288.com/register.html?min=true" id="mobile_register"><button class="yellow">注册</button></a><a href="javascript:;" id="mobile_login"><button class="gray">登录</button></a></div></div>';
+        $('.nav-user-box').html(html);
+        var login = function () {
+            $.ajax({
+                url: '/index.php?d=user&c=ajax&m=token',
+                type: 'post',
+                data: {
+                    token: localStorage.getItem('token')
+                },
+                success: function (res) {
+                    res = JSON.parse(res)
+                    if (res.code - 0 === 200) {
+                        layer.closeAll('iframe')
+                        layer.msg('登录成功！', {
+                            time: 1000
+                        }, function () {
+                            location.reload()
+                        })
+
+                    }
+                }
+            })
+        }
+        var action
+        $('#login, #mobile_login').on('click', function (e) {
+            action = 'login'
+            var area = $(this)[0].id==='mobile_login'?['100%', '100%']:['750px', '550px']
+            layer.open({
+                type: 2,
+                area: area,
+                fixed: false, //不固定
+                maxmin: true,
+                content: 'http://uat.ag288.com/login_reg/index.html?min=true&action=login'
+            });
+        })
+        $('#register').on('click', function () {
+            action = 'register'
+            layer.open({
+                type: 2,
+                area: ['750px', '550px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: 'http://uat.ag288.com/login_reg/index.html?min=true&action=register'
+            });
+        })
+
+        window.addEventListener('message', function (event) {
+            console.log(event)
+            if (action === 'login') {
+                if (event.data.token) {
+                    //此处执行事件
+                    token = event.data.token;
+                    localStorage.setItem('token', token); //或者cookie
+                    login()
+                }
+            } else if (action === 'register') {
+                layer.closeAll('iframe')
+                layer.msg('注册成功！', {
+                    time: 1000
+                }, function () {
+                    location.reload()
+                })
+            }
+
+        })
+    });
+</script>

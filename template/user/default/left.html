@@ -1,0 +1,86 @@
+        <div class="center-page">
+                <div class="center-page-container-nav1232 show1232" id="center_xs_nav">
+                    <div class="ul">
+                        <a class="tab1232 active" href="{ctcms_url user=index}">个人中心</a>
+                        <a class="tab1232" href="{ctcms_url user=edit}">修改资料</a>
+                        <!-- <a class="tab1232" href="{ctcms_url user=vod}">我的视频</a>
+                        <a class="tab1232" href="{ctcms_url user=comm}">我的文章</a> -->
+                        <!-- <a class="tab1232" href="{ctcms_url user=pay}">充值会员</a> -->
+                        <a class="tab1232" href="{ctcms_url user=pay/lists}">充值记录</a>
+                        <!-- <a class="tab1232" href="{ctcms_url user=fenxiao}">我的分销</a>
+                        <a class="tab1232" href="{ctcms_url user=tixian}">佣金提现</a> -->
+                    </div>
+                </div>
+                <div class="center-page-head-box hide1232">
+                    <div class="user-box left">
+                        <div class="user-img">
+                            <a><img class="img" src="[user:pic]"></a>
+                        </div>
+                        <div class="user-name"><span class="center"><a class="nichen left">[user:nichen]</a><i class="icon vip-small-icon left{if:[user:vip] == 1} active{end if}"></i><i class="icon coin-icon left"></i>[user:cion]个</span></div>
+                        <div class="vip-time">{if:[user:vip] == 1}会员到期：[user:viptime style=Y-m-d]{else}加入时间：[user:regtime style=Y-m-d]{end if}</div>
+                    </div>
+                    <div class="cz-box left">
+                        <!-- <div class="middle-line absolute-center"></div>
+                        <div class="middle-line absolute-center er"></div> -->
+                        <div class="col6">
+                            <div class="icon-box"><i class="icon s48x39 vip48x39-icon{if:[user:vip] == 1} active{end if}"></i></div>
+                            <div><button class="kt-vip-btn kt-btn">{if:[user:vip] == 0}立即开通{else}立即续期{end if}</button></div>
+                        </div>
+                        <!-- <div class="col6">
+                            <div class="icon-box"><i class="icon s48x39 coin48x39-icon{if:[user:cion] > 0} active{end if}"></i></div>
+                            <div>
+                                <button class="cz-coin-btn kt-btn">立即充值</button>
+                            </div>
+                        </div>
+                        <div class="col6">
+                            <div class="icon-box"><i class="icon s48x39 card"></i></div>
+                            <div>
+                                <button class="cz-card-btn kt-btn">立即激活</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="center-page-container-box">
+                    <div class="center-page-container-nav left hide1232">
+                        <ul id="center_nav">
+                            <li class="tab" page-name="grzx"><a href="{ctcms_url user=index}"><i class="icon s23x22 grzx-icon left active"></i>个人中心</a></li>
+                            <li class="tab" page-name="xgzl"><a href="{ctcms_url user=edit}"><i class="icon s23x22 xgzl-icon left"></i>修改资料</a></li>
+                            <!-- <li class="tab" page-name="spscc"><a href="{ctcms_url user=vod}"><i class="icon s23x22 spsc-icon left"></i>我的视频</a></li>
+                            <li class="tab" page-name="wdwz"><a href="{ctcms_url user=comm}"><i class="icon s23x22 wzsc-icon left"></i>我的文章</a></li> -->
+                            <!-- <li class="tab" page-name="czhy"><a href="{ctcms_url user=pay}"><i class="icon s23x22 czhy-icon left"></i>充值会员</a></li> -->
+                            <li class="tab" page-name="xfjl"><a href="{ctcms_url user=pay/lists}"><i class="icon s23x22 xfjl-icon left"></i>充值记录</a></li>
+                            <!-- <li class="tab" page-name="wdfx"><a href="{ctcms_url user=fenxiao}"><i class="icon s23x22 wdfx-icon left"></i>我的分销</a></li>
+                            <li class="tab" page-name="yjtx"><a href="{ctcms_url user=tixian}"><i class="icon s23x22 yjtx-icon left"></i>佣金提现</a></li> -->
+                        </ul>
+                    </div>
+                    <script>
+                        var type = 1;
+                        $(function () {
+                            left_nav();
+                            $(".center-page-container-nav").css("height", $(".center-page-container-box").height());
+                            //充值升级
+                            $('.kt-vip-btn').click(function() {
+                                // type = 2;
+                                // $('.cz-pop').show();
+                                // $('.mask').show();
+                                // tab('.czvip');
+                                
+                                var token = localStorage.getItem('token')
+                                window.open('http://uat.ag288.com/ucenter/pay/payIndex/?min=true&token='+token, '_blank')
+                            });
+                            $('.cz-coin-btn').click(function() {
+                                $('.cz-pop').show();
+                                $('.mask').show();
+                                tab('.czcion');
+                            });
+                            $('.cz-card-btn').click(function() {
+                                $('.cz-pop').show();
+                                $('.mask').show();
+                                tab('.czcard');
+                            });
+                        });
+                        $(".center-page-container-box").resize(function () {
+                            $(".center-page-container-nav").css("height", $(".center-page-container-box").height());
+                        });
+                    </script>
+                    

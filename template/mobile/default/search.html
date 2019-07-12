@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/index.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_head}
+<div class="video-list">
+<h3>  关键词 ”{ctcms_key}“ 结果 > </h3>
+<ul>
+{ctcms:vod table="vod" field="id,cid,name,pic,info,state" where="" page="15" order="addtime desc"}
+<li><a href="[vod:link]"><b>{if:[vod:cid]==2}[vod:state]{elseif:'[vod:info]'==''}高清{else}[vod:info]{end if}</b><img src="[vod:pic]" /><span>[vod:name]</span></a></li>
+{/ctcms:vod}
+</ul>
+<div class="clr"></div>
+</div>
+<div class="page-list">
+<ul>
+<li onclick="location.href='{ctcms_pagefirst}';">首页</li>
+<li onclick="location.href='{ctcms_pageup}';">上一页</li>
+<li id="pagemax"><label>{ctcms_pagelist}</label></li>
+<li onclick="location.href='{ctcms_pagedown}';">下一页</li>
+<li onclick="location.href='{ctcms_pagelast}';">尾页</li>
+</ul>
+<div class="clr"></div>
+</div>
+
+{ctcms_bottom}
+</body>
+</html>

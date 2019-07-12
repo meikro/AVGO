@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}',page_name='xfjl'</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container" id="b">
+                {ctcms_left}
+                    <div class="center-page-content left">
+                        <div style="overflow:auto">
+                            <div class="center-page-content-tab">
+                                <a class="tab" href="{ctcms_url user=pay/lists}">VIP记录</a>
+                                <a class="tab active" href="{ctcms_url user=pay/cardlists}">卡密记录</a>
+                                <a class="tab" href="{ctcms_url user=buy/gift}">打赏记录</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="table-page" id="p3">
+                                <div class="center-page-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>卡号</th>
+                                                <th class="hide1232">卡密</th>
+                                                <th>类型</th>
+                                                <th>数量</th>
+                                                <th class="hide1232">购买时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {if:'{ctcms_pagenum}'=='0'}<tr><td colspan="5" style="text-align: center;padding-top:30px;">暂无记录!</td></tr>{end if}
+                                            {ctcms:card table="card" field="*" where="" page="12"  order="totime desc"}
+                                            <tr>
+                                                <td>[card:kh]</td>
+                                                <td class="hide1232">[card:pass]</td>
+                                                <td>{if:[card]:cid]==1}金币卡{else}会员卡{end if}</td>
+                                                <td>[card:cion]个</td>
+                                                <td class="hide1232">[card:totime style=Y-m-d]</td>
+                                            </tr>
+                                            {/ctcms:card}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="fy-box" style="padding-top:40px;padding-bottom:40px;{if:{ctcms_page}<2}display: none;{end if}">
+                                        {if:{ctcms_page}>=2}
+                                        <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                                        {toif:{ctcms_page}>=7}
+                                        <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                                        {end toif}
+                                        {end if}
+                                        {ctcms_pagenum_7}
+                                        {if:{ctcms_page}<{ctcms_pagejs}}
+                                        <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                                        {end if}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    </div>
+    {ctcms_indexbottom}
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<div class="user">
+    <form action="{ctcms_formurl}" method="post" data-am-validator>
+      <h3>&nbsp;&nbsp;会员注册<a href="{ctcms_url user=login}" style="float:right;color:#FFF;text-shadow:none;">登录&nbsp;&nbsp;</a></h3>
+      <div class="input">
+        <label>账 号：</label>
+        <input type="text" name="name" placeholder="输入账号" required/>
+      </div>
+      <div class="input">
+        <label>密 码：</label>
+        <input name="pass" type="password" placeholder="输入密码" required/>
+      </div>
+      <div class="input">
+        <label>邮 箱：</label>
+        <input type="text" name="email" placeholder="输入邮箱" required/>
+      </div>
+      <div class="input">
+        <label>验证码：</label>
+        <input type="text" name="code" placeholder="输入下面的验证码" required/>
+      </div>
+      <div class="input">
+        <label>&nbsp;</label>
+        <img id="codes" src="{ctcms_codeurl}" onclick="get_code();return false">
+      </div>
+      <div class="input">
+        <label>&nbsp;</label>
+        <button type="submit" class="btn">确定注册</button>
+      </div>
+    </form>
+    <h3 style="margin-bottom:0;font-size:14px;">&nbsp;&nbsp;使用第三方账号登录</h3>
+    <p style="margin-bottom:30px;margin-top:10px;text-align: center;">
+        <a href="{ctcms_qqlink}" style="margin-right: 20px;">QQ登录</a>
+        <a href="{ctcms_wxlink}">微信登录</a>
+    </p>
+</div>
+<script>
+$('#user').addClass('ons');
+function get_code() {
+  var url = "{ctcms_codeurl}";
+  var times = (new Date().getTime().toString(36));
+  if(url.indexOf("?")!=-1){
+        var newurl = url+'&t='+times;
+  }else{
+        var newurl = url+'?t='+times;
+  }
+  $('#codes').attr('src',newurl);
+}
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

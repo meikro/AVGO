@@ -1,0 +1,155 @@
+.vod-demand-page {
+  width: 1232px;
+  margin: 0 auto;
+  padding: 36px 0 40px 0;
+}
+
+.demand-page-box {
+  background-color: #ffffff;
+  border: solid 1px #d2d2d2;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.demand-page-box .box-title {
+  margin-bottom: 30px;
+}
+
+.demand-page-box .box-title .title {
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 18px;
+  color: #333;
+  border-left: solid 4px #f2a506;
+}
+
+.demand-page-box .vod-demand-input-group {
+  border-top: solid 1px #e0e0e0;
+  padding-top: 50px;
+  color: #333333;
+}
+
+.demand-page-box .vod-demand-input-group .group {
+  margin-bottom: 20px;
+}
+
+.demand-page-box .vod-demand-input-group .group .group-name {
+  width: 70px;
+  margin-right: 20px;
+  line-height: 56px;
+}
+
+.demand-page-box .vod-demand-input-group .group .input-col12 {
+  display: block;
+  box-sizing: border-box;
+  width: 630px;
+  height: 56px;
+  border: solid 1px #d2d2d2;
+  padding: 0 20px;
+}
+
+.demand-page-box .vod-demand-input-group .group .textarea-col12 {
+  display: block;
+  box-sizing: border-box;
+  width: 630px;
+  height: 200px;
+  border: solid 1px #d2d2d2;
+  padding: 20px;
+}
+
+.demand-page-box .vod-demand-input-group .group .input-col6 {
+  display: block;
+  box-sizing: border-box;
+  width: 300px;
+  height: 56px;
+  border: solid 1px #d2d2d2;
+  padding: 0 20px;
+}
+
+.demand-page-box .vod-demand-input-group .group .input-col12:focus,
+.demand-page-box .vod-demand-input-group .group .textarea-col12:focus,
+.demand-page-box .vod-demand-input-group .group .input-col6:focus {
+  border: solid 1px #f2a506;
+}
+
+.demand-page-box .vod-demand-input-group .group .yzm {
+  width: 120px;
+  height: 56px;
+  background-color: #e0e0e0;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.demand-page-box .vod-demand-input-group .group .submit-btn {
+  width: 130px;
+  height: 60px;
+  background-color: #f2a506;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.demand-page-box .vod-demand-input-group .group .submit-btn:hover {
+  background-color: #f28606;
+}
+
+.demand-page-box .leave-word-box .data {
+  padding-top: 36px;
+  padding-bottom: 40px;
+  border-bottom: solid 1px #d2d2d2;
+}
+
+.demand-page-box .leave-word-box .data .user-pic {
+  width: 50px;
+}
+
+.demand-page-box .leave-word-box .data .user-pic .pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.demand-page-box .leave-word-box .data .info-box {
+  width: 1092px;
+}
+
+.demand-page-box .leave-word-box .data .info-box .name {
+  font-size: 14px;
+  line-height: 15px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.demand-page-box .leave-word-box .data .info-box .name .nichen {
+  color: #333;
+  margin-right: 20px;
+}
+
+.demand-page-box .leave-word-box .data .info-box .text {
+  color: #999999;
+  line-height: 24px;
+}
+
+.demand-page-box .leave-word-box .data .info-box .hf {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.demand-page-box .leave-word-box .data .info-box .hf .icon {
+  position: absolute;
+  left: 18px;
+  top: -11px;
+}
+
+.demand-page-box .leave-word-box .tip-box {
+  text-align: center;
+  line-height: 70px;
+  color: #333333;
+}
+
+.demand-page-box .leave-word-box .tip-box a:hover {
+  color: #f2a506;
+}

@@ -1,0 +1,39 @@
+{ctcms:pl table="pl" where="fid=0" page="15" order="addtime desc"}
+    <div class="pl-data" id="reply[pl:id]">
+        <div class="pl-user-img left">
+            <a><img class="img" src="[pl:zdy zd=user,pic,uid]"></a>
+        </div>
+        <div class="pl-content-box">
+            <div class="name"><a>[pl:zdy zd=user,nichen,uid]</a>&nbsp;留言于 [pl:addtime style=Y-m-d H:i:s]</div>
+            <div class="pl-content">
+                [pl:text]
+            </div>
+            <div class="hf-btn-box">
+                <a class="hf-btn right" data-hfid="[pl:id]" data-hfuser="[pl:zdy zd=user,nichen,uid]"><i class="icon hf-icon left"></i>回复</a>
+                {if:'[pl:uid]'=='{ctcms_uid}'}
+                <a onclick="get_pl_del('{pl_dellink}','[pl:id]')" class="right" style="margin-right:20px;"><i class="icon s18x17 delete18x17-icon left"></i> 删除</a>
+                {end if}
+            </div>
+            <div class="hf-input-box"></div>
+            <div class="hf-list"{if:[pl:count zd=pl,id,fid] == 0} style="display: none;"{end if}>
+                <div>
+                    {ctcmstype:pllist table="pl" where="fid=[pl:id]" order="addtime asc"}
+                    <div class="hf-data" id="reply[pllist:id]">
+                        <div class="pl-content">
+                            [pllist:text]
+                        </div>
+                        <div class="hf-btn-box">
+                            <span class="time">[pllist:addtime style=Y-m-d H:i:s]</span>
+                            <a class="hf-btn right" data-hfid="[pl:id]" data-hfuser="[pllist:zdy zd=user,nichen,uid]"><i class="icon hf-icon left"></i>回复</a>
+                            {if:'[pllist:uid]'=='{ctcms_uid}'}
+                            <a onclick="get_pl_del('{pl_dellink}','[pllist:id]')" class="right" style="margin-right:20px;"><i class="icon s18x17 delete18x17-icon left"></i> 删除</a>
+                            {end if}
+                        </div>
+                        <div class="hf-input-box"></div>
+                    </div>
+                    {/ctcmstype:pllist}
+                </div>
+            </div>
+        </div>
+    </div>
+    {/ctcms:pl}

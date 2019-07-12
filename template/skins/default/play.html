@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/detail_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/bf.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/phone_add.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/js/jQuery-pane/reset.css">
+    <script src="{ctcms_indextemplets}/js/jQuery-pane/zUI.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <script>
+        var fid = '[vod:zdy zd=class,fid,cid]';
+        if(fid == '0') fid = [vod:cid];
+        $('#nav_'+fid).addClass('active');
+    </script>
+    <main>
+        <div class="container">
+            <div class="vod-bf-page">
+                <div class="middle-box wapvod">
+                    <div class="bf-page-box">
+                        <div class="bfq-box left" id="bf_box">
+                            <div class="bfq">
+                                <div class="show1232" style="padding-bottom:56.25%"></div>
+                                <i class="icon show-big-vod-icon hide1232"></i>
+                                <div class="vod">
+                                    {ctcms_player}
+                                </div>
+                                <div class="tm-pop"></div>
+                            </div>
+                            <div class="vod-cz-box">
+                                <div class="left">
+                                    <div class="cz-group">
+                                        <a class="group hover-icon sc vod_fav"><i class="icon s18x18 vod-sc-icon left"></i>收藏</a>
+                                        <div class="group hover-icon to-share hide1232">
+                                            <i class="icon s18x18 vod-share-icon left"></i>分享
+                                            <div class="share-box">
+                                                <div class="share-list-box bdsharebuttonbox">
+                                                    <i class="icon share-sanjiao-icon"></i>
+                                                    <span class="left">分享至：</span>
+                                                    <a href="#none" class="bds_sqq s20x19-a" data-cmd="sqq" title="分享到QQ好友"><i class="icon s20x19 share-qzone-icon"></i></a>
+                                                    <a href="#none" class="bds_qzone s20x19-a" data-cmd="qzone" title="分享到QQ空间"><i class="icon s20x19 share-qq-icon"></i></a>
+                                                    <a href="#none" class="bds_weixin s20x19-a" data-cmd="weixin" title="分享到微信"><i class="icon s20x19 share-wechat-icon"></i></a>
+                                                    <a href="#none" class="bds_tqq s20x19-a" data-cmd="tqq" title="分享到腾讯微博"><i class="icon s20x19 share-friendsquare-icon"></i></a>
+                                                    <a href="#none" class="bds_tsina s20x19-a" data-cmd="tsina" title="分享到新浪微博"><i class="icon s20x19 share-weibo-icon"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="group hover-icon to-share show1232" onclick="$('.bottom-share-box,.mask').show();$('body').addClass('body-fixed')">
+                                            <i class="icon s18x18 vod-share-icon left"></i>分享
+                                        </div>
+                                        <a class="group hover-icon" onclick="$('#vodBC').show();$('.mask').show();$('body').addClass('body-fixed')"><i class="icon s18x18 vod-bc-icon left"></i>报错</a>
+                                        <div class="group hover-icon show-ewm-group hide1232">
+                                            <i class="icon s18x18 vod-phone-icon left"></i>手机看
+                                            <div class="hover-box">
+                                                <div class="ewm-box">
+                                                    <i class="icon box-top-sanjiao-icon"></i>
+                                                    <div class="ewm-list">
+                                                        <div class="data">
+                                                            <img class="ewm" src="">
+                                                            <p>浏览手机版网页</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="group hover-icon show1232 vod_zan"><i class="icon s16x17 vod-dz-icon left"></i>喜欢</a>
+                                        <a class="group hover-icon hide1232" href="{ctcms_slink}"><i class="icon s18x18 vod-next-icon left"></i>上一集</a>
+                                        <a class="group hover-icon hide1232" href="{ctcms_xlink}"> <i class="icon s18x18 vod-before-icon right" style="margin-right:0;margin-left:20px;"></i>下一集</a>
+                                    </div>
+                                </div>
+                                <!--div class="right hide1232">
+                                    <div class="input-tm right">
+                                        <input class="tm-text left" type="text" value="">
+                                        <a class="submit-tm left">发送</a>
+                                        <div class="login-tip"><a class="text-yellow">登录</a>一起吐槽吧~</div>
+                                    </div>
+                                    <div class="tm-kg right" onclick="iconAddActiveClass(this)">
+                                        <i class="icon dm-icon left"></i>
+                                        <span>弹幕</span>
+                                    </div>
+                                </div-->
+                            </div>
+                        </div>
+                        <div class="bf-list-box right hide1232">
+                            <div class="bf-list-box-container">
+                                <div class="vod-name">[vod:name]</div>
+                                <div class="bf-resour-solid">
+                                    <i class="icon bfy-left-icon" id="line_l"></i>
+                                    <i class="icon bfy-right-icon" id="line_r"></i>
+                                    <div class="bf-resour-list-box">
+                                        <div class="bf-resour-list">
+                                            {ctcms_zu}
+                                            <div class="data zu_{xu}" data-page="l{xu}" onclick="tab(this)">{name}</div>
+                                            {/ctcms_zu}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="jiall">
+                                    {ctcms_zu}
+                                    <div id="l{xu}" class="zu-list" {if:{xu}!=1}style="display: none" {end if} data-ji="[vod:ji]" data-js="{count}">
+                                        <div class="vod-ji-tab"></div>
+                                        <div class="ji-list">
+                                            {ctcms_ji}
+                                            <a class="ji ji_{zu}_{xu}" href="{link}">{name}</a>
+                                            {/ctcms_ji}
+
+                                        </div>
+                                    </div>
+                                    {/ctcms_zu}
+                                </div>
+                                <script>
+                                    $(function(){
+									    $('.bf-resour-list .data,.ji-list .ji').removeClass('active');
+										$('.zu_[vod:zu],.ji_[vod:zu]_[vod:ji]').addClass('active');
+										$('.zu-list').hide();
+										$('#l[vod:zu]').show();
+                                        $(".zu-list").each(function(index){
+                                            let count = $(this).attr("data-js");//总集数
+                                            let ji = $(this).attr("data-ji");//当前集数
+                                            let p = 1;//页数
+                                            let dq_p = 1;//当前集所属页数
+                                            let strxu = '';
+                                            let strj = '';
+                                            if(count%12 == 0){
+                                                p = parseInt(count/12);
+                                            }else{
+                                                p = parseInt(count/12) + 1;
+                                            }
+                                            if(ji%12 == 0){
+                                                dq_p = parseInt(ji/12);
+                                            }else{
+                                                dq_p= parseInt(ji/12) + 1;
+                                            }
+                                            if(count == 1){
+                                                strxu='<span class="active" data-page="p1_'+index+'" onclick="tab(this)">1</span>'
+                                                strj +='<div id="p1_'+index+'">'+$(this).children(".ji-list").html()+'</div>';
+                                            }else{
+                                                for(let i=1;i<=p;i++){
+                                                    strxu += '<span data-page="p'+i+'_'+index+'" onclick="tab(this)" ';
+                                                    strj += '<div id="p'+i+'_'+index+'"';
+                                                    if(i==dq_p){
+                                                        strxu +='class="active"'
+                                                    }
+                                                    if(i!=dq_p){
+                                                        strj +='style="display:none">';
+                                                    }else{
+                                                        strj +='>';
+                                                    }
+                                                    strxu += '>'+parseInt((i-1)*12+1)+'-';
+                                                    if(i==p){
+                                                        strxu += count+'</span>'
+                                                    }else{
+                                                        strxu += parseInt(i*12)+'</span>'
+                                                    }
+                                                    $(this).children(".ji-list").children(".ji").each(function(index,value){
+                                                        if((index+1) > parseInt((i-1)*12) && index < parseInt(i*12)){
+                                                            strj += $(this).prop("outerHTML");
+                                                        }
+                                                    });
+                                                    strj += '</div>';
+                                                }
+                                            }
+                                            $(this).children(".vod-ji-tab").append(strxu);
+                                            $(this).children(".ji-list").empty().append(strj);
+                                            if(count < 13){
+                                                $('.vod-ji-tab').hide();
+                                            }
+                                        });
+                                        if($('.data active').length < 3){
+                                            $('#line_l,#line_r').hide();
+                                            $('.bf-resour-list-box').css('width','98%');
+                                        }
+                                        var jh = $('#jiall').height();
+                                        if(jh < 224){
+                                            var hh = 440+224-jh;
+                                            $('#scroll').css('height',hh);
+                                        }
+                                        $('.vod-ji-tab span').click(function(event) {
+                                            var jh = $('#jiall').height();
+                                            if(jh < 224){
+                                                var hh = 440+224-jh;
+                                                $('#scroll').css('height',hh);
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <div class="hot-vod-list">
+                                    <div class="list-title">热门推荐</div>
+                                    <div id="scroll" style="width: 100%;height: 440px;">
+                                        <div class="list">
+                                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan,text" where="cid={ctcms_cid}" limit="10" order="rhits desc"}
+                                            <div class="data" title="[vod:name]">
+                                                <a class="vod-img left" href="[vod:link]" style="background:url([vod:pic]) center/cover"></a>
+                                                <div class="data-msg left">
+                                                    <div class="data-name"><a target="_blank">[vod:name]</a></div>
+                                                    <div class="data-introl">[vod:text]</div>
+                                                    <div class="bf-num"><i class="icon bfl-icon left"></i> [vod:hits]</div>
+                                                </div>
+                                            </div>
+                                            {/ctcms:vod}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bf-vod-info-box">
+                        <div class="vod-name-box">
+                            <span class="vod-name left">[vod:name]</span>
+                            <span class="show1232-score show1232 left">[vod:pf]</span>
+                            <button class="phone-ds-btn right show1232" onclick="$('.ds-pop,.mask').show();$('body').addClass('body-fixed')" data-id="[vod:id]">+&nbsp;打赏</button>
+                            <div class="pf-box left hide1232" style="min-width: 300px;">
+                                <div class="start-box">
+                                    <span class="text-yellow left" id="pf_fen">[vod:pf]</span>
+                                    <i class="icon show-msg-icon left pfxia"></i>
+                                    <span class="p-num left"><font id="pf_num">[vod:pf_num]</font>人评分&nbsp;&nbsp;|</span>
+                                    <div class="start left" id="star">
+                                        <i class="icon start-icon" data-pf="2" title="不好看"></i>
+                                        <i class="icon start-icon" data-pf="4" title="一般般"></i>
+                                        <i class="icon start-icon" data-pf="6" title="还可以"></i>
+                                        <i class="icon start-icon" data-pf="8" title="挺好看"></i>
+                                        <i class="icon start-icon" data-pf="10" title="强推"></i>
+                                    </div>
+                                </div>
+                                <div class="pf-data-box" id="pf">
+                                    <div class="pf-title">评分数据</div>
+                                    <ul class="pf-list">
+                                        <li id="pf_bi1">
+                                            <span class="text">超棒&nbsp;9-10分</span>
+                                            <span class="percant">
+                                                <i class="icon myd-icon left"></i>
+                                                <i class="icon myd-percent-icon" style="width:[vod:pf5_bi]%"></i>
+                                            </span>
+                                            <span class="nums">[vod:pf5_bi]%</span>
+                                        </li>
+                                        <li id="pf_bi2">
+                                            <span class="text">较好&nbsp;7-8分</span>
+                                            <span class="percant">
+                                                <i class="icon myd-icon left"></i>
+                                                <i class="icon myd-percent-icon" style="width:[vod:pf4_bi]%"></i>
+                                            </span>
+                                            <span class="nums">[vod:pf4_bi]%</span>
+                                        </li>
+                                        <li id="pf_bi3">
+                                            <span class="text">一般&nbsp;5-6分</span>
+                                            <span class="percant">
+                                                <i class="icon myd-icon left"></i>
+                                                <i class="icon myd-percent-icon" style="width:[vod:pf3_bi]%"></i>
+                                            </span>
+                                            <span class="nums">[vod:pf3_bi]%</span>
+                                        </li>
+                                        <li id="pf_bi4">
+                                            <span class="text">较差&nbsp;3-4分</span>
+                                            <span class="percant">
+                                                <i class="icon myd-icon left"></i>
+                                                <i class="icon myd-percent-icon" style="width:[vod:pf2_bi]%"></i>
+                                            </span>
+                                            <span class="nums">[vod:pf2_bi]%</span>
+                                        </li>
+                                        <li id="pf_bi5">
+                                            <span class="text">烂片&nbsp;1-2分</span>
+                                            <span class="percant">
+                                                <i class="icon myd-icon left"></i>
+                                                <i class="icon myd-percent-icon" style="width:[vod:pf1_bi]%"></i>
+                                            </span>
+                                            <span class="nums">[vod:pf1_bi]%</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ds-btn left hide1232" onclick="$('.mask').show();$('.ds-pop').show()" onmouseenter="$(this).children('.icon').addClass('active');" onmouseleave="$(this).children('.icon').removeClass('active');" data-id="[vod:id]">
+                                <i class="icon jiahao-icon left"></i>
+                                打赏
+                            </div>
+                        </div>
+                        <div class="vod-info-group">
+                            <a class="group show1232" href="{ctcms_slink}"><i class="icon s18x18 vod-next-icon left"></i>上一集</a>
+                            <a class="group show1232" href="{ctcms_xlink}"> <i class="icon s18x18 vod-before-icon right" style="margin-right:0;margin-left:20px;"></i>下一集</a>
+                            <div class="group hide1232"><i class="icon s16x17 vod-bfl-icon left"></i>播放（[vod:hits]）</div>
+                            <div class="group dz hide1232 vod_zan"><i class="icon s16x17 vod-dz-icon left"></i>点赞（<font id="dhits">[vod:dhits]</font>）</div>
+                            <div class="group dz showText" onclick="iconAddActiveClass(this);"><i class="icon s16x17 vod-detail-icon left"></i>剧情<i class="icon show-msg-icon right"></i></div>
+                            <div class="label-box hide1232">
+                                [vod:tagslink]
+                            </div>
+                        </div>
+                        <div class="vod-text" id="vodText">
+                            [vod:text]
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vod-detail-container middle-box">
+                <div class="left-box left">
+                    <div class="vod-detail-container-left-group show1232">
+                        <div class="group-title"><span class="title">选集</span><a class="text-yellow right show1232" onclick="$('.bottom-xuanji-box,.mask').show();$('body').addClass('body-fixed')" style="font-size:12px;">展开&gt;&gt;</a></div>
+                    </div>
+                    <div class="vod-detail-container-left-group show1232">
+                        <div class="group-title"><span class="title">热门推荐</span></div>
+                        <div class="you-love-vod-list hot1232-list">
+                            <div>
+                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="cid={ctcms_cid}" limit="10" order="rhits desc"}
+                                <div class="data">
+                                    <div class="vod-img" style="background:url([vod:pic]) center/cover no-repeat">
+                                        <a href="[vod:link]"></a>
+                                    </div>
+                                    <div class="vod-name"><a class="name" target="_blank">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:text]</div>
+                                </div>
+                            {if:[vod:i]%5==0}</div><div>{end if}
+                            {/ctcms:vod}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">猜你喜欢</span></div>
+                        <div class="you-love-vod-list">
+                            <div>
+                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="zhuyan={vod_zhuyan}" limit="10" order="rhits desc"}
+                                <div class="data">
+                                    <div class="vod-img">
+										{if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+										{if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                        <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]"></a>
+                                    </div>
+                                    <div class="vod-name"><a class="name" target="_blank">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:zhuyan]</div>
+                                </div>
+                                {if:[vod:i]%5==0}</div><div>{end if}
+                            {/ctcms:vod}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">精彩评论</span></div>
+                        <div class="pl-box">
+                            {ctcms_pl}
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box right hide1232">
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">热播榜</span></div>
+                        <div class="vod-bf-hot-list">
+                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" limit="10" order="zhits desc"}
+                            <div class="data">
+                                <a class="img-box left" href="[vod:link]" style="background:url([vod:pic]) center/cover no-repeat #f4f4f4">
+                                    {if:[vod:i] < 4}
+                                    <span class="index n[vod:i]">[vod:i]</span>
+                                    {else}
+                                    <span class="index">[vod:i]</span>
+                                    {end if}
+                                </a>
+                                <div class="msg left">
+                                    <div class="name"><a href="[vod:link]">[vod:name]</a></div>
+                                    <div class="actor">[vod:zhuyan]</div>
+                                    <div class="bf-num"><i class="icon bfl-icon left"></i>[vod:hits]</div>
+                                </div>
+                            </div>
+                            {/ctcms:vod}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    <div class="phone-bottom-box show1232">
+        <!-- 分享 -->
+        <div class="bottom-share-box pop-box" style="display: none;">
+            <div class="share-list-outsaide-box">
+                <div class="share-list-box">
+                    <div class="share-list bdsharebuttonbox">
+                        <div class="icon weibo-icon pull-left"><a class="block bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+                        <div class="icon pengyouquan-icon pull-left"><a class="block bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+                        <div class="icon qq-icon pull-left"><a class="block bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+                        <div class="icon wechat-icon pull-left"><a class="block bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+                        <div class="icon qqzone-icon pull-left"><a class="block bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="qx-btn bg-white show-num" onclick="$('.pop-box,.mask').hide();$('body').removeClass('body-fixed')">取消</div>
+        </div>
+        <!-- 选集 -->
+        <div class="bottom-xuanji-box pop-box" style="display: none;">
+			<i class="icon pop-close-icon" onclick="$('.bottom-xuanji-box').hide();$('.mask').hide();$('body').removeClass('body-fixed');" style="position: absolute;top: 15px;right: 15px;"></i>
+            <div class="box-title">选集</div>
+            <div style="overflow:auto">
+                <div class="vod-line-list">
+                {ctcms_zu}
+                    <a class="data{if:{xu}==1} active{end if} zu_{xu}" data-page="line{xu}" onclick="tab(this)">{name}</a>
+                    {/ctcms_zu}
+                </div>
+            </div>
+            <div>
+                {ctcms_zu}
+                <div class="box-vod-ji-list" id="line{xu}" {if:{xu}!=1}style="display:none" {end if}>
+                    {ctcms_ji}
+                    <a href="{link}" class="data ji_{zu}_{xu}">{name}</a>
+                    {/ctcms_ji}
+                </div>
+                {/ctcms_zu}
+            </div>
+        </div>
+    </div>
+    <div class="fix-button-group hide1232">
+        <a class="fix-button group">
+            <span class="center"><span class="text left">联系OO</span><i class="icon s24x26 fix-qq-icon right"></i></span>
+        </a>
+        <a class="fix-button group" href="vod_demand.html">
+            <span class="center"><span class="text left">求片留言</span><i class="icon s24x26 fix-talk-icon right"></i></span>
+        </a>
+        <a class="fix-button group" onclick="$(window).scrollTop(0)">
+            <span class="center"><span class="text left">返回顶部</span><i class="icon s24x26 fix-go-top-icon right"></i></span>
+        </a>
+    </div>
+    <!-- 报错 -->
+    <div class="common-cz-pop fixed-center bc-pop" id="vodBC" style="display:none">
+        <i class="icon pop-cloce-icon" onclick="$('.common-cz-pop').hide();$('.mask').hide();$('body').removeClass('body-fixed')"></i>
+        <div class="pop-title">报错</div>
+        <div class="pop-list">
+            <div class="data" onclick="iconAddClassSiblings(this);$('.vod_err').attr('data-err','视频资源失效');"><i class="icon radio-icon left"></i>视频资源失效</div>
+            <div class="data" onclick="iconAddClassSiblings(this);$('.vod_err').attr('data-err','播放不流畅');"><i class="icon radio-icon left"></i>播放不流畅</div>
+            <div class="data" onclick="iconAddClassSiblings(this);$('.vod_err').attr('data-err','视频内容不对应');"><i class="icon radio-icon left"></i>视频内容不对应</div>
+        </div>
+        <div class="pop-btn-group">
+            <a><button class="btn gray-btn" onclick="$('.common-cz-pop').hide();$('.mask').hide();$('body').removeClass('body-fixed')">取消</button></a>
+            <a><button class="btn yellow-btn vod_err" data-err="">提交</button></a>
+        </div>
+    </div>
+    <!-- 打赏 -->
+    <div class="ds-pop fixed-center pop-box" style="display:none">
+        <div class="pop-title hide1232">
+            打赏
+            <i class="icon pop-cloce-icon" onclick="$('.ds-pop').hide();$('.mask').hide();"></i>
+        </div>
+        <div class="pop-body">
+            <div class="yue">
+                <span><i class="icon coin-icon left"></i>账户余额：<span class="text-orange"><font id="ucion">{ctcms_ucion}</font>金币</span></span>
+                <a class="text-orange right" href="{ctcms_url user=pay}">立即充值</a>
+            </div>
+            <div class="gift-solid">
+                <i class="icon lr-icon solid2-left-icon"></i>
+                <i class="icon lr-icon solid2-right-icon"></i>
+                <div class="gift-solid-list-box">
+                    <div class="page-list">
+                        {ctcms:gift table="liwu" field="id,name,cion,pic"  loop="100" order="id asc"}
+                        {if:[gift:i]%11 == 0}</div><div class="page-list" style="display:none">{end if}
+                        <div class="data gift" title="[gift:name]售价[gift:cion]金币" data-id="[gift:id]" data-cion="[gift:cion]">
+                            <div class="gift-img" style="background:url([gift:pic]) center/70% no-repeat"></div>
+                            <div class="gift-name">[gift:name]</div>
+                            <div class="gift-money">[gift:cion]金币</div>
+                        </div>
+                        {/ctcms:gift}
+                    </div>
+                    <input type="hidden" id="gift_id" value="0">
+                    <div class="gift-page-btn-group">
+                        {ctcms:gift table="liwu" field="id,name,cion,pic"  loop="100" order="id desc"}
+                        {if:[gift:i]%11 == 0}<a class="btn"></a>{end if}
+                        {if:[gift:i] == 1}<a class="btn active"></a>{end if}
+                        {/ctcms:gift}
+                    </div>
+                </div>
+            </div>
+            <div class="pop-sub">
+                <span>总计：<span class="text-orange"><font id="g_monet">0</font>金币</span></span>
+                <div class="right">
+                    <div class="select-num left">
+                        <div class="show-num left" id="num_text" onclick="$('#gift_num').show();stopProp(event)">
+                            <span class="sz left">1</span>
+                            <span class="num-name left">一心一意</span>
+                        </div>
+                        <div class="show-but right" onclick="$('#gift_num').show();stopProp(event)"><i class="icon show-msg-icon active"></i></div>
+                        <div class="num-list" id="gift_num">
+                            <div class="data" onclick="stopProp(event)">
+                                <input class="ctcms_gift_nums" type="number" value="1" placeholder="输入自定义数量" onblur="$('#num_text').html($(this).val());$('#gift_num').hide();$(this).val('');get_gift_cion();">
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('1');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">1</span>
+                                <span class="num-name left">一心一意</span>
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('10');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">10</span>
+                                <span class="num-name left">十全十美</span>
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('30');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">30</span>
+                                <span class="num-name left">想你</span>
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('66');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">66</span>
+                                <span class="num-name left">顺顺利利</span>
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('188');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">188</span>
+                                <span class="num-name left">要抱抱</span>
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('520');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">520</span>
+                                <span class="num-name left">我爱你</span>
+                            </div>
+                            <div class="data" onclick="$('.ctcms_gift_nums').val('1314');$('#num_text').html($(this).html());$('#gift_num').hide();get_gift_cion();">
+                                <span class="sz left">1314</span>
+                                <span class="num-name left">一生一世</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="submit-btn left ctcms_shang_btn">打赏</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vod_id = [vod:id],vod_zid = [vod:zu],vod_jid = [vod:ji],gift_cion = 0;
+        $(function () {
+			$('.vod-line-list .data').removeClass('active');
+			$('.zu_[vod:zu]').addClass('active');
+			$('.box-vod-ji-list').hide();
+		    $('#line[vod:zu]').show();
+		    $('.ji_[vod:zu]_[vod:ji]').addClass('active');
+            set_history('[vod:name]','[vod:link]','[vod:classname]');
+            $("#scroll").panel({iWheelStep:30});
+            vod_bf_line_solid();
+            vod_bf_setting_size();
+            star({getId:$("#star i")});
+            common_solid({
+                img: ".gift-solid-list-box .page-list",
+                l_btn: ".solid2-left-icon",
+                r_btn: ".solid2-right-icon",
+                b_btn: ".gift-page-btn-group .btn"
+            });
+            $('body').click(function () {
+                $('#gift_num').hide();
+            })
+            $(".gift").click(function () {
+                $(".gift").each(function () {
+                    $(this).removeClass('active');
+                });
+                $('#gift_id').val($(this).attr('data-id'));
+                $(this).addClass("active");
+                gift_cion = parseInt($(this).attr('data-cion'));
+                get_gift_cion();
+            });
+			$('.mask').click(function () {
+				$('.ds-pop,.mask,.common-cz-pop,.phone-bottom-box').hide();
+				$('body').removeClass('body-fixed');
+			});
+            //二维码
+            $('main .ewm').attr('src','https://www.baifubao.com/o2o/0/qrcode?size=10&text='+encodeURIComponent(window.location.host));
+        });
+        function get_gift_cion() {
+            var num = parseInt($('.ctcms_gift_nums').val());
+            $('#g_monet').html(gift_cion*num); 
+        }
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</body>
+</html>

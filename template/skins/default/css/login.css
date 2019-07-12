@@ -1,0 +1,120 @@
+.login-page {
+  height: 100%;
+  width: 100%;
+  background: url(../img/login_bg.png) center/cover no-repeat;
+}
+
+.login-box-pop {
+  width: 496px;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: solid 1px #dbdbdb;
+  padding: 40px 60px 50px 60px;
+}
+
+.login-box-pop .pop-close-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.login-box-pop .pop-logo {
+  line-height: 48px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.login-box-pop .pop-logo .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.login-box-pop .input-group .group {
+  margin-bottom: 20px;
+}
+
+.login-box-pop .input-group .group .input-col12 {
+  display: block;
+  box-sizing: border-box;
+  width: 380px;
+  height: 51px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: solid 1px #dbdbdb;
+  padding: 0 15px;
+  color: #333;
+}
+
+.login-box-pop .input-group .group .input-col8 {
+  display: block;
+  box-sizing: border-box;
+  width: 250px;
+  height: 51px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: solid 1px #dbdbdb;
+  padding: 0 15px;
+  color: #333;
+}
+
+.login-box-pop .input-group .group .tip {
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 10px;
+  color: #ff0534;
+}
+
+.login-box-pop .input-group .group .tip .icon {
+  margin-right: 5px;
+}
+
+.login-box-pop .input-group .group .xieyi {
+  font-size: 14px;
+  color: #999;
+  line-height: 14px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.login-box-pop .input-group .group .xieyi .icon {
+  margin-right: 5px;
+}
+
+.login-box-pop .input-group .group .tel-yzm {
+  width: 110px;
+  height: 50px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  border: solid 1px #dbdbdb;
+  color: #333;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.login-box-pop .input-group .group .tel-yzm.active {
+  color: #666;
+}
+
+.login-box-pop .input-group .group .submit-btn {
+  width: 380px;
+  height: 51px;
+  background-color: #f2a506;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.login-box-pop .input-group .group .submit-btn:hover {
+  background-color: #f28606;
+}
+
+.login-box-pop .input-group .group .input-col12:focus,
+.login-box-pop .input-group .group .input-col8:focus {
+  border: solid 1px #f2a506;
+}

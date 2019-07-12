@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_other.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}assets/js/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}assets/js/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <main>
+        <div class="container">
+            <div class="index-other-page-box">
+                <div class="rank-page-box show1232" style="border-bottom: solid 1px #d2d2d2">
+                    <div class="rank-tab-group">
+                        <a class="tab">全部</a>
+                        {ctcms:class table="class" field="id,name" where="fid=0" limit="8" order="xid asc"}
+                        <a href="{ctcms_url hot=index/[class:id]}" class="tab">[class:name]</a>
+                        {/ctcms:class}
+                    </div>
+                </div>
+                <div class="index-big-class-box" style="margin-top:0;margin-bottom:10px;">
+                    <div class="vod-list-box left">
+                        <div class="box-title show1232">
+                            <div class="show1232-class-fl-list">
+                            {ctcms:class table="class" field="id,name" where="fid=0" limit="10" order="xid asc"}
+                                <a href="{ctcms_url hot=index/[class:id]}" class="{if:'{ctcms_cid}' == '[class:id]'} active{end if}">[class:name]</a>
+                            {/ctcms:class}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fixed-rank-nav hide1232">
+                    <a href="{ctcms_hotlink}" class="tab{if:'{ctcms_cid}' == '0'} active{end if}">全部</a>
+                    {ctcms:class table="class" field="id,name" where="fid=0" limit="8" order="xid asc"}
+                    <a href="{ctcms_url hot=index/[class:id]}" class="tab {if:'{ctcms_fid}' == '[class:id]' || '{ctcms_cid}' == '[class:id]'} active{end if}">[class:name]</a>
+                    {/ctcms:class}
+                </div>
+                <div class="rank-page-box">
+                    <div id="p1">
+                        <div class="rank-class hide1232">{ctcms_cname}</div>
+                        <div class="rank-tab-group hide1232"{if:'{ctcms_cid}' == '0'} style="display:none;"{end if}>
+                            <a href="{ctcms_url hot=index/{ctcms_fid}}" class="tab{if:'{ctcms_fid}' == '{ctcms_cid}'} active{end if}">全部</a>
+                            {ctcms:class table="class" field="id,name" where="fid={ctcms_fid}" limit="10" order="xid asc"}
+                            <a href="{ctcms_url hot=index/[class:id]}" class="tab {if:'{ctcms_cid}'=='[class:id]'} active{end if}">[class:name]</a>
+                            {/ctcms:class}
+                        </div>
+                        <div class="rank-time-group">
+                            <a href="{ctcms_url hot=index/{ctcms_cid}/1}" class="group{if:'{ctcms_sid}' == '1'} active{end if}">日榜</a>
+                            <span class="split">|</span>
+                            <a href="{ctcms_url hot=index/{ctcms_cid}/2}" class="group{if:'{ctcms_sid}' == '2'} active{end if}">周榜</a>
+                            <span class="split">|</span>
+                            <a href="{ctcms_url hot=index/{ctcms_cid}/3}" class="group{if:'{ctcms_sid}' == '3'} active{end if}">月榜</a>
+                            <span class="split">|</span>
+                            <a href="{ctcms_url hot=index/{ctcms_cid}}" class="group{if:'{ctcms_sid}' == '0'} active{end if}">总榜</a>
+                        </div>
+                        <div class="rank-list">
+                            {ctcms:vod table="vod" field="id,name,pic,zhuyan,type,diqu,hits" page="10" order="[sort] desc"}
+                            <div class="data">
+                                <div class="index left">{if:[vod:i]<4}<i class="icon s32x32 rank[vod:i]-icon"></i>{else}[vod:i]{end if}</div>
+                                <div class="vod-img left"><a href="[vod:link]" style="background:url([vod:pic]) center/cover"></a></div>
+                                <div class="vod-info left">
+                                    <div class="vod-name">[vod:name]</div>
+                                    <div class="info-group">
+                                        <div class="mind">
+                                            <div class="group">主演：<a>[vod:zhuyan]</a></div>
+                                            <div class="group">类型：<a>[vod:type]</a></div>
+                                            <div class="group">地区：<a>[vod:diqu]</a></div>
+                                            <div class="group">播放量：[vod:hits]</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/ctcms:vod}
+                        </div>
+                        <div class="rank-list-add-more"><a>加载更多</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+<script>
+    $('#nav_hot').addClass('active');
+    var sid = {ctcms_sid};
+    var cid = {ctcms_cid};
+    var size = 10;
+    var page = 1;
+    $(function () {
+        $('.rank-list-add-more').click(function() {
+            page++;
+            $.post(links('ajax','hot'), {cid: cid,sid: sid,size: size,page: page}, function(r) {
+                if(r.code == 1){
+                    $('.rank-list').append(r.html);
+                }else{
+                    $('.rank-list-add-more').hide();
+                }
+            },'json');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+@charset "UTF-8";
+html {
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  font-size: 14px;
+  font-family: "微软雅黑", helvetica, arial, sans-serif;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+menu,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+form,
+button,
+input,
+textarea,
+select,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-size: 14px;
+}
+
+a {
+  background-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+a:active {
+  outline: 0;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+ul,li{
+  display: block;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "微软雅黑", arial, helvetica, sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  position: relative;
+  font-size: 14px;
+}
+
+body:after,
+div:after,
+ul:after,
+div::after,
+ul::after {
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background-color: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+input{
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+  border: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+input::input-placeholder,
+textarea::input-placeholder {
+  color: #999999;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999999;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999999;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999999;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #999999;
+}
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select {
+  outline: none;
+  text-decoration: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+option::-ms-expand {
+  display: none;
+}
+
+option {
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari 和 Chrome */
+  appearance: none;
+}
+
+
+/* 字体颜色 */
+
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-gray-a {
+  color: #69678e !important;
+}
+
+.text-gray-b {
+  color: #adaada !important;
+}
+
+.text-gray-c {
+  color: #cccaef !important;
+}
+
+.text-yellow {
+  color: #f2a506 !important;
+}
+
+.text-red {
+  color: #ff0534 !important;
+}
+
+.text-green {
+  color: #05ff98 !important;
+}
+
+.text-blue{
+  color: #6c8dd5 !important;
+}
+
+.text-orange{
+  color: #fc5301 !important;
+}
+
+.text-purple{
+  color: #dd00da !important;
+}
+
+/* 背景颜色 */
+
+
+/* 其他 */
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+  box-sizing: border-box;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.margin-r0 {
+  margin-right: 0 !important;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.fixed-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.middle-box {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.body-fixed {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+}
+#jswbox ul{position:relative;}
+#jswbox li{position:absolute;width:0;height:0;z-index:0;cursor:pointer;overflow:hidden;top:152px;left:10px;overflow: hidden;}
+#jswbox li img{width:100%;display: block;height: 100%;border: none}
+#jswbox .prev, #jswbox .next{display:none;}

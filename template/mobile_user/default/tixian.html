@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;佣金提现<a href="{ctcms_url user=tixian/lists}" style="float:right;color:#FFF;font-size:14px;">提现记录&nbsp;&nbsp;</a></h3>
+      <form action="{ctcms_formurl}" method="post" data-am-validator>
+        <div class="input">
+          <label>可提现佣金： </label>
+          <font color=red>[user:rmb]</font> 元
+        </div>
+        <div class="input">
+          <label>提现金额：</label>
+          <input name="rmb" type="text" value="" placeholder="输入提现金额" required/>
+        </div>
+        <div class="input">
+            <label>提现银行：</label>
+            <select name="yh" class=" am-input-lg" required>
+                <option value="">请选择提现银行</option>
+                <option value="支付宝"{if:'[user:tx_yh]'=='支付宝'} selected{end if}>支付宝</option>
+                <option value="建设银行"{if:'[user:tx_yh]'=='建设银行'} selected{end if}>建设银行</option>
+                <option value="农业银行"{if:'[user:tx_yh]'=='农业银行'} selected{end if}>农业银行</option>
+                <option value="工商银行"{if:'[user:tx_yh]'=='工商银行'} selected{end if}>工商银行</option>
+                <option value="招商银行"{if:'[user:tx_yh]'=='招商银行'} selected{end if}>招商银行</option>
+                <option value="交通银行"{if:'[user:tx_yh]'=='交通银行'} selected{end if}>交通银行</option>
+                <option value="中国银行"{if:'[user:tx_yh]'=='中国银行'} selected{end if}>中国银行</option>
+                <option value="邮储银行"{if:'[user:tx_yh]'=='邮储银行'} selected{end if}>邮储银行</option>
+                <option value="广发银行"{if:'[user:tx_yh]'=='广发银行'} selected{end if}>广发银行</option>
+                <option value="浦发银行"{if:'[user:tx_yh]'=='浦发银行'} selected{end if}>浦发银行</option>
+                <option value="兴业银行"{if:'[user:tx_yh]'=='兴业银行'} selected{end if}>兴业银行</option>
+                <option value="民生银行"{if:'[user:tx_yh]'=='民生银行'} selected{end if}>民生银行</option>
+            </select>
+        </div>
+        <div class="input">
+          <label>收款人名字：</label>
+          <input type="text" name="xm" value="[user:tx_xm]" placeholder="输入收款人名字" required/>
+        </div>
+        <div class="input">
+          <label>收款账号：</label>
+          <input type="text" name="kh" value="[user:tx_kh]" placeholder="输入收款账号" required/>
+        </div>
+        <div class="input">
+          <label>开户行地址：</label>
+          <input type="text" name="city" value="[user:tx_city]" placeholder="详细开户行地址，支付宝可以留空"/>
+        </div>
+        <div class="input">
+          <label>&nbsp;</label>
+          <button type="submit" class="btn">确定提现</button>
+        </div>
+    </form>
+</div>
+<script>
+$('#user').addClass('ons');
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

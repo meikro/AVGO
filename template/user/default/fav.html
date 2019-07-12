@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{ctcms_description}">
+    <meta name="keywords" content="{ctcms_keywords}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}',page_name='spscc';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container" id="b">
+                {ctcms_left}
+                    <div class="center-page-content left">
+                        <div style="overflow:auto">
+                            <div class="center-page-content-tab">
+                                <a href="{ctcms_url user=vod}" class="tab">分享的视频</a>
+                                <a href="{ctcms_url user=fav}" class="tab active">收藏的视频</a>
+                                <a href="{ctcms_url user=buy}" class="tab">购买的视频</a>
+                                <a href="{ctcms_url user=fav/del}" class="tab" style="float: right;">清空收藏</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="table-page">
+                                <div class="center-vod-sc-list">
+                                	{if:'{ctcms_pagenum}'=='0'}<p style="text-align: center;padding-top:30px;">暂无记录!</p>{end if}
+                                    {ctcms:vod table="fav" field="*" page="12" order="id desc"}
+                                    <div class="data" title="[vod:zdy zd=vod,name,did]">
+                                        <i class="icon wrong-circel-icon" onclick="window.location.href='{ctcms_url user=fav/del/[vod:id]}';"></i>
+                                        <div class="data-img">
+                                            <span class="ji">[vod:zdy zd=vod,state,did]</span>
+                                            <a target="_blank" href="{ctcms_url show=index/[vod:did]}" style="background:url('[vod:zdy zd=vod,pic,did]') center/cover"></a>
+                                        </div>
+                                        <div class="name"><a href="{ctcms_url play=index/[vod:did]}" target="_blank">[vod:zdy zd=vod,name,did]</a></div>
+                                        <div class="lx">[vod:zdy zd=vod,type,did]</div>
+                                    </div>
+                                    {/ctcms:vod}
+                                </div>
+                                <div class="fy-box" style="padding-top:0;padding-bottom:20px;{if:{ctcms_page}<2}display: none;{end if}">
+                                        {if:{ctcms_page}>=2}
+                                        <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                                        {toif:{ctcms_page}>=7}
+                                        <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                                        {end toif}
+                                        {end if}
+                                        {ctcms_pagenum_7}
+                                        {if:{ctcms_page}<{ctcms_pagejs}}
+                                        <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                                        {end if}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    </div>
+    {ctcms_indexbottom}
+</body>
+</html>

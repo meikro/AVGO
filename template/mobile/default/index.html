@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/index.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_head}
+<script>$('#index').addClass('ons');</script>
+<div class="playimg">
+<div class="main_visual">
+	<div class="flicking_con">
+        {ctcms:vod table="vod" field="id" where="zid=1" limit="5" order="addtime desc"}
+			<a href="javascript:;">[vod:i]</a>
+        {/ctcms:vod}
+    </div>
+	<div class="main_image">
+		<ul>
+        {ctcms:vod table="vod" field="id,name,pic2" where="zid=1" limit="5" order="addtime desc"}
+			<li><span onclick="location.href='[vod:link]';" class="img_[vod:i]"><img src="[vod:pic2]" width="100%" height="200" /></span></li>
+        {/ctcms:vod}
+		</ul>
+		<a href="javascript:;" id="btn_prev"></a>
+		<a href="javascript:;" id="btn_next"></a>	
+	</div>
+</div>
+</div>
+<div class="video-list">
+	<a href="{ctcms_weixinurl}" class="toovideo">点击关注微信公众号：{ctcms_weixin}</a>
+</div>
+{ctcms:class table="class" field="id,name" where="fid=0" limit="4" order="xid asc"}
+<div class="video-list">
+<h3>&nbsp;&nbsp;最新[class:name]<a href="{ctcms_url whole=[class:id]}" style="float:right;color:#FF9900;text-shadow:none;font-weight:bold">更多》&nbsp;</a></h3>
+<ul>
+{ctcmstype:vod table="vod" field="id,cid,name,pic,info,state" where="cid=[class:id]" limit="15" order="addtime desc"}
+<li><a href="[vod:link]"><b>{if:[class:id]==2}[vod:state]{elseif:'[vod:info]'==''}高清{else}[vod:info]{end if}</b><img src="[vod:pic]" /><span>[vod:name]</span></a></li>
+{/ctcmstype:vod}
+</ul>
+<div class="clr"></div>
+<a href="{ctcms_url whole=[class:id]}" class="toovideo">查看更多[class:name]</a>
+</div>
+{/ctcms:class}
+{ctcms_bottom}
+</body>
+</html>

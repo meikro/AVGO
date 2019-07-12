@@ -1,0 +1,373 @@
+/*首页*/
+.in-page-container{
+    padding: 28px 24px;
+}
+
+.content-box{
+    border: 1px solid #dbdbdb;margin-bottom: 20px;background-color: #fff;
+}
+
+.content-box .title{
+    padding: 0 30px;height: 60px;line-height: 60px;border-bottom:  1px solid #dbdbdb;
+}
+
+.content-box .content .content-group{
+    padding: 0 30px;line-height: 40px;border-bottom:  1px solid #dbdbdb;
+}
+
+.content-box .content .content-group:nth-last-child(1){
+    border-bottom:  none;
+}
+
+/*登录页*/
+.bg-img{
+    height: 100%;width: 100%;background: url("../../assets/img/login/bj.png") no-repeat center;
+    background-size: cover;position: relative;min-width: 486px;
+}
+
+.bg-img .login-box{
+    padding:46px 46px 52px 40px;position: absolute;right: 7%;top: 50%;transform: translateY(-50%);z-index: 10;
+    background: rgba(4,0,2,0.5);border-radius: 10px;min-width: 466px;
+}
+
+.login-box .title{
+    text-align: center;font-size: 30px;font-weight: bold;margin-bottom: 48px;
+}
+
+
+.login-box .login-box-group{
+    margin-bottom: 20px;
+}
+.login-box .login-box-group:nth-last-child(1){
+    margin-bottom: 0;
+}
+
+.login-box .login-box-group .login-input{
+    max-width: 400px;min-width: 300px;height: 50px;line-height: 50px;background-color: #fff;font-size: 16px;border-radius: 3px;
+}
+
+.login-box .login-box-group .login-input .icon{
+    width: 60px;height: 50px;background-size: 22px 25px;border-radius: 3px 0 0 3px;
+}
+
+.login-box .login-box-group .login-input input{
+    min-width: 320px;padding-left: 20px;border-radius: 3px;
+}
+
+.login-box .login-box-group .login-btn{
+    width: 180px;height: 50px;line-height: 50px;font-size: 18px;border-radius: 3px;
+}
+
+/*视频管理*/
+.content-page-nav{
+    margin-bottom: 30px;line-height: 14px;
+}
+.content-page-nav .nav-list{
+    color: #999;
+}
+.content-page-nav .nav-list:nth-last-child(1){
+    color: #333;
+}
+
+.content-page-nav .index-icon{
+    height: 14px;width: 14px;margin-right: 7px;
+}
+
+.content-page-select-group .content-page-select,
+.content-page-select-group .content-page-input{
+    width: 100%;height: 38px;border: 1px solid #d6d6d6;padding: 0 10px;
+}
+.content-page-select-group>div{
+    margin-bottom: 10px;line-height: 40px;
+}
+
+.content-page-select-group .content-page-btn{
+    width: 100%;height: 40px;line-height: 40px;border-radius: 3px;
+}
+
+.content-page-select-group .rili-input{
+    height: 38px;border: 1px solid #d6d6d6;position: relative;padding: 0;
+}
+
+.content-page-select-group .rili-input .time{
+    width: 100%;height: 36px;padding-right: 36px;line-height: 36px;float: left;padding-left: 10px;
+}
+.rili-input .icon{
+    position: absolute;right: 0;top: 0;height: 38px;width: 38px;background: url("../../assets/img/vod_icon/riqi.png") no-repeat center;background-size: 20px 18px;z-index: 10;
+}
+/*有图片的表格*/
+.content-page-table .table{
+    border: 1px solid #e7e7eb;margin-bottom: 0;table-layout: fixed;min-width: 516px;
+}
+.content-page-table .content-page-table-top{
+    height: 40px;border: 1px solid #e7e7eb;border-bottom: none;line-height: 40px;padding: 0 40px;background-color: #f4f5f9;margin-top: 28px;min-width: 516px;
+}
+
+.content-page-table .content-page-table-top .gop{
+    margin-left: 40px;color: #333;display: inline-block;line-height: 40px;
+}
+
+.content-page-table .content-page-table-top .gop .icon{
+    width: 16px;height: 16px;margin-right: 6px;margin-top: 10px;
+}
+.content-page-table .content-page-table-top .gop:nth-child(1){
+    margin-left: 0;
+}
+
+.content-page-table .table>thead>tr>th{
+    border: none;font-weight: normal;padding: 0 8px;height: 38px;line-height: 38px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+}
+
+.content-page-table .img-table>tbody>tr>td{
+    border-top: 1px solid #e7e7eb;height: 62px;line-height: 62px;padding: 0 8px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 300px;min-width: 50px;
+}
+
+.content-page-table .no-img-table>tbody>tr>td{
+    border-top: 1px solid #e7e7eb;height: 45px;line-height: 45px;padding: 0 8px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 300px;min-width: 50px;
+}
+.content-page-table .no-img-table>tbody>tr>td:nth-child(1),
+.content-page-table .no-img-table>thead>tr>th:nth-child(1){
+    padding-left: 40px;
+}
+
+.content-page-table .table>tbody>tr>td:nth-last-child(1),
+.content-page-table .table>thead>tr>th:nth-last-child(1){
+    padding-right: 40px;
+}
+.content-page-table .table>thead>tr>th .table-select-icon{
+    height: 14px;width: 14px;
+}
+
+.content-page-table .img-table>tbody>tr>td .table-select-icon{
+    height: 14px;width: 14px;
+}
+.content-page-table .table .tab-img,
+.content-page-table .table .tab-checkbox,
+.content-page-table .table .table-last-group,
+.content-page-table .table .table_paixu
+{
+    /* text-align: center; */
+}
+.content-page-table .table .tab-checkbox{
+    padding-left: 50px;
+}
+.content-page-table .table .table_paixu input{
+    width: 85px;height: 34px;border: 1px solid #d6d6d6;line-height: 34px;border-radius: 3px;padding: 10px;text-align: center;
+}
+.content-page-table .table .table_paixu input:focus{
+    border: 1px solid #fbbf02;
+}
+.content-page-table .table .tab-img img{
+    height: 46px;
+}
+
+.content-page-table .table .table-update-icon,
+.content-page-table .table .table-backup-icon,
+.content-page-table .table .table-delete-icon,
+.content-page-table .table .table-bf-icon{
+    width: 16px;height: 17px;
+}
+
+.content-page-table .table .table-backup-icon,
+.content-page-table .table .table-update-icon,
+.content-page-table .table .table-bf-icon{
+    margin-right: 10px;
+}
+
+.content-page-table-fy{
+    max-height: 74px;border: 1px solid #e7e7eb;border-top: none;line-height: 74;padding: 0 40px;min-width: 516px;
+}
+.content-page-table-fy .tip{
+    height: 74px;line-height: 74px;
+}
+
+
+/*定时采集*/
+.content-page-submit-select-group{
+    margin-bottom: 8px;
+}
+.content-page-submit-select-group .submit-select-group-title{
+    margin-bottom: 20px;line-height: 14px;
+}
+
+.content-page-submit-select-group .select-option{
+    width: 120px;float: left;line-height: 14px;display: inline-block;margin-bottom: 20px;
+}
+.submit-select-group-select .select-option .table-select-icon,
+.submit-select-group-select .select-option .radio-select-icon{
+    width: 14px;height: 14px;float: left;margin-right: 6px;
+}
+
+.submit-select-group-btn .submit-btn{
+    width: 80px;height: 40px;line-height: 40px;border-radius: 3px;
+}
+
+/*视频批量操作*/
+.content-page-tab-box{
+    margin-top: 30px;
+}
+.content-page-tab-box .tab-group{
+    height: 100%;border-bottom: 1px solid #ededf0;
+}
+.content-page-tab-box .tab-group .tab{
+    float: left;height: 38px;padding: 0 12px;line-height: 38px;border: 1px solid #d6d6d6;cursor: pointer;
+}
+
+.content-page-tab-box .tab-group .tab.active{
+    background-color: #3b3b3b;color: #fbbf02;border: 1px solid #3b3b3b;
+}
+.control-page{
+    padding-top: 40px;
+}
+
+.submit-select-group-select .submit-select{
+    width: 138px;height: 40px;line-height: 40px;padding: 0 10px;border: 1px solid #e7e7eb;margin-right: 12px;
+}
+
+.submit-select-group-select .submit-input{
+    width: 286px;height: 40px;line-height: 40px;padding: 0 10px;border: 1px solid #e7e7eb;
+}
+.content-page-submit-select-group .submit-select-group-tab-title{
+    line-height: 40px;
+}
+
+.page-tip{
+    margin-top: 50px;
+}
+
+.page-tip .title{
+    font-weight: bold;color: #666;line-height: 14px;
+}
+
+.page-tip .content{
+    margin-top: 10px;line-height: 30px;
+}
+.submit-select-group-select .label-tip{
+    height: 40px;line-height: 40px;
+}
+.submit-select-group-select .submit-long-input{
+    width: 490px;height: 40px;line-height: 40px;padding: 0 10px;border: 1px solid #e7e7eb;
+}
+.content-page-submit-select-group .select-tab-option {
+    width: 120px;float: left;line-height: 40px;display: inline-block;margin-bottom: 20px;
+}
+.content-page-submit-select-group .select-tab-option .icon{
+    width: 14px;height: 40px;float: left;margin-right: 6px;
+}
+
+.submit-select-group-select .submit-textarea{
+    width: 490px;height: 200px;line-height: 25px;padding: 0px 10px;border: 1px solid #e7e7eb;
+}
+
+.submit-select-group-select .label-textarea-tip{
+    height: 200px;line-height: 200px;
+}
+
+.submit-select-group-select .submit-div{
+    width: 490px;height: auto;line-height: 35px;padding: 10px 10px;border: 1px solid #e7e7eb;display: inline-block;background-color: #f4f5f9;margin-right: 2px;
+}
+
+.submit-select-group-select .div-tip{
+    height: 70px;line-height: 70px;
+}
+
+.submit-select-group-select .submit-short-input{
+    width: 126px;height: 40px;line-height: 40px;padding: 0 10px;border: 1px solid #e7e7eb;
+}
+.edit{padding-top:0;}
+.edit .content-page-tab-box{margin-top:0;}
+table td{
+    word-break:keep-all; /* for ie */
+    white-space:nowrap; /* for chrome */
+}
+.table .w50{width: 50%;}
+.table .w35{width: 35%;}
+.table .w30{width: 30%;}
+.table .w25{width: 25%;}
+.table .w20{width: 20%;}
+.table .w15{width: 15%;}
+.table .w10{width: 10%;}
+.table .w5{width: 5%;}
+@media (max-width:1200px){
+    .big-hide{
+        display: none!important;
+    }
+}
+@media (min-width:992px){
+    .content-page-submit-select-group .submit-select-group-tab-title{
+        text-align: right;
+    }
+    .content-page-submit-select-group .submit-select-group-title{
+        text-align: right;
+    }
+}
+@media (max-width:768px){
+    .content-page{
+        padding: 10px 5px;
+    }
+    .edit .control-page{
+        padding-top: 5px;
+    }
+    .content-page-submit-select-group .select-option{
+        width: 33.333333%;
+    }
+    .fy-group .fy-btn{
+        display: none;
+    }
+    .fy-group .fy-left-icon,
+    .fy-group .fy-link.active,
+    .fy-group .fy-right-icon{
+        display: block;
+    }
+    .fy-group .fy-left-icon{
+        margin-left: 10%;
+    }
+    .content-page-table .table .tab-checkbox{
+        width: 30px;
+        padding-left: 5px;
+    }
+    .content-page-table .no-img-table>tbody>tr>td:nth-child(1), .content-page-table .no-img-table>thead>tr>th:nth-child(1){
+        padding-left: 5px;
+    }
+    .content-page-table .table>tbody>tr>td:nth-last-child(1), .content-page-table .table>thead>tr>th:nth-last-child(1){
+        padding-right: 5px;
+    }
+    .table-last-group{
+        width: 80px;
+        padding-right: 5px;
+    }
+    .fy-group{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .content-page-table .content-page-table-top,
+    .content-page-table .table,
+    .content-page-table-fy{
+        min-width: 100%;
+    }
+    .content-page-table-fy{
+        padding: 0;
+    }
+    .bg-img .login-box{
+        left: 50%;transform: translateY(-50%) translateX(-57.5%);
+    }
+    .in-page-container{
+    	padding: 10px 0;
+    }
+    .content-box .content .content-group a{
+		width: 100%;
+		overflow: hidden;
+    	display: block;
+    }
+    .small-hide{
+        display: none;
+    }
+    .submit-select-group-select .submit-long-input{
+        width: 100%;
+    }
+    .submit-select-group-select .submit-textarea{
+        width: 100%;  
+    }
+    .table .w50,.table .w35,.table .w30,.table .w25,.table .w20,.table .w15,.table .w10,.table .w5{width: auto;}
+}

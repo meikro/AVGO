@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/detail_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/phone_add.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <script>
+        var fid = '[vod:zdy zd=class,fid,cid]';
+        if(fid == '0') fid = [vod:cid];
+        $('#nav_'+fid).addClass('active');
+    </script>
+    <main>
+        <div class="container">
+            <div class="vod-introduce-box">
+                <div class="middle-box">
+                    <div class="page-route hide1232">
+                        <i class="icon page-route-home-icon left"></i>
+                        <a href="{ctcms_path}">首页</a>
+                        <a href="[vod:classlink]">&gt;[vod:classname]</a>
+                        <a href="[vod:link]">&gt;[vod:name]</a>
+                    </div>
+                    <div class="vod-introduce">
+                        <div class="vod-img left" style="background:url([vod:pic]) center/cover no-repeat">
+                            <a style="background:url([vod:pic]) center/cover no-repeat"></a>
+                        </div>
+                        <div class="vod-info">
+                            <div class="name-box">
+                                <span class="name left">[vod:name]</span>
+                                <span class="score left">[vod:pf]</span>
+                                <div class="cz-group left">
+                                    <div class="group left to-share hide1232">
+                                        <i class="icon share-icon left"></i>
+                                        <span class="">分享</span>
+                                        <div class="share-box">
+                                            <div class="share-list-box bdsharebuttonbox">
+                                                <i class="icon share-sanjiao-icon"></i>
+                                                <span class="left">分享至：</span>
+                                                <a class="s20x19-a bds_sqq" data-cmd="sqq" title="分享到QQ好友"><i class="icon s20x19 share-qzone-icon"></i></a>
+                                                <a class="s20x19-a bds_qzone" data-cmd="qzone" title="分享到QQ空间"><i class="icon s20x19 share-qq-icon"></i></a>
+                                                <a class="s20x19-a bds_weixin" data-cmd="weixin" title="分享到微信"><i class="icon s20x19 share-wechat-icon"></i></a>
+                                                <a class="s20x19-a bds_tqq" data-cmd="tqq" title="分享到腾讯微博"><i class="icon s20x19 share-friendsquare-icon"></i></a>
+                                                <a class="s20x19-a bds_tsina" data-cmd="tsina" title="分享到新浪微博"><i class="icon s20x19 share-weibo-icon"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="group left to-share show1232" onclick="$('.bottom-share-box,.mask').show();$('body').addClass('body-fixed')">
+                                        <i class="icon share-icon left"></i>
+                                        <span class="">分享</span>
+                                    </div>
+                                    <div class="group left to-sc vod_fav"><i class="icon love-icon left"></i><span class="">收藏</span></div>
+                                </div>
+                            </div>
+                            <div class="message-info">
+                                <span class="group">地区：[vod:diqu url=search]</span>
+                                <span class="group">年代：[vod:year url=search]</span>
+                                <span class="group">分类：[vod:type url=search]</span>
+                                <span class="group">导演：[vod:daoyan url=search]</span>
+                                <span class="group">主演：[vod:zhuyan url=search]</span>
+                            </div>
+                            <div class="introduce-text active hide1232">
+                                <p id="text">
+                                    <span class="text-blod">剧情简介：</span>
+                                	[vod:text]
+                                </p>
+                                <a class="showAll active" id="showAll"></a>
+                            </div>
+                            <div class="to-bf">
+                                <a href="[vod:playlink]"><button class="to-bf-btn">立即播放</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vod-detail-container middle-box">
+                <div class="left-box left">
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">剧情列表</span><a class="text-yellow right show1232" onclick="$('.bottom-xuanji-box,.mask').show();$('body').addClass('body-fixed')">展开&gt;&gt;</a></div>
+                        <div class="episode-number-box hide1232">
+                            <div class="tab-group">
+                                {ctcms_zu}
+                                <a class="episode-tab left {if:{xu}==1} active{end if}" data-page="zu_{xu}" onclick="tab(this)">{name}</a>
+                                {/ctcms_zu}
+                            </div>
+                            <div>
+                                {ctcms_zu}
+                                <div class="episode-list" id="zu_{xu}" {if:{xu}!=1}style="display:none"{end if}>
+                                    {ctcms_ji}
+                                    <a class="data" href="{link}">{name}</a>
+                                    {/ctcms_ji}
+                                    <a class="data show-more" onclick="$(this).parents('.episode-list').removeClass('active')"><i
+                                            class="icon show-all-sanjiao-icon"></i></a>
+                                </div>
+                                {/ctcms_zu}
+                            </div>
+                        </div>
+                    </div>
+                    <script src="{ctcms_indextemplets}/js/juji.js"></script>
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">猜你喜欢</span></div>
+                        <div class="you-love-vod-list">
+                            <div>
+                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="zhuyan={vod_zhuyan}" limit="10" order="rhits desc"}
+                                <div class="data" title="[vod:name]">
+                                    <div class="vod-img">
+										{if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+										{if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                        <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]"></a>
+                                    </div>
+                                    <div class="vod-name"><a class="name" target="_blank" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:zhuyan]</div>
+                                </div>
+                            {if:[vod:i]%5==0}</div><div>{end if}
+                            {/ctcms:vod}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">精彩评论</span></div>
+                        <div class="pl-box">
+                        	{ctcms_pl}
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box right">
+                    <div class="vod-detail-container-left-group">
+                        <div class="group-title"><span class="title">相关推荐</span></div>
+                        <div class="xg-tj-list">
+                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="cid={ctcms_cid}" limit="6" order="zhits desc"}
+                            <div class="data" title="[vod:name]">
+                                <div class="img-box">
+                                    <a style="background:url([vod:pic]) center/cover no-repeat" href="[vod:link]"></a>
+                                    <a class="pop" href="[vod:link]"><i class="icon bf-orange-icon absolute-center"></i></a>
+                                </div>
+                                <div class="name"><a href="[vod:link]">[vod:name]</a></div>
+                            </div>
+                            {/ctcms:vod}
+                        </div>
+                    </div>
+                    <div class="vod-detail-container-left-group hide1232">
+                        <div class="group-title">排行<a class="more right" href="{ctcms_url opt=index/hot}">更多&gt;</a></div>
+                        
+                        <ul class="vod-ph-list">
+                            {ctcms:vod table="vod" field="id,name,pic,pf,zhuyan" where="" limit="10" order="rhits desc"}
+                            <li>
+                                {if:[vod:i] < 4}
+                                <i class="icon s20x20 number[vod:i]-icon "></i>
+                                {else}
+                                <i class="icon s_20x20">[vod:i]</i>
+                                {end if}
+                                <a href="[vod:link]">[vod:name]</a><span class="score">[vod:pf]</span>
+                            </li>
+                            {/ctcms:vod}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <div class="phone-bottom-box show1232">
+        <!-- 分享 -->
+        <div class="bottom-share-box pop-box" style="display: none;">
+            <div class="share-list-outsaide-box">
+                <div class="share-list-box">
+                    <div class="share-list bdsharebuttonbox">
+                        <div class="icon weibo-icon pull-left"><a class="block bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+                        <div class="icon pengyouquan-icon pull-left"><a class="block bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+                        <div class="icon qq-icon pull-left"><a class="block bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+                        <div class="icon wechat-icon pull-left"><a class="block bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+                        <div class="icon qqzone-icon pull-left"><a class="block bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="qx-btn bg-white show-num" onclick="$('.pop-box,.mask').hide();$('body').removeClass('body-fixed');">取消</div>
+        </div>
+        <!-- 选集 -->
+        <div class="bottom-xuanji-box pop-box" style="display: none;">
+			<i class="icon pop-close-icon" onclick="$('.bottom-xuanji-box').hide();$('.mask').hide();$('body').removeClass('body-fixed');" style="position: absolute;top: 15px;right: 15px;"></i>
+            <div class="box-title">选集</div>
+            <div style="overflow:auto">
+                <div class="vod-line-list">
+                    {ctcms_zu}
+                    <a class="data{if:{xu}==1} active{end if}" data-page="line{xu}" onclick="tab(this)">{name}</a>
+                    {/ctcms_zu}
+                </div>
+            </div>
+            <div>
+                {ctcms_zu}
+                <div class="box-vod-ji-list" id="line{xu}" {if:{xu}!=1}style="display:none"{end if}>
+                    {ctcms_ji}
+                    <a href="{link}" class="data">{name}</a>
+                    {/ctcms_ji}
+                </div>
+                {/ctcms_zu}
+            </div>
+        </div>
+    </div>
+    {ctcms_bottom}
+    <script>
+        var vod_id = {vod_id};
+        $(".cz-group .group").hover(function(){
+            $(this).children(".icon").addClass("active");
+        },function(){
+            $(this).children(".icon").removeClass("active");
+        })
+        $(".to-sc").click(function(){
+            if($(this).hasClass("isActive")){
+                $(this).removeClass("isActive").children(".icon").removeClass("isActive");
+            }else{
+                $(this).addClass("isActive").children(".icon").addClass("isActive");
+            }
+        })
+        $(function(){
+            changeshowAll();
+            $(window).resize(function(){
+                changeshowAll();
+            })
+            $("#showAll").click(function(){
+                if($(this).hasClass("active")){
+                    $(this).removeClass("active").parents(".introduce-text").removeClass("active");
+                }else{
+                    $(this).addClass("active").parents(".introduce-text").addClass("active");
+                }
+            })
+        })
+        function changeshowAll(){
+            if($("#text").height()>84){
+                $("#showAll").show();
+            }else{
+                $("#showAll").hide();
+            }
+        }
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</body>
+</html>

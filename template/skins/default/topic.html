@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/topic.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <script>$('#nav_index').addClass('active');</script>
+    <main>
+        <div class="container">
+            <div class="middle-box">
+                <div class="topic-list">
+                    {ctcms:topic table="topic" field="id,name,pic" where="" page="30" order="id desc"}
+                    <div class="data">
+                        <a class="data-pic"  href="[topic:topiclink]"  style="background:url([topic:pic]) center/cover no-repeat">
+                            <div class="pop">
+                                <div class="absolute-center">
+                                    <p>[topic:name]</p>
+                                    <p>———— [topic:count zd=vod,id,ztid]个影片 ————</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {/ctcms:topic}
+                </div>
+                <div class="fy-box" style="padding-top:40px;padding-bottom:40px;{if:{ctcms_pagejs}<2}display:none;{end if}">
+                    {if:{ctcms_page}>=2}
+                    <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                    {toif:{ctcms_page}>=7}
+                    <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                    {end toif}
+                    {end if}
+                    {ctcms_pagenum_7}
+                    {if:{ctcms_page}<{ctcms_pagejs}}
+                    <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                    {end if}
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+</body>
+</html>

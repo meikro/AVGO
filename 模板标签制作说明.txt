@@ -1,0 +1,302 @@
+
+更多标签详解，请访问，http://www.ctcms.cn/show/6.html
+
+//模板规范化管理
+每个模版要把所用的css，js，img按照相关规定，放到指定目录。
+每个模版都可定义不同的样式，所以系统内置的功能的相关文件也都放在了模版里，每个模版里存储一份，避免替换系统目录下的其他文件。
+template/skins/   为系统PC模版目录
+template/user/   为系统PC会员中心模版目录
+template/mobile/   为系统手机模版目录
+template/mobile_user/   为系统手机会员中心模版目录
+注意：[手机模板，只有在后台开启手机版时才有效]
+
+//模板内结构
+images/ 存放模版的相关图片
+css/ 存放模版的相关样式
+js/ 存放模版的效果样式
+//模板介绍开始
+head.html        全站头部
+bottom.html      全站尾部
+index.html       网站首页
+list.html        视频分类页
+show.html        视频内容页
+play.html        视频播放页
+search.html      搜索页面
+whole.html      智能检索页面
+gbook.html   在线留言页
+//下面只有收费程序才有的
+topic.html   视频专题列表
+topic-show.html 专题内容页
+comm.html    文章列表列表
+article.html    文章内容页
+editor.html    发布文章页
+pages.html    自定义页面
+opt-自定义.html  opt自定义页面
+ulogin.html      会员登陆框（未登陆）
+uinfo.html       会员登陆框（已登陆）
+
+//全局标签开始
+{ctcms_url}           网站域名
+{ctcms_name}          网站名称
+{ctcms_title}         网站标题
+{ctcms_keywords}      网站关键字
+{ctcms_description}   网站描述信息
+{ctcms_icp}           网站备案号
+{ctcms_qq}            网站管理QQ
+{ctcms_mail}          网站管理Email
+{ctcms_weixin}        微信公众号
+{ctcms_weixinurl}     微信公众号链接
+{ctcms_stat}          网站统计代码
+{ctcms_path}          安装目录
+{ctcms_basepath}      扩展附件CDN目录( css、js、images)
+{ctcms_templets}      当前模版文件目录
+{ctcms_indextemplets} 默认PC模版文件目录
+{ctcms_cid}    当前视频分类ID
+{ctcms_searchlink}  视频搜索链接
+{ctcms_topiclink}  视频专题链接
+{ctcms_logkuang}  会员登陆框
+
+//下面是会员中心链接（全站可以调用）
+{ctcms_url user=reg}  会员注册链接
+{ctcms_url user=login}  会员登陆链接
+{ctcms_url user=index} 会员中心链接
+{ctcms_url user=edit}   修改资料链接
+{ctcms_url user=fav}  我的收藏链接
+{ctcms_url user=pay} 充值升级链接
+{ctcms_url user=logout} 退出登录链接
+
+//下面分页标签（可用在，首页、分类页、搜索页、智能检索页【需要配合大标签的 page= 一起使用】）
+{ctcms_page}       当前页数
+{ctcms_pagejs}     总页数
+{ctcms_pagenum}    总数量
+{ctcms_pagesize}   每页条数
+{ctcms_pagefirst}  首页链接
+{ctcms_pagelast}   尾页链接
+{ctcms_pageup}     上页链接
+{ctcms_pagedown}   下页链接
+{ctcms_pagelist}   翻页链接
+{ctcms_pagenum_10} 循环链接，10为显示页数
+
+//条件判断if标签
+if标签,支持多重嵌套,每个层级的if标签不能相同
+例:
+	{if:[vod:i] > 1 }....{end if}
+	{if:[vod:i]%2 == 0}....{else}....{end if}
+	{if:[vod:i]%2 == 0}....{elseif:[vod:i]%2==1}....{else}....{end if}
+        {if:[vod:tid]==1}
+            [推荐]
+        {end if}
+
+//友情链接标签
+参数:
+	table: 数据库 link
+    	field: 查询字段，多个用,来隔开 ,留空为全部
+    	where: 查询条件，如：cid=1 多个条件用|来隔开
+	limit: 获取数据条数，留空为显示全部
+    	order: 排序方式
+例: 
+{ctcms:link table="link" limit="100" order="id desc"}
+    	[link:i]序号
+    	[link:name]名称，支持长度控制[link:name len=10]
+    	[link:link]地址
+    	[link:pic]图片
+{/ctcms:link}
+
+//分类标签开始
+参数:
+    	table: 数据库 class
+    	field: 查询字段，多个用,来隔开 ,留空为全部
+	where: 查询条件，如：fid=0 多个条件用|来隔开
+    	limit: 获取数据条数，留空为显示全部
+    	order: 排序方式
+
+例:视频单级别分类调用: 
+{ctcms:class table="class" field="id,name,fid" where="" limit="10" order="xid asc"}
+    	[class:i]:序号
+	[class:id]:id
+	[class:fid]:父分类id
+    	[class:name]:名称
+    	[class:link]:链接
+{/ctcms:class}
+
+//搜索参数和标签详解
+参数:
+	    wd:名称或主演
+	    py:首字母
+	    zhuyan:主演
+	    daoyan:导演
+	    diqu:地区
+    	    yuyan:语言
+	    year:上映日期
+	    cid:所属分类
+    	    sort:排序字段 
+    	    order:排序 desc(倒序) asc (正序)
+例如：
+    	index.php/search?wd=火影   搜索名称为火影的数据
+    	index.php/search?zhuyan=刘德华   搜索主演为刘德华的数据
+    	index.php/search?py=A      搜索首字母为A的数据
+    	index.php/search?cid=1&wd=海贼   搜素分类ID为1下属的名称为海贼的数据
+    	index.php/search?wd=火影&order=desc&sort=hits   搜索名称为火影的数据按照 总人气倒序排列
+
+支持标签:
+    	{ctcms_key}       搜索关键字
+    	{ctcms_wd}        搜索的名称
+    	{ctcms_py}        搜索的首字母
+    	{ctcms_zhuyan}    搜索的主演
+    	{ctcms_daoyan}    搜索的导演
+    	{ctcms_diqu}    搜索的地区
+	{ctcms_yuyan}    搜索的语言
+	{ctcms_year}      搜索的年代
+    	{ctcms_cid}    搜索的分类id
+
+
+//视频列表标签
+参数:
+    table: 数据库 vod
+    field: 查询字段，多个用,来隔开 ,留空为全部
+    where: 查询条件，如：tid=1 多个条件用|来隔开
+    page:  获取数据条数，分页专用
+    limit: 获取数据条数，留空为显示全部，如：0,50或者50
+    order: 排序方式
+
+例如:
+{ctcms:vod table="vod" field="*" where="tid=1|zhuyan=吴京|py=A" limit="50" order="addtime desc"}
+    	[vod:i] 序号
+    	[vod:i len=5] 序号，重几开始
+    	[vod:id] 编号
+    	[vod:cid] 分类ID
+    	[vod:name] 名称:可控长度len=10
+    	[vod:pic]  图片
+    	[vod:zhuyan] 主演
+    	[vod:daoyan] 导演
+    	[vod:diqu] 地区
+    	[vod:yuyan] 语言
+    	[vod:info] 备注
+    	[vod:year] 发行日期
+    	[vod:tid]  是否推荐，0未推荐，1已推荐
+	[vod:hits]  点击量
+	[vod:text]  描述:可控长度
+	[vod:addtime style=Y-m-d]  添加时间:可控时间格式 Y-m-d ,y-m-d , m-d 
+    	[vod:time style=time]  更新时间:格式化 如：3小时前
+    	[vod:link] 链接
+    	[vod:playlink] 播放链接，默认是第1组播放器的第1条数据
+    	[vod:playlink zdy=acs] 播放链接，最后一集（连续剧专用）
+    	[vod:cid] 分类ID
+    	[vod:classlink] 父分类链接
+    	[vod:classname]  父分类名
+    	[vod:ztid]  所属专题ID
+    	[vod:topiclink] 所属专题链接
+{/ctcms_vod}
+
+//随机显示视频案列，其他调用方法跟上面一样
+{ctcms:vod table="vod" field="*" where="id >= (select floor(rand() * (select max(id) from ct_vod)))" limit="10" order="addtime desc"}
+        //...小标签跟上面一样
+{/ctcms:vod}
+
+//视频内容页、播放页标签
+调用当前视频数据的标签，同vod标签, 例如[vod:id]  [vod:name]
+
+内容页、播放页特有标签:
+    	{ctcms_player}    这个是播放器
+    	{ctcms_pl}    这个评论
+    	[vod:errlink] 视频报错链接
+    	[vod:ji]  当前第几集 
+    	[vod:jname]  当前集数名称
+    	[vod:playurl]  当前播放数据的真实播放地址
+    	[vod:laiy]  当前播放数据的来源标记  例如：youku
+    	[vod:zname] 当前播放数据的来源显示名称 例如：优酷视频
+
+播放列表标签:（只能用在内容页、播放页）
+参数:
+{ctcms_zu}
+    	{xu} 序号
+    	{ly} 播放组来源
+    	{name} 播放组名称
+    	{count} 播放组总集数
+    	{ctcms_ji}
+	        {xu} 集数序号
+        	{name} 集数名称
+        	{link} 播放链接
+        	{url} 播放片源地址
+        {/ctcms_ji}
+{/ctcms_zu}
+
+下载列表标签:（只能用在内容页、播放页）
+参数:
+{ctcms_down}
+    	{xu} 序号
+    	{ly} 下载组来源
+    	{name} 下载组名称
+    	{count} 下载组总集数
+    	{ctcms_ji}
+	        {xu} 集数序号
+        	{name} 集数名称
+        	{url} 下载地址
+        {/ctcms_ji}
+{/ctcms_down}
+
+//视频专题标签
+参数:
+    table: 数据库 topic
+    field: 查询字段，多个用,来隔开 ,留空为全部
+    where: 查询条件，留空为全部
+    page:  获取数据条数，分页专用
+    limit: 获取数据条数，留空为显示全部，如：0,50或者50
+    order: 排序方式
+
+例:最新视频专题调用: 
+{ctcms:topic table="topic" field="*" page="20" order="addtime desc"}
+    [topic:i]:序号
+    [topic:id]:id
+    [topic:name]:专题名称
+    [topic:pic]:专题封面图片
+    [topic:tpic]:专题banren图片
+    [topic:hits]:专题人气
+    [topic:text]:专题介绍
+    [topic:topiclink]:专题链接
+{/ctcms:topic}
+
+//自定义页面标签
+参数:
+    table: 数据库 pages
+    field: 查询字段，多个用,来隔开 ,留空为全部
+    where: 查询条件，如：yid=0 多个条件用|来隔开
+    limit: 获取数据条数，留空为显示全部
+    order: 排序方式
+
+例:最新自定义页面调用: 
+{ctcms:pages table="pages" field="*" where="yid=0" limit="10" order="id asc"}
+    [pages:i]:序号
+    [pages:id]:id
+    [pages:yid]:状态，0显示，1隐藏
+    [pages:bs]:英文标示
+    [pages:name]:标题
+    [pages:text]:内容
+    [pages:pagelink]:链接
+{/ctcms:pages}
+
+//视频类型、地区、年份、语言标签
+{ctcms:type}
+    [type:name] //名称
+    [type:link]  //链接
+{/ctcms:type}
+
+//调用前5个类型
+{ctcms:type_5}
+    [type:name] //名称
+    [type:link]  //链接
+{/ctcms:type_5}
+
+//同时显示该类型视频
+{ctcms:type_5}
+    [type:name] //名称
+    [type:link]  //链接
+    {ctcmstype:vod table="vod" field="id,name" where="type like '%[type:name]%'" limit="10" order="addtime desc"}
+       //这里可以调用视频内容
+       [vod:name] //视频名称
+       [vod:link]  //视频链接
+       //.......等
+    {/ctcmstype:vod}
+{/ctcms:type_5}
+
+说明：类型type、地区：diqu ， 年份： year ，语言： yuyan

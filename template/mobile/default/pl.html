@@ -1,0 +1,72 @@
+<style type="text/css">
+.pl{color:#aaa;padding: 10px;padding-top: 0px;font-size:14px;text-shadow: 1px 1px 1px #5550;font-size:12px;}
+.pl a{color:#aaa;text-shadow: 1px 1px 1px #5550;}
+.nolog{
+	margin-top: 15px;
+    border: 1px solid #2d2d2d;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #d98242;
+}
+.nolog a {
+	color: #d98242;
+	text-decoration: none;
+}
+.nopl{
+	border: 1.5px dashed #333;
+    color: #fa5b0c;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #5550;
+}
+</style>
+<div class="pl">
+    {if:{ctcms_pagenum}==0}
+	<p class="nopl">暂无评论</p>
+	{else}
+	<p>共 <font id="hfnum">[pl:count zd=pl,id,did]</font> 条评论</p>
+	{end if}
+	<div style="margin-top:10px;">
+	{ctcms:pl table="pl" where="fid=0" page="10" order="addtime desc"}
+		<div id="reply[pl:id]" style="margin-bottom: 10px;border-bottom: 1px solid #2d2d2d;float: left;width: 100%;padding-bottom: 5px;">
+			<p>
+				<b>[pl:zdy zd=user,nichen,uid]</b>
+				<span style="float: right;">发布于：[pl:addtime style=Y-m-d H:i:s]</span>
+			</p>
+			<p style="color:#999;">[pl:text]</p>
+			<p style="float: right;">{if:'[pl:uid]'=='{ctcms_uid}'}<a onclick="get_pl_del('{pl_dellink}','[pl:id]')" class="am-fr" href="javascript:;">删除</a>{end if}<a onclick="get_pl_reply([pl:id],'回复：[pl:zdy zd=user,nichen,uid]')"  href="javascript:;" style="margin-left: 10px;">回复</a></p>
+		</div>
+		{ctcmstype:pllist table="pl" where="fid=[pl:id]" order="addtime asc"}
+		<div id="reply[pllist:id]" style="margin-bottom: 10px;border-bottom: 1px solid #2d2d2d;float: left;width: 100%;padding-bottom: 5px;">
+			<p>
+				<b>回复:@[pllist:zdy zd=user,nichen,uid]</b>
+				<span style="float: right;">[pllist:addtime style=Y-m-d H:i:s]</span>
+			</p>
+			<p style="color:#999;">[pllist:text]</p>
+			<p style="float: right;">{if:'[pllist:uid]'=='{ctcms_uid}'}<a onclick="get_pl_del('{pl_dellink}','[pllist:id]')" href="javascript:;">删除</a>{end if}<a onclick="get_pl_reply([pl:id],'回复：[pllist:zdy zd=user,nichen,uid]')" href="javascript:;" style="margin-left: 10px;">回复</a></p>
+		</div>
+		{/ctcmstype:pllist}
+	{/ctcms:pl}					
+	</div>
+	<div style="text-align:center;{if:{ctcms_pagejs}<2}display: none;"{end if}">
+		<a style="float: left;padding-left:20px;" href="javascript:;" onclick="get_pl_up();">上一页</a>
+		<b>{ctcms_page} / {ctcms_pagejs}</b>
+		<a style="float: right;padding-right:20px;" href="javascript:;" onclick="get_pl_next();">下一页</a>
+	</div>
+{if:'{pl_login}'=='no'}
+	<div class="nolog"><strong>提示：</strong><a href="{ctcms_url user=reg}">[注册]</a> / <a href="{ctcms_url user=login}">[登入]</a> 之后才能回复。</div>
+{else}
+	<div style="margin-top: 10px;">
+		<input type="hidden" id="fid" value="0">
+		<span id="reply-to-box">回复：楼主</span>
+		<b id="replyclose" onclick="get_pl_close();" style="float: right;display: none;">取消回复</b>
+	    <textarea id="replycontent" rows="2" style="width: 100%;height: 50px;margin-bottom:10px;margin-top: 10px;background-color: #333333;color:#fff;"></textarea>
+	    <button onclick="get_pl_add();" style="width: 80px;height: 25px;line-height: 25px;background-color: #f60;color:#fff;">回复</button>
+	    <span id="rpnotice" style="color:red;font-size: 12px;"></span>
+	</div>
+{end if}
+</div>

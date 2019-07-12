@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{ctcms_indextemplets}/js/ajaxfileupload.js"></script>
+    <script>
+        var ctcms_path = '{ctcms_path}',
+            optlink = '{ctcms_url opt=ctcms}',
+            page_name = 'xgzl';
+    </script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/js/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/js/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container">
+            {ctcms_left}
+            <div class="center-page-content left">
+                <div class="center-page-content-tab">
+                    <div style="overflow:auto;margin-bottom: 20px">
+                        <a class="tab active" href="{ctcms_url user=edit}">修改资料</a>
+                        <a class="tab href" id="edit-pass">修改密码</a>
+                    </div>
+                    <script>
+                        var token = localStorage.getItem('token')
+                        $('#edit-pass').on('click', function () {
+                            layer.open({
+                                type: 2,
+                                area: ['100%', '100%'],
+                                fixed: false, //不固定
+                                maxmin: true,
+                                content: 'http://uat.ag288.com/ucenter/person/pwdIndex/?min=true&token=' +
+                                    token
+                            });
+                        })
+                        window.addEventListener('message', function (event) {
+                            if (event.data.successful) {
+                                layer.closeAll('iframe')
+                                layer.msg('密码修改成功')
+                            }else{
+                                layer.msg('服务异常')
+                            }
+                        })
+                    </script>
+                </div>
+                <div>
+                    <div class="update-data-page">
+                        <form class="am-form am-form-horizontal" action="{ctcms_formurl}" method="post"
+                            data-am-validator>
+                            <div class="personal-page-update-date-box">
+                                <div class="update-data-group">
+                                    <div class="tx-title left">头像</div>
+                                    <div class="group-update left" style="width:auto">
+                                        <div class="show-user-pic"
+                                            style="background: url([user:pic]) center center / cover no-repeat;">
+                                            <div class="pop">
+                                                <i class="icon camera-icon absolute-center"></i>
+                                                <input type="file" class="user_logo" name="user_logo" id="user_logo"
+                                                    value="">
+                                            </div>
+                                            <input type="hidden" id="userpic" name="pic" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="update-data-group">
+                                    <div class="group-title left">账号</div>
+                                    <div class="group-update left"><input type="text" readonly="readonly"
+                                            disabled="disabled" class="group-input-col12" id="doc-ipt-1"
+                                            value="[user:name]" style="background-color: #f4f4f4"></div>
+                                </div>
+                                <div class="update-data-group">
+                                    <div class="group-title left">昵称</div>
+                                    <div class="group-update left"><input type="text" name="nichen"
+                                            value="[user:nichen]" class="group-input-col12"></div>
+                                </div>
+                                <div class="update-data-group">
+                                    <div class="group-title left">性别</div>
+                                    <div class="group-update left">
+                                        <div class="group-radio">
+                                            <span class="radio{if:[user:sex]==1} active{end if}"
+                                                onclick="iconAddClassSiblings(this);$('#sex').val(1)"><i
+                                                    class="icon select-circel-icon left {if:[user:sex]==1} active{end if}"></i>男</span>
+                                            <span class="radio{if:[user:sex]==2} active{end if}"
+                                                onclick="iconAddClassSiblings(this);$('#sex').val(2)"><i
+                                                    class="icon select-circel-icon left {if:[user:sex]==2} active{end if}"></i>女</span>
+                                            <span class="radio{if:[user:sex]==0} active{end if}"
+                                                onclick="iconAddClassSiblings(this);$('#sex').val(0)"><i
+                                                    class="icon select-circel-icon left {if:[user:sex]==0} active{end if}"></i>保密</span>
+                                        </div>
+                                        <input id="sex" type="hidden" name="sex" value="[user:sex]">
+                                    </div>
+                                </div>
+                                <!-- <div class="update-data-group">
+                                            <div class="group-title left">邮箱</div>
+                                            <div class="group-update left"><input  value="[user:email]" type="email" name="email" class="group-input-col12"></div>
+                                        </div>
+                                        <div class="update-data-group">
+                                            <div class="group-title left">手机</div>
+                                            <div class="group-update left"><input type="text" name="tel" class="group-input-col12" value="[user:tel]"
+                                                    maxlength="11" pattern="^1[3|4|5|7|8][0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$"></div>
+                                        </div>
+                                        <div class="update-data-group">
+                                            <div class="group-title left">QQ</div>
+                                            <div class="group-update left"><input type="text" name="qq" class="group-input-col12" value="[user:qq]"></div>
+                                        </div> -->
+                                <div class="update-data-group" style="margin-top: 36px;">
+                                    <div class="group-title left hide1232">&nbsp;</div>
+                                    <div class="group-update left"><button type="submit"
+                                            class="update-submit-btn">确认修改</button></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(function () {
+                    // 图片上传
+                    openPicFile({
+                        uploadfileID: "user_logo",
+                        sawfile_target: ".show-user-pic",
+                        employeeImageUploadUrl: "{ctcms_picsave}", //图片上传接口地址,
+                        PicUrl_target: "#userpic" //储存图片服务器地址的input[type = 'hidden'] 选择器
+                    })
+                })
+            </script>
+        </div>
+        </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    </div>
+    {ctcms_indexbottom}
+</body>
+
+</html>

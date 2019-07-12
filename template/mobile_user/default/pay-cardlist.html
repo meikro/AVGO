@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;充值记录<a href="{ctcms_url user=index}" style="float:right;color:#FFF;font-size:14px;">返回&nbsp;&nbsp;</a></h3>
+    <table class="lists">
+            <thead>
+                <tr>
+                    <th>卡号</th>
+                    <th>类型</th>
+                    <th>状态</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+{ctcms:card table="card" field="*" page="15" order="totime desc"}
+                  <tr>
+                    <td>[card:kh]</td>
+                    <td>{if:[card:cid]==0}金币卡{else}Vip卡{end if}</td>
+                    <td>{if:[card:cid]==0}[card:cion]个金币{else}[card:day]天Vip{end if}</td>
+                    <td>[card:totime style=time]</td>
+                </tr>
+{/ctcms:card}
+            </tbody>
+    </table>
+    <p style="text-align: center;margin-top:10px;float: left;width: 100%;">
+        <a href="{ctcms_pageup}">&laquo;上一页</a>&nbsp;&nbsp;
+        {ctcms_pagelist}&nbsp;&nbsp;
+        <a href="{ctcms_pagedown}">下一页&raquo;</a>
+    </p>
+</div>
+<script>
+$('#user').addClass('ons');
+$('#nav_5').addClass('on');
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

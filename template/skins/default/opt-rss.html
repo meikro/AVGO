@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>{ctcms_name}</title>
+<description>{ctcms_name}</description>
+<link>{ctcms_url}</link>
+<language>zh-cn</language>
+<docs>{ctcms_name}</docs>
+<generator>Rss Powered By {ctcms_url}</generator>
+<image>
+<url>http://{ctcms_url}/images/logo.png</url>
+</image>
+{ctcms:vod table="vod" field="id,name,zhuyan,state,text,addtime" limit="60" order="addtime desc"}
+<item>
+<title>[vod:name][vod:state]</title>
+<link>http://{ctcms_url}[vod:link]</link>
+<author>[vod:zhuyan]</author>
+<pubDate>[vod:addtime style=Y-m-d H:i:s]</pubDate>
+<description><![CDATA["[vod:text len=200]"]]></description>
+</item>
+{/ctcms:vod}
+</channel>
+</rss>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}',page_name='xfjl'</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container" id="b">
+                {ctcms_left}
+                    <div class="center-page-content left">
+                        <div style="overflow:auto">
+                            <div class="center-page-content-tab">
+                                <a class="tab active" href="{ctcms_url user=pay/lists}">充值记录</a>
+                                <a class="tab" href="{ctcms_url user=pay/cardlists}">卡密记录</a>
+                                <a class="tab" href="{ctcms_url user=buy/gift}">打赏记录</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="table-page" id="p1">
+                                <div class="center-page-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="hide1232">订单号</th>
+                                                <th class="hide1232">购买方式</th>
+                                                <th>购买套餐</th>
+                                                <th>金额</th>
+                                                <th class="hide1232">购买时间</th>
+                                                <th>交易状态</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {if:'{ctcms_pagenum}'=='0'}<tr><td colspan="5" style="text-align: center;padding-top:30px;">暂无记录!</td></tr>{end if}
+                                            {ctcms:pay table="pay" field="*" page="12"  order="addtime desc"}
+                                            <tr>
+                                                <td class="hide1232">[pay:dingdan]</td>
+                                                <td class="hide1232">{if:[pay:sid]==1}支付宝{elseif:[pay:sid]==2}微信{else}余额{end if}</td>
+                                                <td>{if:[pay:cid]==0}充金币{else}Vip([pay:day]天){end if}</td>
+                                                <td>[pay:rmb]</td>
+                                                <td class="hide1232">[pay:addtime style=Y-m-d]</td>
+                                                <td>{if:[pay:type]==1}交易成功{else}等待支付{end if}</td>
+                                            </tr>
+                                            {/ctcms:pay}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="fy-box" style="padding-top:40px;padding-bottom:40px;{if:{ctcms_page}<2}display: none;{end if}">
+                                        {if:{ctcms_page}>=2}
+                                        <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                                        {toif:{ctcms_page}>=7}
+                                        <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                                        {end toif}
+                                        {end if}
+                                        {ctcms_pagenum_7}
+                                        {if:{ctcms_page}<{ctcms_pagejs}}
+                                        <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                                        {end if}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    </div>
+    {ctcms_indexbottom}
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;分销记录<a href="{ctcms_url user=fenxiao}" style="float:right;color:#FFF;font-size:14px;">返回&nbsp;&nbsp;</a></h3>
+    <p>您的分销余额：<b style="color:red">[user:rmb]</b> 元</p>
+    <table class="lists" style="margin-top:10px">
+            <thead>
+                <tr>
+                    <th>会员</th>
+                    <th>充值金额</th>
+                    <th>分成金额</th>
+                    <th>分成时间</th>
+                </tr>
+            </thead>
+            <tbody>
+{ctcms:fx table="fxlist" field="*" page="15" order="addtime desc"}
+                  <tr>
+                    <td>[fx:zdy zd=user,name,uidb]</td>
+                    <td>[fx:rmb]元</td>
+                    <td>[fx:fcrmb]元</td>
+                    <td>[fx:addtime style=Y-m-d H:i:s]</td>
+                </tr>
+{/ctcms:fx}
+            </tbody>
+    </table>
+    <p style="text-align: center;margin-top:10px;float: left;width: 100%;">
+        <a href="{ctcms_pageup}">&laquo;上一页</a>&nbsp;&nbsp;
+        {ctcms_pagelist}&nbsp;&nbsp;
+        <a href="{ctcms_pagedown}">下一页&raquo;</a>
+    </p>
+</div>
+<script>
+$('#user').addClass('ons');
+</script>
+{ctcms_indexbottom}
+</body>
+</html>

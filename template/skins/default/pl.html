@@ -1,0 +1,126 @@
+<div class="vod-pl-input">
+    <div><textarea data-id="0" class="vod-pl" id="replycontent" maxlength="200" oninput="pl_vod(this)" placeholder="请输入评论内容"></textarea></div>
+    <div class="submit-vod-pl">
+        <span>您还可以输入<span id="vod_pl_num">200</span>个字符</span>
+        <button class="submit-vod-pl-btn right" onclick="get_pl_btn();" disabled="disabled">评论</button>
+    </div>
+    <input type="hidden" id="fid" value="0">
+</div>
+<script>
+    function pl_vod(t){
+        var num = $(t).val().length;
+        $("#vod_pl_num").html(200-num);
+        if(num == 0){
+            $(".submit-vod-pl-btn").removeClass("active");
+        }else{
+            $(".submit-vod-pl-btn").addClass("active");
+            $(".submit-vod-pl-btn").attr('disabled',false);
+        }
+    }
+    $(".vod-pl").click(function() {
+        is_log();
+        $('#fid').val('0');
+        $('.hf-input-box').each(function(){
+            $(this).empty();
+        });
+        if($('.vod-pl').attr('id') == '0'){
+            $('.vod-pl').attr('data-id','0').attr('id','replycontent');
+        }
+    });
+    $(".hf-btn").click(function(){
+        is_log();
+        $(".submit-vod-pl-btn").removeClass("active").attr('disabled',true);
+        $('.hf-input-box').each(function(){
+            $(this).empty();
+        });
+        $('.vod-pl').attr('data-id','1').attr('id','').val('');
+        $('#fid').val($(this).attr("data-hfid"));
+        var hf_user = $(this).attr("data-hfuser");
+        var num = 0;
+        var str = '<div id="hf"><div style="position: relative;"><div class="hftxt" style="position: absolute;top: 0;left: 8px;line-height: 40px;">回复&nbsp;'+hf_user+'：</div><input style="padding-left: 85px;" class="hf-input" id="replycontent" type="text" maxlength="200" value="" oninput="$(\'#hf_num\').html($(this).val().length)"></div>'+
+                '<div class="submit-hf"><span><span id="hf_num">'+num+'</span>/200</span>'+
+                '<button class="submit-hf-btn right qx" onclick="$(\'#hf\').remove()">取消</button>'+
+                '<button class="submit-hf-btn right tj" onclick="get_pl_btn();">提交</button></div></div>';
+        $(this).parent().siblings(".hf-input-box").append(str);
+        $('.hf-input').css('padding-left',$('.hftxt').width()+10);
+    });
+    function get_pl_btn() {
+        is_log();
+        var fid = $("#fid").val();
+        var content = $("#replycontent").val();
+        if(content==''){
+            $("#replycontent").focus();
+            ty_tip('请输入评论内容!!!',2);
+            return;
+        }
+        $.post(ctcms_pladdlink, {
+            did:pl_did,fid:fid,text:content
+        }, function(data) {
+            if(data['msg'] == 'ok'){
+                $("#replycontent").val("");
+                ty_tip('评论成功!!',1);
+                setTimeout(function(){get_pl(1);},500);
+            }else{
+                ty_tip(data['msg'],2);
+            }
+        },'json');
+    }
+    function get_pl_mroe(){
+        pl_page++;
+        if(pl_pagejs < pl_page){
+            ty_tip('没有更多了!!',2);
+            $('.pl_more').hide();
+        }else{
+            $.post(ctcms_pllink, {did:pl_did,page: pl_page}, function(data) {
+                if(data['html']){
+                    $('.pl-list').appendTo(data['html']);
+                }
+            },'json');
+        }
+    }
+</script>
+<div class="pl-list">
+    {if:{ctcms_pagenum}==0}<div style="text-align: center;">暂无评论!!!</div>{end if}
+    {ctcms:pl table="pl" where="fid=0" page="15" order="addtime desc"}
+    <div class="pl-data" id="reply[pl:id]">
+        <div class="pl-user-img left">
+            <a><img class="img" src="[pl:zdy zd=user,pic,uid]"></a>
+        </div>
+        <div class="pl-content-box">
+            <div class="name"><a>[pl:zdy zd=user,nichen,uid]</a>&nbsp;留言于 [pl:addtime style=Y-m-d H:i:s]</div>
+            <div class="pl-content">
+                [pl:text]
+            </div>
+            <div class="hf-btn-box">
+                <a class="hf-btn right" data-hfid="[pl:id]" data-hfuser="[pl:zdy zd=user,nichen,uid]"><i class="icon hf-icon left"></i></a>
+                {if:'[pl:uid]'=='{ctcms_uid}'}
+                <a onclick="showDelPop(null,'pl','del',[pl:id])" class="right" style="margin-right:20px;"><i class="icon s18x17 delete18x17-icon left"></i></a>
+                {end if}
+            </div>
+            <div class="hf-input-box"></div>
+            <div class="hf-list"{if:[pl:count zd=pl,id,fid] == 0} style="display: none;"{end if}>
+                <div>
+                    {ctcmstype:pllist table="pl" where="fid=[pl:id]" order="addtime asc"}
+                    <div class="hf-data" id="reply[pllist:id]">
+                        <div class="pl-content">
+                            <a class="name">[pllist:zdy zd=user,nichen,uid]</a>：[pllist:text]
+                        </div>
+                        <div class="hf-btn-box">
+                            <span class="time">[pllist:addtime style=Y-m-d H:i:s]</span>
+                            <a class="hf-btn right" data-hfid="[pl:id]" data-hfuser="[pllist:zdy zd=user,nichen,uid]"><i class="icon hf-icon left"></i></a>
+                            {if:'[pllist:uid]'=='{ctcms_uid}'}
+                            <a onclick="showDelPop(null,'pl','del',[pllist:id])" class="right" style="margin-right:20px;"><i class="icon s18x17 delete18x17-icon left"></i></a>
+                            {end if}
+                        </div>
+                        <div class="hf-input-box"></div>
+                    </div>
+                    {/ctcmstype:pllist}
+                </div>
+            </div>
+        </div>
+    </div>
+    {/ctcms:pl}
+    <div onclick="get_pl_mroe();" class="pl_more" style="text-align: center;background-color: #f6f6f6;padding: 10px 0;{if:{ctcms_pagejs}<2}display: none;{end if}">
+        <a>查看更多评论</a>
+    </div>
+</div>

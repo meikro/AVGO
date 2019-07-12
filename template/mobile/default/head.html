@@ -1,0 +1,13 @@
+<div class="logo">
+<div id="A"><img src="{ctcms_indextemplets}/images/logo.png" /></div>
+<div id="B"><input class="seac" id="text" type="text" value="请输入影片名进行搜索" /><span id="seach" onclick="seach('{ctcms_searchlink}');">搜一下</span></div>
+</div>
+<div class="header">
+<ul>
+<li><a id="index" href="{ctcms_path}">首页</a></li>
+{ctcms:class table="class" field="id,name" where="fid=0" limit="4" order="xid asc"}
+<li><a{if:'{ctcms_cid}'=='[class:id]'} class="ons"{end if} href="{ctcms_url whole=[class:id]}">[class:name]</a></li>
+{/ctcms:class}
+{ctcms_logkuang}
+</ul>
+</div>

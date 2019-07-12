@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-box-pop fixed-center">
+            <div class="pop-logo">
+                <i class="icon login-logo left"></i>
+                <span>注册</span>
+            </div>
+            <div class="input-group">
+                <form action="{ctcms_formurl}" method="post">
+                    <div class="group">
+                        <input type="text" name="name" class="input-col12" placeholder="输入账号" value="" required>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="email" class="input-col12" placeholder="输入邮箱" value="" required>
+                    </div>
+                    <div class="group">
+                        <input type="password" name="pass" class="input-col12" placeholder="输入密码" value="" required>
+                    </div>
+                    <div class="group" style="position:relative;">
+                        <input type="text" name="code" class="input-col12" placeholder="验证码" value="" required>
+                        <img id="code" style="position: absolute;top: 4px;right:0px;cursor: pointer;" src="{ctcms_codeurl}">
+                    </div>
+                    <div class="group">
+                        <span class="xieyi active"><i class="icon checkbox-icon left active"></i>我已阅读并接受<a class="text-blue">用户协议</a></span>
+                    </div>
+                    <div class="group">
+                        <button type="submit" class="submit-btn">注册</button>
+                    </div>
+                    <div class="group">
+                        <span class="go-login">已有账号<a class="text-yellow" href="{ctcms_url user=login}">去登陆&gt;</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".xieyi").click(function(){
+            if($(this).hasClass("active")){
+                $(this).removeClass("active").children(".icon").removeClass("active");
+            }else{
+                $(this).addClass("active").children(".icon").addClass("active");
+            }
+        });
+        $('#code').click(function() {
+            var link = '{ctcms_codeurl}';
+            if(link.search('=') == -1){
+                link+='?temp='+ (new Date().getTime().toString(36));
+            }else{
+                link+='&temp='+ (new Date().getTime().toString(36));
+            }
+            $(this).attr('src',link);
+        });
+    </script>
+</body>
+</html>

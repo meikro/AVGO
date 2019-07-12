@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/center.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/pop_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}',page_name='wdfx'</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_indexhead}
+    <main>
+        <div class="container" id="b">
+                {ctcms_left}
+                    <div class="center-page-content left">
+                        <div style="overflow:auto">
+                            <div class="center-page-content-tab">
+                                <a class="tab" href="{ctcms_url user=fenxiao}">我的下线</a>
+                                <a class="tab active" href="{ctcms_url user=fenxiao/lists}">分销记录</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="fx-page" id="p2">
+                                <div class="center-page-table">
+                                    <div class="msg_tip" style="margin-bottom: 20px">获得分销总金额<label class="text-red" style="margin-left: 20px">¥[user:rmb]</label></div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>会员</th>
+                                                <th>充值金额</th>
+                                                <th>分成金额</th>
+                                                <th>购买时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {if:'{ctcms_pagenum}'=='0'}<tr><td colspan="4" style="text-align: center;padding-top:30px;">暂无记录!</td></tr>{end if}
+                                            {ctcms:fx table="fxlist" field="*" page="15" order="addtime desc"}
+                                            <tr>
+                                                <td>[fx:zdy zd=user,name,uidb]</td>
+                                                <td>[fx:rmb]元</td>
+                                                <td>[fx:fcrmb]元</td>
+                                                <td>[fx:addtime style=Y-m-d H:i:s]</td>
+                                            </tr>
+                                            {/ctcms:fx}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="fy-box"  style="padding-top:0;padding-bottom:20px;{if:{ctcms_pagejs}<2}display:none{end if}">
+                                        {if:{ctcms_page}>=2}
+                                        <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                                        {toif:{ctcms_page}>=7}
+                                        <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                                        {end toif}
+                                        {end if}
+                                        {ctcms_pagenum_7}
+                                        {if:{ctcms_page}<{ctcms_pagejs}}
+                                        <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                                        {end if}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+    </div>
+    {ctcms_indexbottom}
+</body>
+</html>

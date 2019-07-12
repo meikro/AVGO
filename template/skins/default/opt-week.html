@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_other.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/index_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}',optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}assets/js/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}assets/js/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <main>
+        <div class="container">
+            <div class="index-page-today-tj-box">
+                <div class="middle-box">
+                    <div class="day-updata-vod-box">
+                        <div class="box-title">
+                            <div>
+                                <span class="left">每日精选</span>
+                                <div class="week-tab-group left hide1232">
+                                    {ctcms_zdy:week}
+                                    <a class="tab week-day" data-week="[week:i]">[week:name]</a>
+                                    {/ctcms_zdy:week}
+                                </div>
+                            </div>
+                            <div style="overflow:auto">
+                                <div class="week-tab-group show1232">
+                                    {ctcms_zdy:week}
+                                    <a class="tab week-day" data-week="[week:i]">[week:name]</a>
+                                    {/ctcms_zdy:week}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-list-box new-data-page-list" style="overflow:visible;">
+                            {ctcms_zdy:week}
+                            <div class="list todayList" id="wd[week:i]" style="display:none;width: 100%;position: relative;">
+                                {ctcmstype:vod table="vod" field="*" limit="42" where="kid=[week:i]" order="id desc"}
+                                <div class="data">
+                                    <div class="vod-img" style="background:url([vod:pic]) center/cover no-repeat">
+                                        <a style="background:url([vod:pic]) center/cover no-repeat"></a>
+										{if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+										{if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                        <div class="pop">
+                                            <div class="name">[vod:name]</div>
+                                            <div class="lebel">
+                                                <span class="lab">青春</span>
+                                                <span class="lab">校园</span>
+                                                <span class="lab">校园青春</span>
+                                            </div>
+                                            <div class="pop-text">主演：[vod:zhuyan]</div>
+                                            <div class="pop-text">导演：[vod:daoyan] </div>
+                                            <div class="detail">[vod:text]</div>
+                                            <div class="btn-box">
+                                                <a target="_blank" href="[vod:playlink]"><button>立即播放</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="vod-name"><a class="name" target="_blank" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                                    <div class="text">[vod:text]</div>
+                                </div>
+                                {/ctcmstype:vod}
+                            </div>
+                            {/ctcms_zdy:week}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {ctcms_bottom}
+<script>
+    $('#nav_index').addClass('active');
+    var today = new Date().getDay();
+    $(function () {
+        $("#wd"+today).show().siblings().hide();
+
+        $(".week-day").each(function () {
+            if ($(this).attr("data-week") == today) {
+                $(this).addClass("active").html("今日").siblings().removeClass("active");
+            }
+        })
+        $(".week-day").click(function(){
+            let i = $(this).attr("data-week");
+            $(".week-day").each(function(){
+                if($(this).attr("data-week") == i){
+                    $(this).addClass("active");
+                }else{
+                    $(this).removeClass("active");
+                }
+            })
+            $("#wd"+i).show().siblings().hide();
+        })
+    })          
+</script>
+</body>
+</html>

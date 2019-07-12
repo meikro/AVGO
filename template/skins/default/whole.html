@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{ctcms_title}</title>
+    <meta name="keywords" content="{ctcms_keywords}" />
+    <meta name="description" content="{ctcms_description}" />
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/class_style.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{ctcms_indextemplets}/css/auto.css">
+    <script src="//libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>var ctcms_path = '{ctcms_path}';var optlink='{ctcms_url opt=ctcms}';</script>
+    <script src="{ctcms_indextemplets}/js/common.js"></script>
+    <!--[if IE]>
+    <script src="{ctcms_indextemplets}/ie/html5shiv.js"></script>
+    <script src="{ctcms_indextemplets}/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    {ctcms_head}
+    <script>$('#nav_{ctcms_fid}').addClass('active');</script>
+    <main>
+        <div class="container">
+            <div class="middle-box" style="padding-top:30px;">
+                <div class="class-page-detail-class">
+                    <div class="group">
+                        <div class="group-name">分类：</div>
+                        <div class="group-list">
+                            {ctcms:class table="class" field="id,name" where="fid={ctcms_fid}" limit="20" order="xid asc"}
+                            <a href="{ctcms_url whole=[class:id]}" class="g {if:'{ctcms_cid}'=='[class:id]'} active{end if}">[class:name]</a>
+                            {/ctcms:class}
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="group-name">类型：</div>
+                        <div class="group-list">
+                            <a href="[whole:url type=]" class="g {if:'{ctcms_type}'==''} active{end if}">全部</a>
+                            {ctcms_zdy:type}
+                            <a href="[type:link]" class="g {if:'{ctcms_type}'=='[type:name]'} active{end if}">[type:name]</a>
+                            {/ctcms_zdy:type}
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="group-name">地区：</div>
+                        <div class="group-list">
+                            <a class="g {if:'{ctcms_diqu}'==''}active{end if}" href="[whole:url diqu=]">全部</a>
+                            {ctcms_zdy:diqu}
+                            <a class="g {if:'{ctcms_diqu}'=='[diqu:name]'} active{end if}" href="[diqu:link]">[diqu:name]</a>
+                            {/ctcms_zdy:diqu}
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="group-name">年份：</div>
+                        <div class="group-list">
+                            <a class="g {if:'{ctcms_year}'==''} active{end if}" href="[whole:url year=]">全部</a>
+                            {ctcms_zdy:year}
+                            <a class="g {if:'{ctcms_year}'=='[year:name]'} active{end if}" href="[year:link]">[year:name]</a>
+                            {/ctcms_zdy:year}
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="group-name">资费：</div>
+                        <div class="group-list">
+                                <a href="[whole:url buy=0]" class="g{if:'{ctcms_buy}'=='0'} active{end if}">全部</a>
+                                <a href="[whole:url buy=1]" class="g{if:'{ctcms_buy}'=='1'} active{end if}">免费</a>
+                                <a href="[whole:url buy=2]" class="g{if:'{ctcms_buy}'=='2'} active{end if}">收费</a>
+                                <a href="[whole:url buy=3]" class="g{if:'{ctcms_buy}'=='3'} active{end if}">点播</a>
+                                <a href="[whole:url buy=4]" class="g{if:'{ctcms_buy}'=='4'} active{end if}">VIP</a>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="group-name">您还可以搜索：</div>
+                        <div class="group-list">
+                            <a class="f active">全部</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=A">A</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=B">B</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=C">C</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=D">D</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=E">E</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=F">F</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=G">G</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=H">H</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=I">I</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=J">J</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=K">K</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=L">L</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=M">M</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=N">N</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=O">O</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=P">P</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=Q">Q</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=R">R</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=S">S</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=T">T</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=U">U</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=V">V</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=W">W</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=X">X</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=Y">Y</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=Z">Z</a>
+                            <a class="f" href="{ctcms_url search=cid={ctcms_fid}}&py=0-9">0-9</a>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(".g,.f").click(function(){
+                        $(this).addClass("active").siblings().removeClass("active");
+                    });
+                    $(".class-page-hot-new-tab .tab").click(function(){
+                        $(this).addClass("active").siblings().removeClass("active");
+                    })
+                </script>
+                <div class="class-page-data-box">
+                    <div class="class-page-hot-new-tab">
+                        <a class="tab {if:'{ctcms_sort}'=='hits'} active{end if}" href="[whole:url sort=hits]">热播</a>
+                        <a class="tab{if:'{ctcms_sort}'=='' || '{ctcms_sort}'=='id' || '{ctcms_sort}'=='addtime'} active{end if}" href="[whole:url sort=id]">最新</a>
+                        <span class="text-orange right" style="font-size:16px;line-height: 30px;">共{ctcms_pagenum}条搜索结果</span>
+                    </div>
+                    <div class="data-list big-list class-detail-list">
+                        {ctcms:vod table="vod" field="id,name,pic,cion,vip,pf,zhuyan" page="60" order="addtime desc"}
+                        <div class="data" title="[vod:name]">
+                            <div class="vod-img" style="background:url([vod:pic]) center/cover no-repeat">
+								{if:[vod:cion] > 0 and [vod:vip] > 0}<i class="icon no-free-icon"></i>{end if}
+								{if:[vod:vip] > 0 and [vod:cion] == 0}<i class="icon vip-tag-icon"></i>{end if}
+                                <a href="[vod:link]" target="_blank"></a>
+                            </div>
+                            <div class="vod-name"><a class="name" href="[vod:link]">[vod:name]</a><span class="score right">[vod:pf]</span></div>
+                            <div class="text">[vod:zhuyan]</div>
+                        </div>
+                        {/ctcms:vod}
+                    </div>
+                    <div class="fy-box" style="padding-top:40px;padding-bottom:40px;{if:{ctcms_pagejs} < 2}display: none;{end if}">
+                        <li class="page"><a href="{ctcms_pageup}">&lt;</a></li>
+                        {if:{ctcms_page} > 6}
+                        <li class="page page-index"><a href="{ctcms_pagefirst}">1</a></li>
+                        {end if}
+                        {ctcms_pagenum_7}
+                        {if:{ctcms_page}<{ctcms_pagejs}}
+                        <li class="page"><a href="{ctcms_pagedown}">&gt;</a></li>
+                        {end if}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    {ctcms_bottom}
+</body>
+</html>

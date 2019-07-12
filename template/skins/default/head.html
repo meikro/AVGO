@@ -1,0 +1,214 @@
+<script src="{ctcms_indextemplets}/js/layer/layer.js"></script>
+<header>
+    <nav class="web-nav-box" id="nav">
+        <div class="web-nav">
+            <div class="middle-box">
+                <div class="nav-logo left">
+                    <a href="{ctcms_path}">
+                        <i class="icon web-logo"></i>
+                    </a>
+                </div>
+                <div class="nav-search-box absolute-center hide1232">
+                    <input id="search_key" class="input-key left" type="text" value="" placeholder="输入关键词"
+                        onfocus="$('.onblur-box').show();">
+                    <div class="search-btn right" id="search-btn">搜索</div>
+                    <div class="tj-search-box onblur-box">
+                        <div class="history-title search-hide">历史搜索<a class="clear-hostory right"><i
+                                    class="icon index-delete-icon left"></i>清空记录</a></div>
+                        <ul class="history-list search-hide" id="history-search"></ul>
+                        <div class="history-title">热门搜索</div>
+                        <ul class="history-list hits-list">
+                            {ctcms:vod table="vod" field="id,name" limit="5" order="rhits desc"}
+                            <li>
+                                {if:[vod:i]<4} <i class="icon s20x20 number[vod:i]-icon"></i>
+                                    {else}
+                                    <i class="icon s_20x20">[vod:i]</i>
+                                    {end if}
+                                    <a href="[vod:link]">[vod:name]</a></li>
+                            {/ctcms:vod}
+                        </ul>
+                    </div>
+                    <div class="tj-search-box oninput-box">
+                        <ul class="history-list" style="margin-bottom:0">
+                            {ctcms:vod table="vod" field="id,name" limit="5" order="rhits desc"}
+                            <li><a href="[vod:link]">[vod:name]</a></li>
+                            {/ctcms:vod}
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-leader-box right hide1232">
+                    <div class="leader-group left">
+                        <div class="group isActive left">
+                            <a href="{ctcms_url opt=index/vip}" id="vip">
+                                <i class="icon vip-big-icon"></i>
+                                <p>VIP</p>
+                            </a>
+                        </div>
+                        <div class="group left">
+                            <i class="icon s30x27 index-sao-icon"></i>
+                            <p>扫一扫</p>
+                            <div class="hover-box">
+                                <div class="nav-ewm-box">
+                                    <i class="icon box-top-sanjiao-icon"></i>
+                                    <div class="ewm-list">
+                                        <div class="data">
+                                            <img class="ewm webma" src="">
+                                            <p>浏览手机版网页</p>
+                                        </div>
+                                        <div class="data margin-r0">
+                                            <img class="ewm"
+                                                src="https://www.baifubao.com/o2o/0/qrcode?size=10&text=ctcms">
+                                            <p>关注微信公众号</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group left" onclick="location.href = '{ctcms_url user=vod/add}';">
+                            <i class="icon s30x27 index-upload-icon"></i>
+                            <p>上传</p>
+                        </div>
+                        <div class="group left">
+                            <i class="icon s30x27 index-history-icon"></i>
+                            <p>记录</p>
+                            <div class="hover-box">
+                                <div class="nav-history-box">
+                                    <i class="icon box-top-sanjiao-icon"></i>
+                                    <ul class="nav-history-list" id="history-list">
+                                        <li>暂时没有记录!!!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="left ctcms_log" id="no-login">
+                        <div class="nav-no-login left">
+                            <i class="icon s30x27 index-user-icon"></i>
+                            <div class="text">
+                                <a class="href" onclick="$('.mask').show();$('#loginPop').show()">登录</a>|
+                                <a class="href" href="{ctcms_url user=reg}" target="_bank">注册</a>
+                            </div>
+                            <!-- <div class="text">
+                                <a class="href" id="login">登录</a>|<a class="href" id="register">注册</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="show1232-vip right show1232"><a href="{ctcms_url opt=index/vip}"><i
+                            class="icon nav-vip-text-icon"></i></a></div>
+                <div class="show1232-search right show1232" data-sid="0"><a><i class="icon nav-sousuo-icon"></i></a>
+                </div>
+                <div class="show1232-search right show1232 login-no" style="display:none"><a><i
+                            class="icon nav-nolog-icon"></i></i></a></div>
+                <div class="phone-nav-btn right show1232 login-already" data-sid="0"><a>会员导航<i
+                            class="icon nav-phone-sanjiao-icon right"></i></i></a></div>
+            </div>
+        </div>
+        <div class="navigation-box hide1232">
+            <div class="middle-box">
+                <div class="tab" id="nav_index"><a href="{ctcms_path}">首页</a></div>
+                {ctcms:class table="class" field="id,name" where="fid=0" limit="8" order="xid asc"}
+                <div class="tab" id="nav_[class:id]">
+                    <a href="[class:link]">[class:name]</a>
+                    <div class="class-box">
+                        <div class="list">
+                            {ctcmstype:class2 table="class" field="id,name" where="fid=[class:id]" limit="50" order="xid
+                            asc"}
+                            <a class="data" href="{ctcms_url whole=[class2:id]}">[class2:name]</a>
+                            {/ctcmstype:class2}
+                        </div>
+                    </div>
+                </div>
+                {/ctcms:class}
+                <div class="tab" id="nav_hot"><a href="{ctcms_hotlink}">排行榜</a></div>
+                <div class="tab" id="nav_live"><a href="{ctcms_url opt=index/live}">直播</a></div>
+                <div class="tab" id="nav_comm">
+                    <a href="{ctcms_commlink}">交流圈</a>
+                    <div class="class-box">
+                        <div class="list">
+                            {ctcms:circle table="circle" field="*" order="xid asc"}
+                            <a class="data" href="[circle:commlink]">[circle:name]</a>
+                            {/ctcms:circle}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" id="nav_vip"><a href="{ctcms_url opt=index/vip}" id="toCharge" target="_blank"><i
+                            class="icon nav-vip-text-icon"></i></a></div>
+            </div>
+        </div>
+        <div class="navigation-box show1232">
+            <div class="middle-box">
+                <div class="tab active"><a href="{ctcms_path}">首页</a></div>
+                {ctcms:class table="class" field="id,name" where="fid=0" limit="8" order="xid asc"}
+                <div class="tab"><a href="[class:link]">[class:name]</a></div>
+                {/ctcms:class}
+                <div class="tab"><a href="{ctcms_hotlink}">排行榜</a></div>
+                <div class="tab"><a href="{ctcms_url opt=index/live}">直播</a></div>
+                <div class="tab"><a href="{ctcms_commlink}">交流圈</a></div>
+            </div>
+            <a class="wapnav" data-sid="0"><i class="icon nav-fun-icon"></i></a>
+        </div>
+        <div class="nav-phone-fixed-box show1232" id="phone_nav" style="display:none" onclick="stopProp(event)">
+            <div class="nav-search-box" style="display:none">
+                <input id="search-key-wap" class="input-key left" type="text" value="" placeholder="输入关键词"
+                    onfocus="$('.onblur-box').show();" oninput="$('.oninput-box').show();$('.onblur-box').hide();">
+                <div class="search-btn right" id="search-btn-wap">搜索</div>
+            </div>
+            <div class="nav-class-box nav-hide-box" style="display:none">
+                {ctcms:class table="class" field="id,name" where="fid=0" limit="8" order="xid asc"}
+                <div class="class-group">
+                    <div class="group-title"><a href="[class:link]">[class:name]</a></div>
+                    <div class="group-data">
+                        {ctcmstype:class2 table="class" field="id,name" where="fid=[class:id]" limit="50" order="xid
+                        asc"}
+                        <div class="data"><a href="{ctcms_url whole=[class2:id]}">[class2:name]</a></div>
+                        {/ctcmstype:class2}
+                    </div>
+                </div>
+                {/ctcms:class}
+            </div>
+            <div class="nav-user-box" style="display:none"></div>
+        </div>
+    </nav>
+    <script>
+        $(".leader-group .group").hover(function () {
+            $(this).children(".icon").addClass("active");
+        }, function () {
+            $(this).children(".icon").removeClass("active");
+        });
+        var token = localStorage.getItem('token')
+        var loginStatus = false
+        var isLogin = function () {
+            $.ajax({
+                url: '/index.php?d=user&c=ajax&m=validate',
+                type: 'post',
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    res = JSON.parse(res)
+                    if (res.code - 0 !== 200) {
+                        layer.msg('token失效，请重新登录！', {
+                            time: 1000
+                        }, function () {
+                            localStorage.removeItem('token')
+                            location.href='{ctcms_url user=logout}'
+                        })
+                    }else{
+                        loginStatus = true
+                    }
+                }
+            })
+        }
+        if (token) {
+            isLogin()
+        }
+        $('#toCharge, #vip').on('click', function(e) {
+            if(!loginStatus){
+                layer.msg('请先登录！')
+                e.preventDefault()
+                return
+            }
+        })
+    </script>
+</header>

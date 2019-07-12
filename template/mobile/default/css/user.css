@@ -1,0 +1,53 @@
+body{background:#111;}
+body,ul,ul li,p,a{margin:0px;padding:0px;font-family:"微软雅黑", "黑体", Arial;text-shadow: 1px 1px 1px #555;font-weight:normal}
+ul{list-style:none;}
+img{border:none;}
+a{text-decoration:none;color:#CCCCCC;outline:none;}
+.clr{ clear:both;}
+.fl{float: left;}
+.fr{float: right;}
+.w100 {width: 99%;}
+.w30 {width: 30%;}
+.w70 {width: 68%;}
+.footer{height:50px;text-align:center;line-height:50px;color:#999999;font-size:0.9em; text-shadow:none;}
+.logo{height:60px;line-height:60px;background:#222222; text-align:center;border-bottom:solid 1px #333;}
+.logo #A{width:35%;height:50px;float:left;}
+.logo #B{width:65%;height:50px;float:right;}
+.logo #A img{width:90%;height:32px;position:relative;top:15px;}
+.logo #B #text{float:left;border:none;border-radius:4px 0px 0px 4px;height:25px;width:70%;background:#D2D2D2;position:relative;top:15px;color:#999999;padding:3px;font-size:0.9em;}
+.logo #B #seach{border-left:solid 1px #C2C2C2;float:left;height:31px;width:23.5%;line-height:31px;position:relative;background:#FF9900;color:#FFFFFF;top:15px;border-radius:0px 4px 4px 0px;font-size:0.9me;}
+.header{height:50px;background:#2D2D2D;border-bottom:solid 1px #333;}
+.header ul li{height:50px;line-height:50px;width:16.6%;text-align:center;color:#FF9900;float:left;}
+.header ul li a{color:#FF9900;display:block;height:50px;line-height:50px;width:100%;}
+.header ul li a.ons{background:#FF9900;color:#FFFFFF;}
+.header-tag{background:#222222;height:70px;overflow:hidden;}
+.header-tag li.on a{color:#f60;}
+.opentag{height:30px;line-height:30px;color:#666666;background:#222;border-top:solid 1px #333;text-align:center;}
+.opentag #btn{display:inline-block;width:90px;height:30px;color:#CCCCCC;}
+.header-tag ul li {height:35px;line-height:35px;width:16.6%;text-align:center;color:#CCCCCC;float:left;}
+
+.user{border:solid 1px #333;color:#ccc;border-radius:6px;margin-top:10px;height:auto !important;height: 200px;min-height: 200px;}
+.user h3{display:block;height:26px;font-size:1.1em;line-height:25px;margin-bottom:10px;width:100%;background:#2D2D2D;text-shadow:none;color:#FF9900;border-radius:5px 5px 0px 0px; }
+.user .input{padding: 8px;font-size:13px;}
+.user .input label{width:28%;display:inline-block;text-align: right;}
+.user input[type="text"],
+.user input[type="password"]{padding: 3px;width:65%;display:inline-block;background:#333;color: #fff;}
+.user .input select{width:65%;}
+.user button{padding: 5px 7px;background: #f70;color:#fff;}
+.user .bhr{border-left: 1px dotted #333;}
+.user ul{padding:8px 0px;margin-bottom: 10px; }
+.user li{height: 30px;line-height: 30px;text-align: center;}
+.user li a{font-size:13px;}
+.user li.on{background: #333;}
+.user .txt-left{text-align: left;}
+.user p{font-size:13px;color:#ccc;padding: 6px;padding-left:15px;}
+.user .w70 {float: left;height:auto !important;min-height: 300px;}
+.user .w70 label{font-size:13px;}
+.user .vod{float: left;width:100%;height:auto !important;}
+.user .vod li{float: left;width:50%;text-align: center;height:auto !important;margin-bottom: 10px; }
+.user .vod li a{float: left;width:80%;text-align: center;padding: 0 10%;}
+.user .vod li a img{float: left;width:100%;}
+.user .vod li a b{float: left;width:100%;height: 20px;line-height: 20px;overflow: hidden;}
+.user .lists{float: left;font-size:12px;width:100%;margin-top:-10px; }
+.user .lists th{font-size:14px;height:35px;line-height:35px;border-bottom: 1px solid #333;}
+.user .lists td{height: 25px;line-height: 25px;text-align: center;border-bottom: 1px dotted #222;}

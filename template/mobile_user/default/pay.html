@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="{ctcms_keywords}" />
+<meta name="description" content="{ctcms_description}" />
+<title>{ctcms_title}</title>
+<link href="{ctcms_indextemplets}/css/style.css" rel="stylesheet"  type="text/css" />
+<link href="{ctcms_indextemplets}/css/user.css" rel="stylesheet"  type="text/css" />
+<script type="text/javascript" src="{ctcms_indextemplets}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{ctcms_indextemplets}/js/common.js"></script>
+</head>
+<body>
+{ctcms_indexhead}
+<script>$('#user').addClass('ons');</script>
+<div class="user fl w100">
+    <h3>&nbsp;&nbsp;会员中心<a href="{ctcms_url user=logout}" style="float:right;color:#FFF;font-size:14px;">退出&nbsp;&nbsp;</a></h3>
+    {ctcms_left}
+    <div class="fr w70 txt-left bhr">
+      <form action="{ctcms_formurl}" method="post" data-am-validator>
+        <div class="input">
+          <label>类型：</label>
+          <select id="type" name="type" onchange="get_type();">
+            <option value="cion"/>充值金币</option>
+            <option value="yue"/>升级VIP</option>
+          </select>
+        </div>
+        <div class="input" id="rmb">
+          <label>金额：</label>
+          <input name="rmb" type="text" value="10" placeholder="请输入金额" required/>
+        </div>
+        <div class="input" id="vip" style="display: none;">
+          <label>期限：</label>
+          <select name="day">
+            <option value="1"/>1天/{ctcms_vip1}元</option>
+            <option value="30" selected/>30天/{ctcms_vip30}元</option>
+            <option value="180"/>180天/{ctcms_vip180}元</option>
+            <option value="365"/>365天/{ctcms_vip365}元</option>
+          </select>
+        </div>
+        <div class="input">
+          <label>方式：</label>
+          <input type="radio" name="sid" value="1" checked required/>支付宝&nbsp;&nbsp;
+          <input type="radio" name="sid" value="2"/>微信&nbsp;&nbsp;
+          <input type="radio" name="sid" value="3"/>QQ&nbsp;&nbsp;
+          <input type="radio" name="sid" value="4"/>网银&nbsp;&nbsp;
+          <font id="cion" style="display:none;"><input type="radio" name="sid" value="0"/>金币</font>
+        </div>
+        <div class="input">
+          <label>&nbsp;</label>
+          <button type="submit" class="btn">立即充值</button>
+        </div>
+      </form>
+    </div>
+</div>
+<script>
+$('#user').addClass('ons');
+$('#nav_5').addClass('on');
+function get_type() {
+  var type=$('#type').val();
+  if(type=='cion'){
+    $('#vip').hide();
+    $('#rmb').show(); 
+	$('#cion').hide();
+  }else{
+    $('#vip').show();
+    $('#rmb').hide();
+	$('#cion').show();
+  }
+}
+</script>
+{ctcms_indexbottom}
+</body>
+</html>
